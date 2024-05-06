@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+
+body {
+    font-family: "Oxygen", sans-serif;
+    color: #222831;
+    background-image: url(/assets/bglogin.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-register {
+    background-image: url(/assets/btk.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.wrong .fa-check {
+    display: none;
+}
+
+.good .fa-times {
+    display: none;
+}
+.valid-feedback,
+.invalid-feedback {
+    margin-left: calc(2em + 0.25rem + 1.5rem);
+}

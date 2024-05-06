@@ -19,8 +19,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('/konten', function () {
-    return view('admin.content');
+Route::get('/login', function () {
+    return view('user.login');
+});
+
+Route::get('/register', function () {
+    return view('user.register');
 });
 
 // menampilkan data yang sudah dibuat
