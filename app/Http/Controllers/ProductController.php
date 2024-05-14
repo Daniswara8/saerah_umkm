@@ -96,7 +96,7 @@ class ProductController extends Controller
                 'ukuran_produk' => $request->ukuran_produk,
                 'motif_produk' => $request->motif_produk,
                 'jumlah_produk' => $request->jumlah_produk,
-                'Slug_link' => $Slug
+                'Slug_link' => $slug
             ]);
 
             return redirect()->route('product.admin')->with(['success' => 'Berhasil memperbarui produk !'])->with('image', $imageName);
