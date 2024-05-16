@@ -1,21 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
 
 body {
-    font-family: "Oxygen", sans-serif;
-    color: #222831;
-    background-image: url(/assets/bglogin.jpg);
-    background-position: center;
+    background: linear-gradient(to left, #4ca1af, #c4e0e5);
     background-size: cover;
     background-repeat: no-repeat;
+   
 }
 
-.bg-login {
-    background-image: url(/assets/logosr.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.fz-13 {
-    font-size: 13px;
+.btn{
+    width: 50%;
 }

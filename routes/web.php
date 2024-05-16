@@ -1,7 +1,8 @@
 <?php
 
+
+use App\Http\Controllers\PelangganController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -49,14 +50,3 @@ Route::controller(ProductController::class)->group(function () {
     Route::post('/product/restore/{Slug_link}', 'restore')->name('product.restore');
     Route::delete('/product/permanent-delete/{id}', 'deletePermanent')->name('product.deletePermanent');
 });
-
-// menampilkan data yang sudah dibuat
-Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-
-// menambahkan data
-Route::get('/tambahdata', [AdminController::class, 'tambahdata'])->name('tambahdata');
-Route::post('/insertdata', [AdminController::class, 'insertdata'])->name('insertdata');
-
-// edit data
-Route::get('/tampilkandata/{id}', [AdminController::class, 'tampilkandata'])->name('tampilkandata');
-Route::post('/updatedata/{id}', [AdminController::class, 'updatedata'])->name('updatedata');

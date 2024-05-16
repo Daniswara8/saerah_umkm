@@ -9,50 +9,41 @@
   </head>
   <body>
     
-  <div class="container">
-        <div class="row align-items-center justify-content-center vh-100">
-            <div class="col-lg-9">
+ 
+  <section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+          class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form class="text-white">
+          <!-- Email input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form1Example13">Email address</label>
+            <input type="email" id="form1Example13" class="form-control form-control-lg" required/>
+          </div>
 
-                
-                    <div class="bg-white">
-                    <div class="row mb-5 mt-5">
-                        <div class="col-lg-5">
-                            <div class="bg-login h-100"></div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="p-5 ps-4 text-dark">
-                                <h5 class="mb-1 fw-bold">Selamat Datang!</h5>
-                                <p class="mb-4 text-muted">Silahkan masukkan email dan password</p>
-                                <form action="#">
-                                    <div class="row mb-3">
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label for="email" class="form-label">Email Address</label>
-                                                <input type="email" class="form-control" id="email" name="email_user" required>
-                                            </div>
-
-                                            <div class="row mb-3">
-                                                <div class="col">
-                                                    <label for="pass" class="form-label">Password</label>
-                                                    <input type="password" class="form-control" id="pass" name="password_user" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <div class="col d-grid d-inline-block mb-3 mt-4">
-                                                        <button type="submit"
-                                                            class="btn btn-primary py-2">Login</button>
-                                                    </div>
-                                                </div>
-
-                                                <p class="text-center mt-3 text-muted">Belum mempunyai akun? <a href="register">Daftar</a></p>
-                                                
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <!-- Password input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form1Example23">Password</label>
+            <input type="password" id="form1Example23" class="form-control form-control-lg" required/>
+          </div>
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
-        </div>
+                
+        </form>
+        <div class="text-white mt-4 text-center">
+              <p>Don't have an account? <a href="register">Sign Up</a>
+              </p>
+            </div>
+      </div>
     </div>
+  </div>
+</section>
+    
     <script>
         (() => {
   'use strict'
