@@ -16,6 +16,10 @@
                                 <input type="text" class="form-control" name="nama" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">alamat</label>
+                                <input type="text" class="form-control" name="alamat" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
                                 <select class="form-select" name="jeniskelamin" aria-label="Default select example">
                                     <option selected>Pilih Jenis Kelamin</option>

@@ -37,3 +37,6 @@ Route::post('/insertdata', [AdminController::class, 'insertdata'])->name('insert
 // edit data
 Route::get('/tampilkandata/{id}', [AdminController::class, 'tampilkandata'])->name('tampilkandata');   
 Route::post('/updatedata/{id}', [AdminController::class, 'updatedata'])->name('updatedata');  
+
+// hapus data
+route::get('/delete/{id}', [AdminController::class, 'delete'])->name('delete');

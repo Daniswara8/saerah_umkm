@@ -35,4 +35,11 @@ class AdminController extends Controller
         $data->update($request->all());
         return redirect()->route('admin')->with('success', 'Data Berhasil Di Update ');
     }
+
+    // untuk delete data
+    public function delete($id) {
+        $data = Admin::find($id);
+        $data->delete();
+        return redirect()->route('admin')->with('success', 'Data Berhasil Di Hapus ');
+    }
 }
