@@ -11,7 +11,7 @@
 <div class="row rror">
     @foreach ($products as $pro)
         <div class="col col-3 card me-4">
-            <img src="{{ asset('storage/images/' . $pro->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px; border-radius:100px 0;">
+            <img src="{{ asset('storage/images/' . $pro->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px; border-radius:100px 0px;">
                 <div class="card-body">
                     <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
                     <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>

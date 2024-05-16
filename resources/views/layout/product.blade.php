@@ -121,12 +121,23 @@
 
     }
 
+    .gambartu{
+        object-fit: cover;
+        width: 180px;
+        height: 180px;
+    }
+
+    /* ukuran foto */
+    .img-fluid.gambar{
+        height: 200px;
+        object-fit: cover;
+    }
 
     /* user */
-        .row .rror{
+        .row.rror{
+        justify-content: center;
         display: flex;
-        width: 100%;
-        margin: auto;
+        /* width: 100%; */
         }
 
     /* tabel di admin */
@@ -153,11 +164,12 @@
 
       .col{
         margin-top: 10px;
-         margin-bottom: 10px;
-        transition: transform 0.3s ease;
+        margin-bottom: 20px;
+        transition: 0.5s all;
       }
 
       .col:hover{
+        transition: 0.5s all;
         transform: scale(1.1);
       }
 
@@ -191,15 +203,14 @@
         width: 100%;
       }
 
-      /* navlink home dll */
-      .collapse{
-        margin-right: 0;
-      }
-
-      .custom {
+    .custom {
         background-color: black;
         color: white;
         border-radius: 20px;
+    }
+      /* navlink home dll */
+      .collapse{
+        margin-right: 0;
       }
 
       .cuzz{

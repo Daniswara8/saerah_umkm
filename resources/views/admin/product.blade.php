@@ -21,7 +21,7 @@
                     <th data-priority="1">No</th>
                     <th data-priority="1">Foto</th>
                     <th data-priority="1">Nama</th>
-                    <th>Ukuran</th>
+                    {{-- <th>Ukuran</th> --}}
                     <th>Deskripsi</th>
                     <th>Motif</th>
                     <th>Harga</th>
@@ -35,9 +35,9 @@
 
                 <tr>
                     <td> {{ ++$no }} </td>
-                    <td> <img src="{{ asset('storage/images/' . $pro->foto_produk) }}" class="p-2 img-fluid gambar" style="width:100px;"> </td>
+                    <td> <img src="{{ asset('storage/images/' . $pro->foto_produk) }}" class="p-2 img-fluid gambartu"> </td>
                     <td> {{ $pro->nama_produk }} </td>
-                    <td> {{ $pro->ukuran_produk }} </td>
+                    {{-- <td> {{ $pro->ukuran_produk }} </td> --}}
                     <td> {{ $pro->deskripsi_produk }} </td>
                     <td> {{ $pro->motif_produk }} </td>
                     <td> {{ $pro->harga_produk }} </td>
@@ -74,7 +74,7 @@
                     <th>No</th>
                     <th>Foto</th>
                     <th>Nama Produk</th>
-                    <th>Ukuran</th>
+                    {{-- <th>Ukuran</th> --}}
                     <th>Deskripsi</th>
                     <th>Motif</th>
                     <th>Harga</th>

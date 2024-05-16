@@ -48,7 +48,7 @@ class ProductController extends Controller
                 'nama_produk' => $request->nama_produk,
                 'deskripsi_produk' => $request->deskripsi_produk,
                 'harga_produk' => $request->harga_produk,
-                'ukuran_produk' => $request->ukuran_produk,
+                // 'ukuran_produk' => $request->ukuran_produk,
                 'motif_produk' => $request->motif_produk,
                 'jumlah_produk' => $request->jumlah_produk,
                 'Slug_link' => $slug
@@ -89,7 +89,7 @@ class ProductController extends Controller
                 'nama_produk' => $request->nama_produk,
                 'deskripsi_produk' => $request->deskripsi_produk,
                 'harga_produk' => $request->harga_produk,
-                'ukuran_produk' => $request->ukuran_produk,
+                // 'ukuran_produk' => $request->ukuran_produk,
                 'motif_produk' => $request->motif_produk,
                 'jumlah_produk' => $request->jumlah_produk,
                 'Slug_link' => $slug
