@@ -40,7 +40,7 @@ class ProductController extends Controller
             $imageName = time() . '.' . $request->foto_produk->extension();
             $request->foto_produk->move(public_path('storage/images/'), $imageName);
 
-            $Slug = Str::slug($request->nama_produk, '_');
+            $slug = Str::slug($request->nama_produk, '_');
 
             product::create([
                 'foto_produk' => $imageName,
@@ -50,7 +50,7 @@ class ProductController extends Controller
                 'ukuran_produk' => $request->ukuran_produk,
                 'motif_produk' => $request->motif_produk,
                 'jumlah_produk' => $request->jumlah_produk,
-                'Slug_link' => $Slug
+                'Slug_link' => $slug
             ]);
 
             // redirect to index
@@ -76,14 +76,9 @@ class ProductController extends Controller
                 'Slug_link' => 'unique:products,Slug_link',
             ]);
 
-            $imageName = null; // Inisialisasi dengan nilai null
-
-            // Check if a file is uploaded
-            if ($request->hasFile('foto_produk')) {
                 // Move the uploaded file
                 $imageName = time() . '.' . $request->foto_produk->extension();
                 $request->foto_produk->move(public_path('storage/images/'), $imageName);
-            }
 
             $slug = Str::slug($request->nama_produk, '_');
 
@@ -128,7 +123,7 @@ class ProductController extends Controller
 
             public function history() {
                 $products = product::onlyTrashed()->get();
-                return view('admin.hapusprd', compact('products'));
+                return view('admin.history', compact('products'));
             }
 
             public function deletePermanent($id) : RedirectResponse {

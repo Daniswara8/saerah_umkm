@@ -97,7 +97,7 @@
                     @enderror
                   </div> <br>
 
-                    <button type="submit" class="btn btn-secondary">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                     <button type="reset" class="btn btn-info">Reset</button> <br><br>
 
                 </form>

@@ -44,10 +44,10 @@
                     <td> {{ $pro->jumlah_produk }} </td>
 
                     <td>
-                        <form onsubmit="return confirm('Yakin ingin mempublish ini ?');" action="{{ route('product.restore', ['slug_link' => $pro->Slug_link]) }}" method="POST">
+                        <form onsubmit="return confirm('Yakin ingin mempublish ini ?');" action="{{ route('product.restore', ['Slug_link' => $pro->Slug_link]) }}" method="POST">
                             @csrf
                             @method('POST')
-                            <button type="submit" class="btn btn-primary btn-sm mt-2">
+                            <button type="submit" class="btn btn-success btn-sm mt-2">
                                 <i class="bi bi-box-arrow-left"></i> Restore
                             </button>
                         </form>
@@ -55,7 +55,7 @@
                         <form onsubmit="return confirm('Yakin ingin menghapus ini ?');" action="{{ route('product.deletePermanent', $pro->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger btn-sm mt-2">
+                            <button type="submit" class="btn btn-outline-info btn-sm mt-2">
                                 <i class="bi bi-trash3"></i> Delete Permanent
                             </button>
                         </form>
