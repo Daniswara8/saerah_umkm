@@ -1,7 +1,10 @@
 <?php
 
+
+use App\Http\Controllers\PelangganController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,22 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Registrasi dan login
+Route::get('/login', [PelangganController::class, 'indexLogin'])->name('login.index');
+Route::get('/register', [PelangganController::class, 'indexRegister'])->name('register.index');
+Route::post('/register/store', [PelangganController::class, 'store'])->name('register.store');
 
-Route::get('/login', function () {
-    return view('user.login');
-});
-
-Route::get('/register', function () {
-    return view('user.register');
-});
-
-// menampilkan data yang sudah dibuat
-Route::get('/admin', [AdminController::class, 'index'])->name('admin');   
-
-// menambahkan data
-Route::get('/tambahdata', [AdminController::class, 'tambahdata'])->name('tambahdata');   
-Route::post('/insertdata', [AdminController::class, 'insertdata'])->name('insertdata'); 
-
-// edit data
-Route::get('/tampilkandata/{id}', [AdminController::class, 'tampilkandata'])->name('tampilkandata');   
-Route::post('/updatedata/{id}', [AdminController::class, 'updatedata'])->name('updatedata');  
