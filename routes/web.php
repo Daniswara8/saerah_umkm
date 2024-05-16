@@ -21,13 +21,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', function () {
-    return view('user.login');
-});
-
-Route::get('/register', function () {
-    return view('user.register');
-});
 
 // Route::controller(ProductController::class)->group(function () {
 //     Route::get('/user', 'index')->name('user.index');
@@ -49,4 +42,10 @@ Route::controller(ProductController::class)->group(function () {
     Route::put('/product/softdelete/{Slug_link}', 'softdelete')->name('product.softdelete');
     Route::post('/product/restore/{Slug_link}', 'restore')->name('product.restore');
     Route::delete('/product/permanent-delete/{id}', 'deletePermanent')->name('product.deletePermanent');
+});
+
+Route::controller(PelangganController::class)->group(function () {
+    Route::get('/register', 'indexRegister')->name('register.index');
+    Route::get('/login', 'indexLogin')->name('login.index');
+    Route::post('/register/kirim', 'store')->name('register.store');
 });
