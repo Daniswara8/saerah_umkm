@@ -16,7 +16,8 @@ use Illuminate\Http\RedirectResponse;
 class ProductController extends Controller
 {
     public function index() {
-        return view('user/product');
+        $products = product::all();
+        return view('user/product', compact('products'));
     }
 
     public function admin() {

@@ -15,7 +15,7 @@
     </div><br>
 
     <div class="col-12">
-        <table id="ats" class="table table-striped" style="width:100%">
+        <table id="example" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
                     <th data-priority="1">No</th>
