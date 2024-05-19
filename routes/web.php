@@ -45,7 +45,11 @@ Route::controller(ProductController::class)->group(function () {
 });
 
 Route::controller(PelangganController::class)->group(function () {
+    // register
     Route::get('/register', 'indexRegister')->name('register.index');
-    Route::get('/login', 'indexLogin')->name('login.index');
     Route::post('/register/kirim', 'store')->name('register.store');
+
+    // login
+    Route::get('/login', 'indexLogin')->name('login.index');
+    Route::post('/login/sesi', 'proses')->name('login.proses');
 });
