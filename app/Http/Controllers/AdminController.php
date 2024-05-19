@@ -43,3 +43,4 @@ class AdminController extends Controller
         return redirect()->route('admin')->with('success', 'Data Berhasil Di Hapus ');
     }
 }
+
