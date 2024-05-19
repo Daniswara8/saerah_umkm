@@ -23,7 +23,7 @@
                     <th data-priority="1">Nama</th>
                     {{-- <th>Ukuran</th> --}}
                     <th>Deskripsi</th>
-                    <th>Motif</th>
+                    {{-- <th>Motif</th> --}}
                     <th>Harga</th>
                     <th>Jumlah</th>
                     <th data-priority="1">Aksi</th>
@@ -39,7 +39,7 @@
                     <td> {{ $pro->nama_produk }} </td>
                     {{-- <td> {{ $pro->ukuran_produk }} </td> --}}
                     <td> {{ $pro->deskripsi_produk }} </td>
-                    <td> {{ $pro->motif_produk }} </td>
+                    {{-- <td> {{ $pro->motif_produk }} </td> --}}
                     <td> {{ $pro->harga_produk }} </td>
                     <td> {{ $pro->jumlah_produk }} </td>
 
@@ -76,7 +76,7 @@
                     <th>Nama Produk</th>
                     {{-- <th>Ukuran</th> --}}
                     <th>Deskripsi</th>
-                    <th>Motif</th>
+                    {{-- <th>Motif</th> --}}
                     <th>Harga</th>
                     <th>Jumlah</th>
                     <th>Aksi</th>

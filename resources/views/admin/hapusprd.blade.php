@@ -34,7 +34,7 @@
                       @enderror
                   </div>
 
-                  <div class="form-group">
+                  {{-- <div class="form-group">
                     <label for="" class="font-weight-bold">Motif Produk</label>
                     <input type="text" class="form-control @error('motif_produk') is-invalid @enderror" name="motif_produk" value="{{ $products->motif_produk }}">
                     @error('motif_produk')
@@ -42,7 +42,7 @@
                     {{ $message }}
                     </div>
                     @enderror
-                  </div>
+                  </div> --}}
 
                   {{-- <div class="form-group">
                     <label for="" class="font-weight-bold">Ukuran</label>

@@ -33,7 +33,7 @@ Route::get('/', function () {
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/user', 'index')->name('user.index');
-    
+
     Route::get('/product', 'admin')->name('product.admin');
     Route::get('/product/history', 'history')->name('product.history');
     Route::get('/product/create', 'create')->name('product.create');
@@ -44,6 +44,10 @@ Route::controller(ProductController::class)->group(function () {
     Route::put('/product/softdelete/{Slug_link}', 'softdelete')->name('product.softdelete');
     Route::post('/product/restore/{Slug_link}', 'restore')->name('product.restore');
     Route::delete('/product/permanent-delete/{id}', 'deletePermanent')->name('product.deletePermanent');
+
+    // detail product
+    Route::get('/produk/detail/{id}', 'detail')->name('produk.detail');
+    // Route::get('/product/{id}', [ProductController::class, 'detail']);
 });
 
 Route::controller(PelangganController::class)->group(function () {
