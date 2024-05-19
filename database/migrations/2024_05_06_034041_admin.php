@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->text('alamat');
-            $table->enum('jeniskelamin',['cowo','cewe']);
-            $table->bigInteger('notelepon');
+            $table->string('notelepon');
+            $table->string('email');
+            $table->string('password');
+            $table->string('slug_link');
             $table->timestamps();
         });
 

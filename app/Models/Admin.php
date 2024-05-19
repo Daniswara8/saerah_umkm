@@ -8,7 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
     use HasFactory;
-
-    protected $guarded = [];
-    protected $dates = ['created_at'];
+    /**
+     * fillable
+     *
+     * @var array
+     */
+    protected $fillable = [
+       'nama',
+       'alamat',
+       'notelepon',
+       'email',
+       'password',
+       'slug_link', 
+       'created_at',
+       'updated_at',
+    ];
 }

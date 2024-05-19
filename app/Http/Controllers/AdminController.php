@@ -2,45 +2,94 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
 use Illuminate\Http\Request;
+
+use App\Models\Admin;
+
+use Illuminate\View\View;
+
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
-    public function index() {
-        $data = Admin::all();
-        return view('admin.v_data', compact('data'));
+
+    // tampil view
+    public function tambahDataCustomer(): View
+    {
+        $masters = Admin::latest()->first();
+        return view('admin.tambahDataUser', compact('masters'));
     }
 
-    // untuk menambahkan data
-    public function tambahdata() {
-        return view('admin.v_tambahdata');
+    public function tampilDataCustomer(): View
+    {
+        $pelanggans = Admin::all();
+        return view('admin.tampilDataUser', compact('pelanggans'));
     }
 
-    public function insertdata(Request  $request) {
-        // dd($request->all());
-        Admin::create($request->all());
-        return redirect()->route('admin')->with('success', 'Data Berhasil Ditambahkan ');
+    public function editDataCustomer(string $slug_link): View 
+    {
+        $customers = Admin::where('slug_link','=', $slug_link)->firstorfail();
+        return view('admin.editDataUser', compact('customers'));
     }
     // end
 
-    // untuk update data 
-    public function tampilkandata($id) {
-        $data = Admin::find($id);
-        return view('admin.v_editdata', compact('data'));
+
+
+
+
+    // untuk proses
+    public function store(request $request)
+    {
+        $this->validate($request,[
+        'nama'      =>'required',
+        'email'     =>'required|min:8|unique:admins',
+        'password'  =>'required',
+        'notelepon' =>'required',
+        'alamat'    =>'required',
+    ]);
+
+    $slug = str::slug($request->nama, '-');
+
+        Admin::create ([
+        'nama'              =>$request->nama,
+        'email'             =>$request->email,
+        'password'          =>$request->password,
+        'notelepon'         =>$request->notelepon,
+        'alamat'            =>$request->alamat,
+        'slug_link'         =>$slug,
+        'created_at'        =>NOW()
+    ]);
+
+    return redirect()->route('customerAdmin.index')->with(
+        ['success'=> 'Data Berhasil Ditambah!'] 
+    ); 
     }
 
-    public function updatedata(Request $request, $id) {
-        $data = Admin::find($id);
-        $data->update($request->all());
-        return redirect()->route('admin')->with('success', 'Data Berhasil Di Update ');
+    public function update(Request $request, string $slug_link)
+    {
+    $customers = Admin::where('slug_link', $slug_link)->firstOrFail();
+
+    $this->validate($request, [
+        'email'     => 'required|min:8|unique:admins,email,' . $customers->id,
+        'password'  => 'required',
+        'nama'      => 'required',
+        'notelepon' => 'required',
+        'alamat'    => 'required',
+    ]);
+
+    $slug = Str::slug($request->nama, '-');
+
+    $customers->update([
+        'email'         => $request->email,
+        'password'      => $request->password,
+        'nama'          => $request->nama,
+        'notelepon'     => $request->notelepon,
+        'slug_link'     => $slug,
+        'updated_at'    => now()
+    ]);
+
+    return redirect()->route('customerAdmin.index')->with('success', 'Data Berhasil Diubah!');
     }
 
-    // untuk delete data
-    public function delete($id) {
-        $data = Admin::find($id);
-        $data->delete();
-        return redirect()->route('admin')->with('success', 'Data Berhasil Di Hapus ');
-    }
+    
 }
-
