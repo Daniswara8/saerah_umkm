@@ -169,7 +169,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-            <a href="content" class="nav-link">
+            <a href="/customerAdmin" class="nav-link">
               <i class="nav-icon far fa-user"></i>
               <p>
                 Data User
