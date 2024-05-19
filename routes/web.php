@@ -27,11 +27,13 @@ Route::get('/', function () {
 // });
 
 // product
-Route::get('/user', function () {
-    return view('user.product');
-});
+// Route::get('/user', function () {
+//     return view('user.product');
+// });
 
 Route::controller(ProductController::class)->group(function () {
+    Route::get('/user', 'index')->name('user.index');
+    
     Route::get('/product', 'admin')->name('product.admin');
     Route::get('/product/history', 'history')->name('product.history');
     Route::get('/product/create', 'create')->name('product.create');
