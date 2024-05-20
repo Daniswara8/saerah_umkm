@@ -52,11 +52,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control mb-1" value="umarganteng@gmail.com">
+                                    <input type="text" class="form-control mb-1" value="rizka@gmail.com">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Password</label>
-                                    <input type="text" class="form-control" value="umar lucu">
+                                    <input type="text" class="form-control" value="maulid">
                                 </div>
                                 <div class="text-right mt-3">
                                     <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
