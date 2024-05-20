@@ -1,9 +1,11 @@
 <?php
 
 
-use App\Http\Controllers\PelangganController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PelangganController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,6 @@ Route::get('/', function () {
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/user', 'index')->name('user.index');
-    
     Route::get('/product', 'admin')->name('product.admin');
     Route::get('/product/history', 'history')->name('product.history');
     Route::get('/product/create', 'create')->name('product.create');
@@ -47,7 +48,22 @@ Route::controller(ProductController::class)->group(function () {
 });
 
 Route::controller(PelangganController::class)->group(function () {
+    // register
     Route::get('/register', 'indexRegister')->name('register.index');
-    Route::get('/login', 'indexLogin')->name('login.index');
     Route::post('/register/kirim', 'store')->name('register.store');
+
+    // login
+    Route::get('/login', 'indexLogin')->name('login.index');
+    Route::post('/login/sesi', 'proses')->name('login.proses');
+});
+
+
+
+// ROUTE UNTUK CRUD ADMIN
+Route::controller(AdminController::class)->group(function () {
+    Route::get('/tambahCustomer', 'tambahDataCustomer')->name('masterAdmin.index');
+    Route::get('/customerAdmin', 'tampilDataCustomer')->name('customerAdmin.index');
+    Route::get('/editCustomer/edit/{slug_link}', 'editDataCustomer')->name('customerAdmin.edit');
+    Route::put('/editCustomer/edit/{slug_link}', 'update')->name('customerAdmin.update');
+    Route::post('/masterAdmin/tambah', 'store')->name('masterAdmin.store');
 });
