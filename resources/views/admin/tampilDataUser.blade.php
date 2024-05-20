@@ -47,7 +47,7 @@
             </div>
 
               <div class="col-12">
-                <table id="example"  class="table table-dark" style="width: 100%; color:white;">
+                <table id="example"  class="table table-primary" style="width: 100%; color:white;">
                  <thead>
                      <tr>
                          <th data-priority="1">

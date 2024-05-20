@@ -64,16 +64,16 @@
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="telepon" class="col-sm-2 col-form-label">Alamat</label>
+                <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control @error('alamat') is-invalid @enderror" id="telepon" name="alamat" value="{{ old('alamat', $customers->alamat) }}" required>
+                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" value="{{ old('alamat', $customers->alamat) }}" required>
                     @error('alamat')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div class="col-12">
-                <input type="submit" name="simpan" value="Edit" class="btn btn-primary">
+                <input type="submit" name="simpan" value="Edit Perubahan" class="btn btn-primary">
             </div>
         </form>
         
