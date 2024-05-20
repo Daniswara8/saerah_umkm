@@ -34,6 +34,8 @@
         });
         </script>
 
+        <link rel="website icon" type="jpeg" href="assets/ktgkebaya.jpeg">
+
     <style>
      @media only screen and (max-width: 768px) {
 
@@ -104,7 +106,6 @@
 
       nav.navbar{
         width: 100%;
-        background-color: lavenderblush;
       }
 
       .container{
@@ -119,8 +120,32 @@
         margin-left: 30px;
       }
 
+      /* foto di table admin */
+    .gambartu{
+        object-fit: cover;
+        width: 100%;
+        height: 50px;
     }
 
+    /* search */
+    .custom{
+    height: 35px;
+    }
+
+    /* nama produk di detail */
+    h1{
+        margin-top: 15px;
+        text-align: center;
+    }
+    }
+
+
+
+    .btn-sm.bi.bi-cart3{
+        margin-bottom: 0;
+    }
+
+    /* foto di table admin */
     .gambartu{
         object-fit: cover;
         width: 180px;
@@ -133,6 +158,15 @@
         object-fit: cover;
     }
 
+    /* detail produk */
+    .detfoto{
+        height: 450px;
+        object-fit: cover;
+        width: 40%;
+        float: left;
+        margin-right: 10px;
+    }
+
     /* user */
         .row.rror{
         justify-content: center;
@@ -142,17 +176,18 @@
 
     /* tabel di admin */
       tr{
-        box-shadow: 1px 5px 10px rgb(228, 129, 129);
+        box-shadow: 1px 5px 10px rgb(209, 189, 189);
       }
 
       /* tabel di admin */
       #example{
-        box-shadow: 1px 5px 10px rgb(255, 141, 179);
+        background-color: white;
+        box-shadow: 1px 5px 10px rgb(0, 0, 0);
       }
 
       /* di user yang membungkus foto dan printilannya */
       .col{
-        box-shadow: 0px 3px 8px palevioletred;
+        box-shadow: 0px 3px 8px rgb(138, 69, 92);
       }
 
       .d-flex1{
@@ -163,6 +198,8 @@
       }
 
       .col{
+
+        /* height: 440px; */
         margin-top: 10px;
         margin-bottom: 20px;
         transition: 0.5s all;
@@ -174,7 +211,7 @@
       }
 
       span{
-        color: pink;
+        color: rgb(165, 165, 165);
         margin-bottom:0;
       }
 
@@ -184,9 +221,9 @@
       }
 
       /* background navbar */
-      nav.navbar{
+      /* nav.navbar{
         background-color: lavenderblush;
-      }
+      } */
 
       /* harga */
       .text-right{
@@ -215,6 +252,10 @@
 
       .cuzz{
         border-radius: 20px;`
+      }
+
+      body{
+        background: #e7dbdb;
       }
     </style>
 </head>
@@ -254,7 +295,7 @@
                 </form>
                 <a href="#"><i class="bi bi-person-circle" style="margin-left: 10px;"></i></a>
                 <a href="#"><i class="bi bi-cart3 me-3" style="margin-left: 10px;"></i></a>
-                <a href="#"><i class="bi bi-heart me-3"></i></a>
+                {{-- <a href="#"><i class="bi bi-heart me-3"></i></a> --}}
             </div>
     </div>
 </nav>

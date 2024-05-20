@@ -49,7 +49,7 @@ class ProductController extends Controller
                 'deskripsi_produk' => $request->deskripsi_produk,
                 'harga_produk' => $request->harga_produk,
                 // 'ukuran_produk' => $request->ukuran_produk,
-                'motif_produk' => $request->motif_produk,
+                // 'motif_produk' => $request->motif_produk,
                 'jumlah_produk' => $request->jumlah_produk,
                 'Slug_link' => $slug
             ]);
@@ -89,8 +89,8 @@ class ProductController extends Controller
                 'nama_produk' => $request->nama_produk,
                 'deskripsi_produk' => $request->deskripsi_produk,
                 'harga_produk' => $request->harga_produk,
-                // 'ukuran_produk' => $request->ukuran_produk,
-                'motif_produk' => $request->motif_produk,
+                //  'ukuran_produk' => $request->ukuran_produk,
+                // 'motif_produk' => $request->motif_produk,
                 'jumlah_produk' => $request->jumlah_produk,
                 'Slug_link' => $slug
             ]);
@@ -134,5 +134,19 @@ class ProductController extends Controller
                 return redirect()->route('product.history')->with(['success' => 'Berhasil menghapus produk secara permanen!']);
             }
 
+            // public function detail(product $products)
+            // {
+            //     $products = product::findOrFail($id);
+            //     return view('user.detailproduct', compact('products'));
+            // }
+
+            public function detail($id)
+            {
+                // Mengambil produk berdasarkan ID
+                $products = product::findOrFail($id);
+
+                // Mengirimkan data produk ke view
+                return view('user.detailproduct', compact('products'));
+            }
 
 }
