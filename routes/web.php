@@ -60,7 +60,12 @@ Route::controller(PelangganController::class)->group(function () {
     // login
     Route::get('/login', 'indexLogin')->name('login.index');
     Route::post('/login/sesi', 'proses')->name('login.proses');
+
+    // dashboard
+    Route::get('/dashboard', 'indexDashboard')->name('dashboard.indexDashboard');
+    // Route::post('/dashboard/kirim', 'p')
 });
+    
 
 
 

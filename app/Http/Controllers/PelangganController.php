@@ -78,7 +78,14 @@ class PelangganController extends Controller
             return redirect('product')->with('success', 'Berhasil Login');
         } else {
             return redirect('login')->withErrors('Email atau Password tidak valid!');
-        }
-    
+        } 
+    }
+
+        // dashboard
+        public function indexDashboard(): View
+    {
+        return view('user.dashboard');
     }
 }
+    
+    
