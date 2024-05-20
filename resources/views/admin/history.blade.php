@@ -35,7 +35,7 @@
 
                 <tr>
                     <td> {{ ++$no }} </td>
-                    <td> <img src="{{ asset('storage/images/' . $pro->foto_produk) }}" class="p-2 img-fluid gambartu"> </td>
+                    <td> <img src="{{ asset('assets/' . $pro->foto_produk) }}" class="p-2 img-fluid gambartu"> </td>
                     <td> {{ $pro->nama_produk }} </td>
                     {{-- <td> {{ $pro->ukuran_produk }} </td> --}}
                     <td> {{ $pro->deskripsi_produk }} </td>

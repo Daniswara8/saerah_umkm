@@ -85,7 +85,7 @@
                   <div class="form-group">
                     <label for="" class="font-weight-bold">Foto Produk</label>
                     @if ($products->foto_produk)
-                    <img src="{{ asset('storage/images/' . $products->foto_produk) }}" alt="Saerah" class="img-fluid" style="width: 100px; margin-bottom: 15px; margin-top: 15px;">
+                    <img src="{{ asset('assets/' . $products->foto_produk) }}" alt="Saerah" class="img-fluid" style="width: 100px; margin-bottom: 15px; margin-top: 15px;">
                     @else
                         <p>Tidak ada gambar yang tersedia</p>
                     @endif
@@ -97,7 +97,7 @@
                     @enderror
                   </div> <br>
 
-                  
+
                     <button type="submit" class="btn btn-primary">Simpan</button>
                     <button type="reset" class="btn btn-info">Reset</button> <br><br>
 

@@ -16,20 +16,39 @@
                         <div class="row">
 
                             <div class="images col-md-6">
-                                <img src="{{ asset('storage/images/' . $products->foto_produk) }}" class="detfoto" style=" margin-top:8px; width:100%;">
+                                <img src="{{ asset('assets/' . $products->foto_produk) }}" class="detfoto" style=" margin-top:8px; width:100%;">
                             </div>
 
                                 <div class="teks col-md-6">
                                     <h1>{{ $products->nama_produk }}</h1>
                                     <h5><strong>Harga:</strong> Rp. {{ $products->harga_produk }}</h5>
-                                    <p><strong>Jumlah </strong></p><input type="number" min = "0" value="0"><br><br>
-                                    <p><strong>Size</strong></p>
-                                    
-                                    <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> XS</a>
+                                    <p><strong>Jumlah</strong></p>
+                                    <input type="number" min = "0" value="0"><br><br>
+                                    {{-- <p><strong>Size</strong></p> --}}
+
+                                    <div class="form-group">
+                                        <label for="" class="font-weight-bold"><strong>Ukuran</strong></label>
+                                        <select name="ukuran_produk" id="" class="form-control @error('ukuran_produk') is-invalid @enderror">
+                                        <option selected></option>
+                                        <option>XS</option>
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                        <option>Lain-lain</option>
+                                        </select>
+                                        @error('ukuran_produk')
+                                        <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+
+                                    {{-- <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> XS</a>
                                     <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> S</a>
                                     <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> M</a>
                                     <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> L</a>
-                                    <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> XL</a><br><br>
+                                    <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> XL</a><br><br> --}}
 
                                     <p>{{ $products->deskripsi_produk }}</p>
 
