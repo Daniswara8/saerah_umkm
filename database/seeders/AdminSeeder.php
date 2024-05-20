@@ -15,6 +15,7 @@ class AdminSeeder extends Seeder
     {
         DB::table('admins')->insert([
             'nama' => 'Daniswara Zavier',
+            'alamat' => 'Pondok Indah',
             'jeniskelamin' => 'cowo',
             'notelepon' => '089898989',
         ]);

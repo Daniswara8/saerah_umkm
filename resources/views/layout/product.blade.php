@@ -106,7 +106,6 @@
 
       nav.navbar{
         width: 100%;
-        background-color: lavenderblush;
       }
 
       .container{
@@ -121,12 +120,32 @@
         margin-left: 30px;
       }
 
+      /* foto di table admin */
+    .gambartu{
+        object-fit: cover;
+        width: 100%;
+        height: 50px;
     }
+
+    /* search */
+    .custom{
+    height: 35px;
+    }
+
+    /* nama produk di detail */
+    h1{
+        margin-top: 15px;
+        text-align: center;
+    }
+    }
+
 
 
     .btn-sm.bi.bi-cart3{
         margin-bottom: 0;
     }
+
+    /* foto di table admin */
     .gambartu{
         object-fit: cover;
         width: 180px;
@@ -179,7 +198,7 @@
       }
 
       .col{
-        
+
         /* height: 440px; */
         margin-top: 10px;
         margin-bottom: 20px;
