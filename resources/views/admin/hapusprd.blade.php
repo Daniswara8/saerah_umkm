@@ -34,7 +34,7 @@
                       @enderror
                   </div>
 
-                  <div class="form-group">
+                  {{-- <div class="form-group">
                     <label for="" class="font-weight-bold">Motif Produk</label>
                     <input type="text" class="form-control @error('motif_produk') is-invalid @enderror" name="motif_produk" value="{{ $products->motif_produk }}">
                     @error('motif_produk')
@@ -42,7 +42,7 @@
                     {{ $message }}
                     </div>
                     @enderror
-                  </div>
+                  </div> --}}
 
                   {{-- <div class="form-group">
                     <label for="" class="font-weight-bold">Ukuran</label>
@@ -85,7 +85,7 @@
                   <div class="form-group">
                     <label for="" class="font-weight-bold">Foto Produk</label>
                     @if ($products->foto_produk)
-                    <img src="{{ asset('storage/images/' . $products->foto_produk) }}" alt="Saerah" class="img-fluid" style="width: 100px; margin: 15px;">
+                    <img src="{{ asset('assets/' . $products->foto_produk) }}" alt="Saerah" class="img-fluid" style="width: 100px; margin: 15px;">
                     @else
                         <p>Tidak ada gambar yang tersedia</p>
                     @endif
