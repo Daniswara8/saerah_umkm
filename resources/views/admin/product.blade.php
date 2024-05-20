@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-
+{{ Auth::user()->nama }}
     <div class="div">
         <center><h1>DATA<span> SAERAH</span></h1></center>
         <br>
