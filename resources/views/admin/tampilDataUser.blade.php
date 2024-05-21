@@ -40,6 +40,12 @@
               </div>
               <!-- /.row --> --}}
 
+            @if(session('success'))
+                <div class="alert alert-success text-center ">
+                  {{ session('success') }}
+                </div>
+            @endif
+
               <div class="col-12">
                 <a href="{{ route('masterAdmin.index') }}" class="btn btn-primary"> 
                     <i class="bi bi-building-add"></i> Tambah Customer
@@ -118,9 +124,9 @@
                              <a href="{{ route('customerAdmin.edit', $mtr->slug_link) }}" class="btn btn-success btn-sm" role="button">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                             {{-- <a href="{{ route('latihan.hapus', $lat->slug_link) }}" class="btn btn-danger btn-sm" role="button"> --}}
-                                 <i class="bi bi-trash3"></i>
-                             </a>
+                            <a href="{{ route('customerAdmin.hapus', $mtr->slug_link) }}" class="btn btn-danger btn-sm" role="button">
+                                <i class="bi bi-trash3"></i>
+                            </a>
                          </td>
                      </tr>
                  @endforeach

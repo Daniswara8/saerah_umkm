@@ -31,6 +31,11 @@ class AdminController extends Controller
         $customers = Admin::where('slug_link','=', $slug_link)->firstorfail();
         return view('admin.editDataUser', compact('customers'));
     }
+
+    public function hapusDataCustomer(string $slug_link) {
+        $pelanggans = Admin::where('slug_link','=', $slug_link)->firstorfail();
+        return view('admin.hapusDataUser', compact('pelanggans'));
+    }
     // end
 
 
@@ -84,6 +89,7 @@ class AdminController extends Controller
         'password'      => $request->password,
         'nama'          => $request->nama,
         'notelepon'     => $request->notelepon,
+        'alamat'        => $request->alamat,
         'slug_link'     => $slug,
         'updated_at'    => now()
     ]);
@@ -91,5 +97,10 @@ class AdminController extends Controller
     return redirect()->route('customerAdmin.index')->with('success', 'Data Berhasil Diubah!');
     }
 
-    
+    public function softdelete(Request $request, $Slug_link) {
+        $pelanggans = Admin::where('Slug_link', $Slug_link)->firstOrFail();
+        $pelanggans->delete();
+
+    return redirect()->route('customerAdmin.index')->with(['success' => 'Berhasil menghapus Dihapus']);
+    }
 }

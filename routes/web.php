@@ -69,11 +69,13 @@ Route::controller(PelangganController::class)->group(function () {
 
 
 
-// ROUTE UNTUK CRUD ADMIN
+// ROUTE UNTUK CRUD DATA USER DI ADMIN
 Route::controller(AdminController::class)->group(function () {
     Route::get('/tambahCustomer', 'tambahDataCustomer')->name('masterAdmin.index');
     Route::get('/customerAdmin', 'tampilDataCustomer')->name('customerAdmin.index');
     Route::get('/editCustomer/edit/{slug_link}', 'editDataCustomer')->name('customerAdmin.edit');
+    Route::get('/hapusCustomer/hapus/{slug_link}', 'hapusDataCustomer')->name('customerAdmin.hapus');
     Route::put('/editCustomer/edit/{slug_link}', 'update')->name('customerAdmin.update');
     Route::post('/masterAdmin/tambah', 'store')->name('masterAdmin.store');
+    Route::put('/deleteCustomer/softdelete/{Slug_link}', 'softdelete')->name('customerAdmin.softdelete');
 });
