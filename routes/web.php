@@ -19,7 +19,7 @@ use App\Http\Controllers\PelangganController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.dashboard');
 });
 
 
