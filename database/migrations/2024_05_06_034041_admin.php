@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('slug_link');
+            $table->enum('status_aktif', ['aktif', 'hapus']);
             $table->timestamps();
         });
 

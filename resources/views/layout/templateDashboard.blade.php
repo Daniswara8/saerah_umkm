@@ -46,7 +46,7 @@ Coded by www.creative-tim.com
         </a>
         <a href="https://www.creative-tim.com" class="simple-text logo-normal">
           Creative Tim
-          <!-- <div class="logo-image-big">
+          <!-- <div class="logo-image-big"> 
             <img src="../assets/img/logo-big.png">
           </div> -->
         </a>

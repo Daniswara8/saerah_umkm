@@ -83,11 +83,14 @@
                      </tr>
                  </thead>
                  <tbody>
-                 @foreach ($pelanggans as $mtr)
+                    @foreach ($pelanggans as $index => $mtr)
                      <tr>
-                         <td>
+                        <td>
+                            {{ $index + 1 }}</td>
+                        </td>
+                         {{-- <td>
                              {{ $mtr->id }}
-                         </td>
+                         </td> --}}
                          <td>
                              {{ $mtr->nama }}
                          </td>
@@ -134,7 +137,7 @@
                  <tfoot>
                   <tr>
                     <th data-priority="1">
-                        ID
+                        {{-- ID --}}
                     </th>
                     <th data-priority="1">>
                         Nama Lengkap

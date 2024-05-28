@@ -73,6 +73,7 @@
                 </div>
             </div>
             <div class="col-12">
+                <input type="hidden" class="form-control" name="status_aktif" value="hapus" required readonly>
                 <input type="submit" name="simpan" value="Hapus Data" class="btn btn-primary">
             </div>
         </form>
