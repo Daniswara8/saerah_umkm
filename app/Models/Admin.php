@@ -21,6 +21,7 @@ class Admin extends Model
        'email',
        'password',
        'slug_link', 
+       'status_aktif', 
        'created_at',
        'updated_at',
     ];

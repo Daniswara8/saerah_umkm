@@ -22,7 +22,7 @@ class AdminController extends Controller
 
     public function tampilDataCustomer(): View
     {
-        $pelanggans = Admin::all();
+        $pelanggans = Admin::all()->where('status_aktif', '=', 'aktif');
         return view('admin.tampilDataUser', compact('pelanggans'));
     }
 
@@ -61,6 +61,7 @@ class AdminController extends Controller
         'password'          =>$request->password,
         'notelepon'         =>$request->notelepon,
         'alamat'            =>$request->alamat,
+        'status_aktif'      =>$request->status_aktif,
         'slug_link'         =>$slug,
         'created_at'        =>NOW()
     ]);
@@ -90,6 +91,7 @@ class AdminController extends Controller
         'nama'          => $request->nama,
         'notelepon'     => $request->notelepon,
         'alamat'        => $request->alamat,
+        'status_aktif'  => $request->status_aktif,
         'slug_link'     => $slug,
         'updated_at'    => now()
     ]);
@@ -97,10 +99,38 @@ class AdminController extends Controller
     return redirect()->route('customerAdmin.index')->with('success', 'Data Berhasil Diubah!');
     }
 
-    public function softdelete(Request $request, $Slug_link) {
-        $pelanggans = Admin::where('Slug_link', $Slug_link)->firstOrFail();
-        $pelanggans->delete();
+    // public function softdelete(Request $request, $Slug_link) {
+    //     $pelanggans = Admin::where('Slug_link', $Slug_link)->firstOrFail();
+    //     $pelanggans->delete();
 
-    return redirect()->route('customerAdmin.index')->with(['success' => 'Berhasil menghapus Dihapus']);
+    // return redirect()->route('customerAdmin.index')->with(['success' => 'Berhasil menghapus Dihapus']);
+    // }
+
+
+    public function softdelete(Request $request, string $slug_link)
+    {
+    $pelanggans = Admin::where('slug_link', $slug_link)->firstOrFail();
+
+    $this->validate($request, [
+        'email'     => 'required|min:8|unique:admins,email,' . $pelanggans->id,
+        'password'  => 'required',
+        'nama'      => 'required',
+        'notelepon' => 'required',
+        'alamat'    => 'required',
+    ]);
+
+    $slug = Str::slug($request->nama, '-');
+
+    $pelanggans->update([
+        'email'         => $request->email,
+        'password'      => $request->password,
+        'nama'          => $request->nama,
+        'notelepon'     => $request->notelepon,
+        'alamat'        => $request->alamat,
+        'status_aktif'  => $request->status_aktif,
+        'slug_link'     => $slug,
+        'updated_at'    => now()
+    ]);
+    return redirect()->route('customerAdmin.index')->with('success', 'Data Berhasil Dihapus!');
     }
 }

@@ -73,6 +73,7 @@
                 </div>
             </div>
             <div class="col-12">
+                <input type="hidden" class="form-control" name="status_aktif" value="{{ old('alamat', $pelanggans->status_aktif) }}" required>
                 <input type="submit" name="simpan" value="Edit Perubahan" class="btn btn-primary">
             </div>
         </form>
