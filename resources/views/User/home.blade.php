@@ -9,29 +9,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <style>
-      body {
+  body {
     background-color: #e7dbdb
-
   };
 
-  .navbar{
-    position: fixed;
-  }
-
   span{
-    color:rgb(165, 165, 165);
+    color:#777B7E;
   }
 
-  .custom {
+  .navbar{
+    position: relative;
+  }
+
+  .form-control {
     background-color: black;
     color: white;
     width: 337px;
     border-radius: 20px;
   }
 
-  .opening{
-    display: flex;
-  }
   .pembuka{
     margin-top: 15%;
     margin-right: 453px;
@@ -39,26 +35,22 @@
     font-size: x-large;
   }
 
-  .batik-atas{
-    margin-top:75px;
-  }
-
   .getstarted{
     background-color: black;
     color: white;
     font-size: large;
-    margin-bottom: 2%;
     border-radius: 20px;
     height:33px;
     padding: 0px 40px 0px 40px;
   }
 
   .turun {
-    margin-left: 7rem;
-    margin-top: 2rem;
+    margin-left: 112px;
+    margin-top: 32px;
   }
 
   .batik-atas{
+    margin-top:75px;
     border:20px;
     display: flex;
   }
@@ -70,11 +62,9 @@
   }
 
   .pict2 img{
-
     width:160px;
     height:355px;
     margin-right:15px;
-   
   }
 
   .pict3 img{
@@ -84,7 +74,7 @@
 
   .collection{
     text-align: center;
-    margin-top: 10rem;
+    margin-top: 160px;
   }
 
   .deskripsi{
@@ -93,37 +83,34 @@
   
   .foto1{
     margin:auto ;
-
+    margin-left:475px;
+    height: 337px;
+    width:  300px;
   }
   #img1{
     display: flex;
-    
   }
 
   #img1 img{       
     position:relative;
+    margin-top: 75px;
     height: 337px;
     width:  264px;
-    margin-top: 75px;
-   
   }
   
  
   .batik{
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    margin-left: 13cm;
-   
   }
   
   .kebaya{     
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    margin-left: 1cm;
+    margin-left: 33px;
   }
 
   .berita{
-    display:flex;
     margin:auto;
     background-color: #D2CECE;
     width:1138px;
@@ -137,12 +124,12 @@
   .mas img{
     width: 178px;
     height:256px;
-    margin-right:75px;
+    margin-right:33px;
     margin-top:20px;
   }
 
   .mba img{
-    width: 256px;
+    width: 180px;
     height:256px;
     margin-top:20px;
   }
@@ -159,23 +146,12 @@
     margin-top: 175px;
   }
 
-  .baru{
-    border: 2px solid black; 
-    padding: 20px; 
-    width: 200px; 
-    height: 300px;
-    margin-left:155px ;
-  }
-
- 
-  
-
   .outer-frame {
     border: 2px solid #333; 
     border-radius: 9px;
     padding: 20px; 
-    width: 308px;
-    height: 427px;
+    width: 249px;
+    height: 416px;
     margin-left:150px;
     margin-right: 85px;
     margin-bottom:75px;
@@ -184,37 +160,34 @@
 
   .inner-frame {
     border: 1px solid #666; 
-    border-radius: 45px;
+    border-radius: 40px;
     padding: 20px;
-    width: 252px;
-    height: 233px;
+    width: 200px;
+    height: 230px;
     margin-left: 5px;
   }
 
 
   .add{
     background-color: #A01B5A;
-    width: 202px;
+    width: 170px;
     height:30px;
     border-radius: 20px;
     color: white;
   }
   
-  .radio{
-        text-align:center;
-      }
 
   .about{
     margin:auto;
+    text-align:center;
     background-color: #D2CECE;
     width:1130px;
     height:410px;
     border: 4px solid #9F959E;
     border-radius:15px;
     margin-top:75px;
-    text-align:center;
     padding-top:113px;
-  }
+}
 
   .lokasi{
     margin-top:95px;
@@ -223,17 +196,36 @@
 
   
 
-  @media (max-width:576px){}
-      
-      
-      .
-      .radio{
-        text-align:center;
-      }
+  @media screen and (max-width:576px){
+    h2{
+      font-size:medium;
+    }
+    .pembuka{
+      margin-left:33px;
+      width:200px;
+      height:131px;
+    }
 
-      .about{
-        font-size:small;
-      }
+    .getstarted{
+      font-size:small;
+      width:131px;
+    }
+  
+    .batik-atas img{
+     height:131px;
+     width:75px;
+ }
+ 
+  .foto1{
+    margin:auto ;
+    margin-left:10px;
+    height: 337px;
+    width:  300px;
+  }
+  }
+  
+      
+      
   
     </style>
 </head>
@@ -253,7 +245,7 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Product</a>
+            <a class="nav-link active" aria-current="page" href="{{ url('/user') }}">Product</a>
           </li>
           <li class="nav-item">
             <a class="nav-link me-3" href="#tentang">About Us</a>
@@ -261,9 +253,9 @@
         </ul>
         <form class="d-flex" role="search">
                         <input class="form-control me-2 custom" type="search" placeholder="Cari Disini" aria-label="Search">
-                        <button class="btn btn-outline-secondary bi bi-search cuzz" type="submit"></button>
-        </form> 
-        <a href="#"><i class="bi bi-person-circle me-3">Masuk</i></a>
+                        <button class="btn btn-outline-secondary rounded-pill bi bi-search cuzz" type="submit"></button>
+        </form>  
+        <a href="#"><i class="bi bi-person-circle me-3" style="margin-left:10px">Masuk</i></a>
         <a href="#"><i class="bi bi-cart3 me-3"></i></a>
         
       </div>
@@ -272,32 +264,31 @@
    
   <br>
 
-<div class="opening">
+<div class="opening d-flex">
   <div class="pembuka">
    <h2>
     Mari Jelajahi Koleksi <br>
     Fashion Kami yang<br>
     Eksklusif. <button class="getstarted" id="scrollButton" 
-    onclick=""> <i class="bi bi-caret-right"></i>Get Started</button><br>
+    onclick=""> <i class="bi bi-caret-right mb-2"></i>Get Started</button><br>
     <div class="turun"><i class="bi bi-chevron-down"></i></div>    
   </h2>
 </div>
 
 <div class="batik-atas">
   <div class="pict1">
-   <img src="assets/batikpanjang1.jpg" >
+   <img src="assets/imgwlc/batikpanjang1.jpg" >
   </div>
 
   <div class="pict2">
-    <img src="assets/batikpanjang2.jpg" >
+    <img src="assets/imgwlc/batikpanjang2.jpg" >
   </div>
 
   <div class="pict3">
-    <img src="assets/batikpanjang3.jpg" >
+    <img src="assets/imgwlc/batikpanjang3.jpg" >
   </div>
 </div>
 </div>
-
 
  <div class="collection">
   <h3>Saerah Collection</h3>
@@ -307,34 +298,33 @@
  <div class="foto1">
   <div id="img1">
    <div class="batik">
-    <img src="assets/modelcowok.png" >
+    <img src="assets/imgwlc/modelcowok.png" >
     <h1 style="font-size: x-large;"> Batik</h1>
    </div>
    <br>
    <div class="kebaya">
-    <img src="assets/modelcewek.png">
+    <img src="assets/imgwlc/modelcewek.png">
     <h1 style="font-size: x-large;">Kebaya</h1>
    </div>
  </div>
 </div> 
 
-<div class="berita">
+<div class="berita d-flex">
   <div class="mas">
-  <img src="assets/mas.png" >
+  <img src="assets/imgwlc/mas.png" >
   </div>
   <div class="diskon">
-  <h2 class=" style="font-size:xx-large">S A E R A H | S P E S I A L  E D I S I</h2><br>
+  <h2 style="font-size:xx-large;">S A E R A H | S P E S I A L  E D I S I</h2><br>
   <h1 style="font-size:large;">Diskon Besar Besaran Hingga 80%, Nikmati<br> Berbelanja dengan Senang</h1>
   </div>
   <div class="mba">
-  <img src="assets/mba.png">
+  <img src="assets/imgwlc/mba.png">
   </div>
 </div>
 
 <div class="bestsell">
   <h3>Saerah Best Seller</h3>
 </div>
-
 
 <div id="carouselExampleIndicators" class="carousel slide">
    <div class="carousel-indicators">
@@ -345,7 +335,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active d-inline-flex">
           <div class="slide-first">
-      <div class="outer-frame">
+        <div class="outer-frame">
         <div class="inner-frame">
           <img src="" alt="">
         </div>
@@ -355,7 +345,6 @@
           <button class="add"  onclick="">
           <i class="bi bi-cart3 me-3"></i> <a href="#"></a>Add
           </button>
-          <a href="#"><i class="bi bi-heart me-3"></i></a>
         </div>
       </div>
     </div>
@@ -370,7 +359,6 @@
           <button class="add" id="scrollButton" onclick="">
             <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
           </button>
-          <a href="#"><i class="bi bi-heart me-3"></i></a>
         </div>
       </div>
     </div>
@@ -380,12 +368,11 @@
           <img src="" alt="">
         </div>
         <h2>Kain Batik</h2>
-        <h1 style="font-size: larger;">Kain batik tradisional</h1>
+        <h1 style="font-size: larger;">Kain batik tradisional berkualitas<br>asli Nusantara</h1>
         <div class="tambah">
           <button class="add" id="scrollButton" onclick="">
             <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
-          </button>
-          <a href="#"><i class="bi bi-heart me-3"></i></a>
+          </button>         
         </div>
     </div>
           </div>
@@ -401,7 +388,6 @@
           <button class="add"  onclick="">
           <i class="bi bi-cart3 me-3"></i> <a href="#"></a>Add
           </button>
-          <a href="#"><i class="bi bi-heart me-3"></i></a>
         </div>
       </div>
     </div>
@@ -416,7 +402,7 @@
           <button class="add" id="scrollButton" onclick="">
             <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
           </button>
-          <a href="#"><i class="bi bi-heart me-3"></i></a>
+          
         </div>
       </div>
     </div>
@@ -426,15 +412,14 @@
           <img src="" alt="">
         </div>
         <h2>Kain Batik</h2>
-        <h1 style="font-size: larger;">Kain batik tradisional</h1>
+        <h1 style="font-size: larger;">Kain batik tradisional berkualitas<br>asli Nusantara</h1>
         <div class="tambah">
           <button class="add" id="scrollButton" onclick="">
             <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
           </button>
-          <a href="#"><i class="bi bi-heart me-3"></i></a>
         </div>
     </div>
-          </div>
+  </div>
 
           <div class="carousel-item position-fixed">
           <div class="outer-frame">
@@ -447,7 +432,6 @@
           <button class="add" id="scrollButton" onclick="">
             <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
           </button>
-          <a href="#"><i class="bi bi-heart me-3"></i></a>
         </div>
       </div>
     </div>
@@ -457,16 +441,16 @@
           <img src="" alt="">
         </div>
         <h2>Kain Batik</h2>
-        <h1 style="font-size: larger;">Kain batik tradisional</h1>
+        <h1 style="font-size: larger;">Kain batik tradisional berkualitas<br>asli Nusantara</h1>
         <div class="tambah">
           <button class="add" id="scrollButton" onclick="">
             <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
           </button>
-          <a href="#"><i class="bi bi-heart me-3"></i></a>
         </div>
     </div>
           </div>
         </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -476,9 +460,6 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
-  
-
 </div>
 
 <section id="tentang">

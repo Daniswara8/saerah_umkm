@@ -1,0 +1,18 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+body {
+    background: linear-gradient(to left, #4ca1af, #c4e0e5);
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+
+.btn{
+    width: 50%;
+}
