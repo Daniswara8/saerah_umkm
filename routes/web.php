@@ -73,9 +73,13 @@ Route::controller(PelangganController::class)->group(function () {
 Route::controller(AdminController::class)->group(function () {
     Route::get('/tambahCustomer', 'tambahDataCustomer')->name('masterAdmin.index');
     Route::get('/customerAdmin', 'tampilDataCustomer')->name('customerAdmin.index');
+    Route::get('/historiAdmin', 'historiDataCustomer')->name('historiAdmin.index');
     Route::get('/editCustomer/edit/{slug_link}', 'editDataCustomer')->name('customerAdmin.edit');
-    Route::get('/hapusCustomer/hapus/{slug_link}', 'hapusDataCustomer')->name('customerAdmin.hapus');
-    Route::put('/editCustomer/edit/{slug_link}', 'update')->name('customerAdmin.update');
+    Route::get('/softDeleteCustomer/hapus/{slug_link}', 'softDeleteDataCustomer')->name('customerAdmin.softDelete');
+    Route::get('/forceDeleteCustomer/delete/{slug_link}', 'forceDeleteDataCustomer')->name('customerAdmin.forceDelete');
+    Route::get('/restoreCustomer/restore/{slug_link}', 'restoreDataCustomer')->name('customerAdmin.restore');
+    Route::put('/updateCustomer/edit/{slug_link}', 'update')->name('customerAdmin.update');
     Route::post('/masterAdmin/tambah', 'store')->name('masterAdmin.store');
-    Route::put('/deleteCustomer/softdelete/{Slug_link}', 'softdelete')->name('customerAdmin.softdelete');
+    Route::put('/deleteCustomer/softdelete/{Slug_link}', 'softdelete')->name('customerAdmin.softDeleted');
+    Route::delete('/customerAdmin/{slug}', 'destroy')->name('customerAdmin.destroy');
 });

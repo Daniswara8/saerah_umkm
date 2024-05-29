@@ -40,25 +40,32 @@
               </div>
               <!-- /.row --> --}}
 
-            @if(session('success'))
-                <div class="alert alert-success text-center ">
-                  {{ session('success') }}
-                </div>
-            @endif
+              <!-- Tampilkan Pesan Sukses -->
+                @if(session('success'))
+                    <div class="alert alert-success text-center ">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
               <div class="col-12">
                 <a href="{{ route('masterAdmin.index') }}" class="btn btn-primary"> 
                     <i class="bi bi-building-add"></i> Tambah Customer
                 </a>
+                {{-- <a href="{{ route('historiAdmin.index') }}" class="btn btn-success"> 
+                    <i class="bi bi-clock-history"></i> Halaman Histori
+                </a> --}}
             </div>
 
               <div class="col-12">
                 <table id="example"  class="table table-primary" style="width: 100%; color:white;">
                  <thead>
                      <tr>
-                         <th data-priority="1">
+                        <th data-priority="1">
+                            NO
+                        </th>
+                         {{-- <th data-priority="1">
                              ID
-                         </th>
+                         </th> --}}
                          <th data-priority="1">>
                              Nama Lengkap
                          </th>
@@ -83,14 +90,12 @@
                      </tr>
                  </thead>
                  <tbody>
-                    @foreach ($pelanggans as $index => $mtr)
+                 @foreach ($pelanggans as $mtr)
                      <tr>
-                        <td>
-                            {{ $index + 1 }}</td>
-                        </td>
-                         {{-- <td>
+                        
+                         <td>
                              {{ $mtr->id }}
-                         </td> --}}
+                         </td>
                          <td>
                              {{ $mtr->nama }}
                          </td>
@@ -127,9 +132,12 @@
                              <a href="{{ route('customerAdmin.edit', $mtr->slug_link) }}" class="btn btn-success btn-sm" role="button">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                            <a href="{{ route('customerAdmin.hapus', $mtr->slug_link) }}" class="btn btn-danger btn-sm" role="button">
-                                <i class="bi bi-trash3"></i>
+                            <a href="{{ route('customerAdmin.restore', $mtr->slug_link) }}" class="btn btn-warning text-white btn-sm" role="button">
+                                <i class="bi bi-box-arrow-up"></i>
                             </a>
+                             <a href="{{ route('customerAdmin.forceDelete', $mtr->slug_link) }}" class="btn btn-danger btn-sm" role="button">
+                                 <i class="bi bi-trash3"></i>
+                             </a>
                          </td>
                      </tr>
                  @endforeach
@@ -137,8 +145,11 @@
                  <tfoot>
                   <tr>
                     <th data-priority="1">
-                        {{-- ID --}}
+                        NO
                     </th>
+                    {{-- <th data-priority="1">
+                        ID
+                    </th> --}}
                     <th data-priority="1">>
                         Nama Lengkap
                     </th>

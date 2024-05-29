@@ -23,7 +23,7 @@
     <div class="card">
       <div class="card-body">
          
-         <form action="{{ route('customerAdmin.softdelete', $pelanggans->slug_link) }}" method="POST" autocomplete="off" class="needs-validation" novalidate>
+         <form action="{{ route('customerAdmin.softDeleted', $pelanggans->slug_link) }}" method="POST" autocomplete="off" class="needs-validation" novalidate>
             @csrf
             @method('PUT')
             <!-- Field Form -->
