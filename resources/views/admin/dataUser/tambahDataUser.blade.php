@@ -49,7 +49,7 @@
             <div class="mb-3 row">
                 <label for="telepon" class="col-sm-2 col-form-label">No. Telepon</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="telepon" name="notelepon" placeholder="Isi Nomor" required>
+                    <input type="number" class="form-control" id="telepon" name="notelepon" placeholder="Isi Nomor" required>
                 </div>
             </div>
 
@@ -61,7 +61,8 @@
             </div>
 
             <div class="col-12">
-               <input type="submit" name="simpan" value="Tambah Data" class="btn btn-primary">
+              <input type="hidden" class="form-control" name="status_aktif" value="aktif" required>
+              <input type="submit" name="simpan" value="Tambah Data" class="btn btn-primary">
             </div>
 
          </form>

@@ -7,30 +7,30 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Edit Customer</h1>
+            <h1 class="m-0">Hapus Data Customer</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Edit Customer</li>
+              <li class="breadcrumb-item active">Hapus Data Customer</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
 
-    <!--Memasukkan Data-->
+    <!--Kolom Data-->
     <div class="card">
       <div class="card-body">
          
-         <form action="{{ route('customerAdmin.update', $customers->slug_link) }}" method="POST" autocomplete="off" class="needs-validation" novalidate>
+         <form action="{{ route('customerAdmin.destroy', $pelanggans->slug_link) }}" method="POST" autocomplete="off" class="needs-validation" novalidate>
             @csrf
-            @method('PUT')
+            @method('DELETE')
             <!-- Field Form -->
             <div class="mb-3 row">
                 <label for="nama" class="col-sm-2 col-form-label">Username</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama', $customers->nama) }}" required>
+                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama', $pelanggans->nama) }}" required readonly>
                     @error('nama')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -39,7 +39,7 @@
             <div class="mb-3 row">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email', $customers->email) }}" required>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email', $pelanggans->email) }}" required readonly>
                     @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -48,7 +48,7 @@
             <div class="mb-3 row">
                 <label for="nisn" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control @error('password') is-invalid @enderror" id="nisn" name="password" value="{{ old('password', $customers->password) }}" required>
+                    <input type="text" class="form-control @error('password') is-invalid @enderror" id="nisn" name="password" value="{{ old('password', $pelanggans->password) }}" required readonly>
                     @error('password')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -57,23 +57,24 @@
             <div class="mb-3 row">
                 <label for="telepon" class="col-sm-2 col-form-label">No. Telepon</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control @error('notelepon') is-invalid @enderror" id="telepon" name="notelepon" value="{{ old('notelepon', $customers->notelepon) }}" required>
+                    <input type="number" class="form-control @error('notelepon') is-invalid @enderror" id="telepon" name="notelepon" value="{{ old('notelepon', $pelanggans->notelepon) }}" required readonly> 
                     @error('notelepon')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                <label for="telepon" class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" value="{{ old('alamat', $customers->alamat) }}" required>
+                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="telepon" name="alamat" value="{{ old('alamat', $pelanggans->alamat) }}" required readonly>
                     @error('alamat')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div class="col-12">
-                <input type="submit" name="simpan" value="Edit Perubahan" class="btn btn-primary">
+                <input type="hidden" class="form-control" name="status_aktif" value="hapus" required readonly>
+                <input type="submit" name="simpan" value="Hapus Data" class="btn btn-primary">
             </div>
         </form>
         
