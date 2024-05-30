@@ -1,222 +1,268 @@
-<!--
-=========================================================
-* Paper Dashboard 2 - v2.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-dashboard-2
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Paper Dashboard 2 by Creative Tim
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-  <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saerah Dashboard</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('template/plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet"
+    href="{{asset('template/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{{asset('template/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{{asset('template/plugins/jqvmap/jqvmap.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('template/dist/css/adminlte.min.css')}}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{asset('template/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{asset('template/plugins/daterangepicker/daterangepicker.css')}}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{asset('template/plugins/summernote/summernote-bs4.min.css')}}">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
 </head>
 
-<body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="white" data-active-color="danger">
-      <div class="logo">
-        <a href="https://www.creative-tim.com" class="simple-text logo-mini">
-          <div class="logo-image-small">
-            <img src="../assets/img/logo-small.png">
-          </div>
-          <!-- <p>CT</p> -->
-        </a>
-        <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-          <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-          </div> -->
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        {{-- menu --}}
-        <ul class="nav">
-          <li class="active ">
-            <a href="./dashboard.html">
-              <i class="nc-icon nc-bank"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li>
-            <a href="./icons.html">
-              <i class="nc-icon nc-diamond"></i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li>
-            <a href="./map.html">
-              <i class="nc-icon nc-pin-3"></i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li>
-            <a href="./notifications.html">
-              <i class="nc-icon nc-bell-55"></i>
-              <p>Notifications</p>
-            </a>
-          </li>
-          <li>
-            <a href="./user.html">
-              <i class="nc-icon nc-single-02"></i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li>
-            <a href="./tables.html">
-              <i class="nc-icon nc-tile-56"></i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li>
-            <a href="./typography.html">
-              <i class="nc-icon nc-caps-small"></i>
-              <p>Typography</p>
-            </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="nc-icon nc-spaceship"></i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
-        </ul>
-      </div>
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="/assets/logosr.png" alt="AdminLTELogo" height="60" width="60">
     </div>
-    <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
-            <a class="navbar-brand" href="javascript:;">Paper Dashboard 2</a>
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index3.html" class="nav-link">Home</a>
+        </li>
+      </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->email }}</span>
+            <img class="img-profile rounded-circle" src="{{asset('template/dist/img/user2-160x160.jpg')  }}"
+              width="25px" ;>
+          </a>
+          <!-- Dropdown - User Information -->
+          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="{{route('dashboard.indexlihat')}}">
+              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+              Profile
+            </a>
+            <a class="dropdown-item" href="#">
+              <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+              Settings
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ route('login.logout') }}">
+              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+              Logout
+            </a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="nc-icon nc-zoom-split"></i>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link btn-magnify" href="javascript:;">
-                  <i class="nc-icon nc-layout-11"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item btn-rotate dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="nc-icon nc-bell-55"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Some Actions</span>
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link btn-rotate" href="javascript:;">
-                  <i class="nc-icon nc-settings-gear-65"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
-              </li>
-            </ul>
+        </li>
+
+      </ul>
+
+    </nav>
+    <!-- End of Topbar -->
+    </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="index3.html" class="brand-link">
+        <img src="/assets/logosr.png" alt="Logo" class="brand-image img-circle">
+        <span class="brand-text font-weight-light">Saerah</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="{{asset('template/dist/img/user2-160x160.jpg')  }}" class="img-circle elevation-2"
+              alt="User Image">
+          </div>
+          <div class="info">
+            <a href="/lihatprofile" class="d-block">{{ Auth::user()->nama }}</a>
           </div>
         </div>
-      </nav>
-      <!-- End Navbar -->
 
-      {{-- content --}}
-     @yield('content')
 
-      {{-- end content --}}
-      <footer class="footer footer-black  footer-white ">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+            <li class="nav-header">PAGES</li>
+
+            <li class="nav-item">
+              <a href="/dashboard" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  Profile
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/lihatprofile" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Lihat Profile</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/editprofile" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Edit Profile</p>
+                  </a>
+                </li>
               </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
-            </div>
+            </li>
+
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-cog"></i>
+                <p>
+                  Settings
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/editpass" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Password</p>
+                  </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a href="pages/tables/data.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Log out</p>
+                  </a>
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- <li class="nav-item">
+              <a href="pages/kanban.html" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  History Pemesanan
+                </p>
+              </a>
+            </li> -->
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Small boxes (Stat box) -->
+          @yield('content')
+          <!-- /.row -->
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-12 connectedSortable">
+
+            </section>
+            <!-- /.Left col -->
+            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-5 connectedSortable">
+              <!-- conten buat tambahan -->
+            </section>
+            <!-- right col -->
           </div>
-        </div>
-      </footer>
+          <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
     </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
   </div>
-  <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-      demo.initChartsPages();
-    });
-  </script>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="{{asset('template/plugins/jquery/jquery.min.js')}}"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="{{asset('template/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <!-- <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script> -->
+  <!-- Bootstrap 4 -->
+  <script src="{{asset('template/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <!-- ChartJS -->
+  <script src="{{asset('template/plugins/chart.js/Chart.min.js')}}"></script>
+  <!-- Sparkline -->
+  <script src="{{asset('template/plugins/sparklines/sparkline.js')}}"></script>
+  <!-- JQVMap -->
+  <script src="{{asset('template/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+  <script src="{{asset('template/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="{{asset('template/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+  <!-- daterangepicker -->
+  <script src="{{asset('template/plugins/moment/moment.min.js')}}"></script>
+  <script src="{{asset('template/plugins/daterangepicker/daterangepicker.js')}}"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="{{asset('template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+  <!-- Summernote -->
+  <script src="{{asset('template/plugins/summernote/summernote-bs4.min.js')}}"></script>
+  <!-- overlayScrollbars -->
+  <script src="{{asset('template/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+  <!-- AdminLTE App -->
+  <script src="{{asset('template/dist/js/adminlte.js')}}"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="{{asset('template/dist/js/demo.js')}}"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="{{asset('template/dist/js/pages/dashboard.js')}}"></script>
 </body>
 
 </html>

@@ -21,6 +21,13 @@
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
           <form action="/login/sesi" method="post" class="text-white">
             @csrf
+
+            @if (session('success'))
+        <div class="alert alert-success">
+        {{ session('success') }}
+        </div>
+      @endif
+
             @if ($errors->any())
         <div class="alert alert-danger">
         <ul>
@@ -36,7 +43,7 @@
               <label class="form-label" for="email">Email address</label>
               <input name="email" value="{{ old('email') }}" type="email" id="email"
                 class="form-control form-control-lg" required />
-                
+
             </div>
 
             <!-- Password input -->

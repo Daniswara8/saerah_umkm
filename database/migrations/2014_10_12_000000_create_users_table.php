@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -14,12 +13,13 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->bigInteger('kontak');
+            $table->string('kontak');
             $table->text('alamat');
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('status_publish', ['publish', 'draft']);
-            $table->enum('status_aktif', ['aktif', 'hapus']);
+            $table->string('konfirmasi_pass');
+            $table->enum('status_publish', ['publish', 'draft'])->default('draft');
+            $table->enum('status_aktif', ['aktif', 'hapus'])->default('aktif');
             $table->string('slug_link');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
