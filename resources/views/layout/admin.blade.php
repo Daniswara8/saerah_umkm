@@ -116,7 +116,7 @@
         </div>
       </li>
       <!-- Notifications Dropdown Menu -->
- 
+
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -147,7 +147,7 @@
           <img src="{{asset('template/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Saerah</a>
         </div>
       </div>
 
@@ -176,6 +176,16 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="/product" class="nav-link">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Data Produk
+              </p>
+            </a>
+          </li>
+
           <!-- <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>

@@ -35,6 +35,7 @@ Route::get('/', function () {
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/user', 'index')->name('user.index');
+    Route::get('/search', 'search')->name('search');
 
     Route::get('/product', 'admin')->name('product.admin');
     Route::get('/product/history', 'history')->name('product.history');
@@ -50,6 +51,10 @@ Route::controller(ProductController::class)->group(function () {
     // detail product
     Route::get('/produk/detail/{id}', 'detail')->name('produk.detail');
     // Route::get('/product/{id}', [ProductController::class, 'detail']);
+
+    // memeriksa stok produk
+    // Route::resource('product');
+    // Route::get('product/{products}/stock')->name('product.stock');
 });
 
 Route::controller(PelangganController::class)->group(function () {

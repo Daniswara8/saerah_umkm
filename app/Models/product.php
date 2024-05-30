@@ -28,5 +28,11 @@ class Product extends Model
         'jumlah_produk',
         'Slug_link',
     ];
+
+    public function scopeSearch($query, $term)
+    {
+        return $query->where('nama_produk', 'LIKE', "%{$term}%")
+                     ->orWhere('deskripsi_produk', 'LIKE', "%{$term}%");
+    }
 }
 
