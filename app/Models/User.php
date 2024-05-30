@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -23,6 +22,7 @@ class User extends Authenticatable
         'alamat',
         'email',
         'password',
+        'konfirmasi_pass',
         'status_publish',
         'status_aktif',
         'slug_link',
@@ -30,7 +30,6 @@ class User extends Authenticatable
         'created_by',
         'updated_by',
         'deleted_by',
-      
     ];
 
     /**
@@ -40,7 +39,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        
     ];
 
     /**
@@ -50,6 +48,5 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
 }

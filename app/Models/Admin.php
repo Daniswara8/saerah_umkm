@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Admin extends Model
 {
@@ -20,6 +21,7 @@ class Admin extends Model
        'email',
        'password',
        'slug_link', 
+       'status_aktif', 
        'created_at',
        'updated_at',
     ];

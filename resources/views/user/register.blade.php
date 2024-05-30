@@ -26,23 +26,21 @@
 
                   <form action="{{route('register.store')}}" method="POST" class="user mx-1 mx-md-4">
                     @csrf
-                    <!-- @error('email')
-                    <div class="alert alert-danger" role="alert">
-                      {{ $message }}
-                    </div>
-                    @enderror
-                    @error('nama')
-                <div style="color: red;">{{ $message }}</div>
-            @enderror -->
-                    @if ($errors->any())
-            <div class="alert alert-danger">
-            <ul>
-              @foreach ($errors->all() as $error)
-        <li class="list-unstyled">{{ $error }}</li>
-      @endforeach
-            </ul>
+                    @if (session('success'))
+            <div class="alert alert-success">
+              {{ session('success') }}
             </div>
           @endif
+                    @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+              @foreach ($errors->all() as $error)
+          <li class="list-unstyled">{{ $error }}</li>
+        @endforeach
+              </ul>
+            </div>
+          @endif
+
                     <div class="row mb-4">
                       <div class="col-md-6 d-flex flex-row align-items-center">
                         <i class="bi bi-person-fill fa-lg me-3 fa-fw"></i>
@@ -56,12 +54,10 @@
                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
                           <label class="form-label" for="kontak">Kontak</label>
                           <input name="kontak" type="text" class="form-control form-control-user"
-                            id="exampleInputKontak">
+                            id="exampleInputKontak" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         </div>
                       </div>
                     </div>
-
-
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="bi bi-house-door-fill fa-lg me-3 fa-fw"></i>
@@ -80,25 +76,35 @@
                       </div>
                     </div>
 
-                    <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="d-flex flex-row align-items-center mb-4 position-relative">
                       <i class="bi bi-key-fill fa-lg me-3 fa-fw"></i>
-                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="pass">Password</label>
-                        <input name="password" type="password" class="form-control form-control-user"
-                          id="exampleInputPassword">
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0 position-relative"
+                        style="position: relative;">
+                        <label class="form-label" for="password">Password</label>
+                        <input name="password" type="password" class="form-control form-control-user" id="password">
+                        <i class="bi bi-eye-fill" id="togglePassword"
+                          style="position: absolute; top: 50%; right: 10px; transform: translateY(20%); cursor: pointer;"></i>
                       </div>
                     </div>
 
-
+                    <div class="d-flex flex-row align-items-center mb-4 position-relative">
+                      <i class="bi bi-key-fill fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="password_confirmation">Konfirmasi Password</label>
+                        <input name="password_confirmation" type="password" class="form-control form-control-user"
+                          id="password_confirmation">
+                        <i class="bi bi-eye-fill" id="toggleConfirmPassword"
+                          style="position: absolute; top: 50%; right: 10px; transform: translateY(20%); cursor: pointer;"></i>
+                      </div>
+                    </div>
 
                     <div class="d-flex justify-content-center mt-4 mb-1">
                       <button type="submit" class="btn btn-primary btn-md w-25 mx-5">Register</button>
-                      <button type="reset" class="btn btn-danger btn-md w-25 ">Reset</button>
+                      <button type="reset" class="btn btn-danger btn-md w-25">Reset</button>
                     </div>
 
                   </form>
-                  <p class="text-center pt-4">Already have an account? <a href="{{route('login.index')}}">Sign in</a>
-                  </p>
+                  <p class="text-center pt-4">Sudah punya akun? <a href="{{route('login.index')}}">Sign in</a></p>
                 </div>
               </div>
             </div>
@@ -112,6 +118,21 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+      const passwordField = document.getElementById('password');
+      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordField.setAttribute('type', type);
+      this.classList.toggle('bi-eye-slash-fill');
+    });
+
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
+      const passwordField = document.getElementById('password_confirmation');
+      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordField.setAttribute('type', type);
+      this.classList.toggle('bi-eye-slash-fill');
+    });
+  </script>
 </body>
 
 </html>

@@ -118,7 +118,7 @@ class ProductController extends Controller
                 // Memulihkan produk
                 $products->restore();
 
-                // Redirect ke halaman history dengan pesan sukses
+                // Redirect ke halaman history dengan pesan sukses  
                 return redirect()->route('product.admin')->with(['success' => 'Berhasil memulihkan produk !']);
             }
 
