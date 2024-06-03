@@ -10,6 +10,10 @@ Route::get('/', function () {
     return view('dashboardUsers.dashboard');
 });
 
+Route::get('/keranjang', function () {
+    return view('keranjang.keranjang');
+});
+
 Route::controller(ProductController::class)->group(function () {
     Route::get('/user', 'index')->name('user.index');
     Route::get('/search', 'search')->name('search');
@@ -64,3 +68,4 @@ Route::controller(AdminController::class)->group(function () {
     Route::put('/deleteCustomer/softdelete/{Slug_link}', 'softdelete')->name('customerAdmin.softDeleted');
     Route::delete('/customerAdmin/{slug}', 'destroy')->name('customerAdmin.destroy');
 });
+    

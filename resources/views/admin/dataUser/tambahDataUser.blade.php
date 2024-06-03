@@ -49,7 +49,7 @@
             <div class="mb-3 row">
                 <label for="telepon" class="col-sm-2 col-form-label">No. Telepon</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" id="telepon" name="notelepon" placeholder="Isi Nomor" required>
+                    <input type="number" class="form-control" id="telepon" name="kontak" placeholder="Isi Nomor" required>
                 </div>
             </div>
 

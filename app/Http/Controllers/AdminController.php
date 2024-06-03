@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Admin;
+use App\Models\User;
 
 use Illuminate\View\View;
 
@@ -16,39 +16,39 @@ class AdminController extends Controller
     // tampil view
     public function tambahDataCustomer(): View
     {
-        $masters = Admin::latest()->first();
-        return view('admin.tambahData', compact('masters'));
+        $masters = User::latest()->first();
+        return view('admin.dataUser.tambahDataUser', compact('masters'));
     }
 
     public function tampilDataCustomer(): View
     {
-        $pelanggans = Admin::all()->where('status_aktif', '=', 'aktif');
+        $pelanggans = User::all()->where('status_aktif', '=', 'aktif');
         return view('admin.dataUser.tampilDataUser', compact('pelanggans'));
     }
 
     public function editDataCustomer(string $slug_link): View 
     {
-        $pelanggans = Admin::where('slug_link','=', $slug_link)->firstorfail();
+        $pelanggans = User::where('slug_link','=', $slug_link)->firstorfail();
         return view('admin.dataUser.editDataUser', compact('pelanggans'));
     }
 
     public function softDeleteDataCustomer(string $slug_link) {
-        $pelanggans = Admin::where('slug_link','=', $slug_link)->firstorfail();
+        $pelanggans = User::where('slug_link','=', $slug_link)->firstorfail();
         return view('admin.dataUser.softDeleteDataUser', compact('pelanggans'));
     }
 
     public function restoreDataCustomer(string $slug_link) {
-        $pelanggans = Admin::where('slug_link','=', $slug_link)->firstorfail();
+        $pelanggans = User::where('slug_link','=', $slug_link)->firstorfail();
         return view('admin.dataUser.restoreDataUser', compact('pelanggans'));
     }
 
     public function forceDeleteDataCustomer(string $slug_link) {
-        $pelanggans = Admin::where('slug_link','=', $slug_link)->firstorfail();
+        $pelanggans = User::where('slug_link','=', $slug_link)->firstorfail();
         return view('admin.dataUser.forceDeleteDataUser', compact('pelanggans'));
     }
 
     public function historiDataCustomer() {
-        $pelanggans = Admin::where('status_aktif', '=', 'hapus')->get();
+        $pelanggans = User::where('status_aktif', '=', 'hapus')->get();
         return view('admin.dataUser.historiDataUser', compact('pelanggans'));
     }
     // end
@@ -64,17 +64,17 @@ class AdminController extends Controller
         'nama'      =>'required',
         'email'     =>'required|min:8|unique:admins',
         'password'  =>'required',
-        'notelepon' =>'required',
+        'kontak'    =>'required',
         'alamat'    =>'required',
     ]);
 
     $slug = str::slug($request->nama, '-');
 
-        Admin::create ([
+        User::create ([
         'nama'              =>$request->nama,
         'email'             =>$request->email,
         'password'          =>$request->password,
-        'notelepon'         =>$request->notelepon,
+        'kontak'            =>$request->kontak,
         'alamat'            =>$request->alamat,
         'status_aktif'      =>$request->status_aktif,
         'slug_link'         =>$slug,
@@ -87,13 +87,13 @@ class AdminController extends Controller
 
     public function update(Request $request, string $slug_link)
     {
-    $pelanggans = Admin::where('slug_link', $slug_link)->firstOrFail();
+    $pelanggans = User::where('slug_link', $slug_link)->firstOrFail();
 
     $this->validate($request, [
         'email'     => 'required|min:8|unique:admins,email,' . $pelanggans->id,
         'password'  => 'required',
         'nama'      => 'required',
-        'notelepon' => 'required',
+        'kontak'    => 'required',
         'alamat'    => 'required',
     ]);
 
@@ -103,7 +103,7 @@ class AdminController extends Controller
         'email'         => $request->email,
         'password'      => $request->password,
         'nama'          => $request->nama,
-        'notelepon'     => $request->notelepon,
+        'kontak'        => $request->kontak,
         'alamat'        => $request->alamat,
         'status_aktif'  => $request->status_aktif,
         'slug_link'     => $slug,
@@ -125,13 +125,13 @@ class AdminController extends Controller
 
     public function softdelete(Request $request, string $slug_link)
     {
-    $pelanggans = Admin::where('slug_link', $slug_link)->firstOrFail();
+    $pelanggans = User::where('slug_link', $slug_link)->firstOrFail();
 
     $this->validate($request, [
         'email'     => 'required|min:8|unique:admins,email,' . $pelanggans->id,
         'password'  => 'required',
         'nama'      => 'required',
-        'notelepon' => 'required',
+        'kontak'    => 'required',
         'alamat'    => 'required',
     ]);
 
@@ -141,7 +141,7 @@ class AdminController extends Controller
         'email'         => $request->email,
         'password'      => $request->password,
         'nama'          => $request->nama,
-        'notelepon'     => $request->notelepon,
+        'kontak'        => $request->kontak,
         'alamat'        => $request->alamat,
         'status_aktif'  => $request->status_aktif,
         'slug_link'     => $slug,
@@ -153,7 +153,7 @@ class AdminController extends Controller
 
     public function destroy($slug)
     {
-        $pelanggans = Admin::where('slug_link', $slug)->first();
+        $pelanggans = User::where('slug_link', $slug)->first();
 
         if (!$pelanggans) {
             return redirect()->route('customerAdmin.index')->with(['error' => 'Data tidak ditemukan!']);
