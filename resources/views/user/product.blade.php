@@ -12,11 +12,11 @@
         @foreach ($products as $pro)
         {{-- <a href="{{ route('produk.detail', $pro->id) }}"> --}}
             <div class="col col-3 card me-4">
-                <img src="{{ asset('assets/' . $pro->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px; border-radius:100px 0px;">
+                <img src="{{ asset('assets/' . $pro->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px; border-radius:10px;">
                     <div class="card-body">
-                        <p class="card-text" style="margin-bottom: 0; font-size:20px;"><b>{{ $pro->nama_produk }}</b></p>
-                        <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
-                        <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
+                        <p class="card-text" style="margin-bottom: 0; font-size:20px; text-transform: capitalize; "><b>{{ $pro->nama_produk }}</b></p>
+                        {{-- <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p> --}}
+                        <span><p class="text-right"><b>{{ $pro->harga_produk }}</b></p></span>
                         {{-- <a href="#"><i class="bi bi-cart3"></i></a> rgb(255, 141, 179) --}}
                         <a href="{{ route('produk.detail', $pro->id) }}" class="btn btn-outline-secondary btn-sm bi bi-arrows-angle-expand" style="border-radius: 25px; width:100%;"> Detail</a>
                         {{-- <a href="{{ route('produk.detail', $pro ->id) }}" class="btn btn-outline-secondary btn-sm"> --}}
