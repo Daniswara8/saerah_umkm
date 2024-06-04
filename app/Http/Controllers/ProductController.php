@@ -20,6 +20,7 @@ class ProductController extends Controller
         return view('user/product', compact('products'));
     }
 
+
     public function admin() {
         $products = product::all();
         return view('admin/product', compact('products'));
