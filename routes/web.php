@@ -2,18 +2,42 @@
 
 use App\Http\Controllers\DashboarduserController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PelangganController;
-use App\Http\Controllers\StripePaymentController;
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
 Route::get('/', function () {
     return view('dashboardUsers.dashboard');
 });
 
-Route::get('/checkout', function() {
-    return view('user.checkout');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/home', 'index')->name('index');
+    Route::get('/product/{id}', 'show')->name('product.show');
 });
+
+
+// Route::controller(ProductController::class)->group(function () {
+//     Route::get('/user', 'index')->name('user.index');
+// });
+
+// product
+// Route::get('/user', function () {
+//     return view('user.product');
+// });
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/user', 'index')->name('user.index');
@@ -59,6 +83,11 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('/restoreCustomer/restore/{slug_link}', 'restoreDataCustomer')->name('customerAdmin.restore');
     Route::put('/updateCustomer/edit/{slug_link}', 'update')->name('customerAdmin.update');
     Route::post('/masterAdmin/tambah', 'store')->name('masterAdmin.store');
+    Route::put('/deleteCustomer/softdelete/{Slug_link}', 'softdelete')->name('customerAdmin.softdelete');
     Route::put('/deleteCustomer/softdelete/{Slug_link}', 'softdelete')->name('customerAdmin.softDeleted');
     Route::delete('/customerAdmin/{slug}', 'destroy')->name('customerAdmin.destroy');
 });
+
+   
+
+

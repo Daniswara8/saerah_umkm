@@ -34,7 +34,7 @@
         });
         </script>
 
-        <link rel="website icon" type="jpeg" href="assets/ktgkebaya.jpeg">
+        <link rel="website icon" href="assets/srnobg.png">
 
     <style>
      @media only screen and (max-width: 768px) {
@@ -288,15 +288,15 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
 
-            <div class="col-2">
-                <img src="/assets/logosr.png" alt="" width="100px" style="filter: drop-shadow(5px 3px 5px black);">
+            <div class="col-2 mt-2 ms-2">
+                <img src="/assets/logosr.png" alt="" width="70px" style="filter: drop-shadow(2px 1px 2px black);">
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -318,8 +318,8 @@
                     </form>
 
 
-                <a href="#"><i class="bi bi-person-circle" style="margin-left: 30px;"></i></a>
-                <a href="#"><i class="bi bi-cart3 me-3" style="margin-left: 10px;"></i></a>
+                <a href="/login "><i class="bi bi-person-circle" style="margin-left: 30px;"></i></a>
+                <a href="/keranjang"><i class="bi bi-cart3 me-3" style="margin-left: 10px;"></i></a>
             </div>
     </div>
 </nav>

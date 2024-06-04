@@ -11,7 +11,7 @@
                                     <div class="p-5">
                                         <div class="d-flex justify-content-between align-items-center mb-5">
                                             <h3 class="mb-0 text-black">
-                                                <a href="/menu" class="back"><i class="bi bi-arrow-left-circle"></i></a>
+                                                <a href="/user" class="back"><i class="bi bi-arrow-left-circle"></i></a>
                                                 Kembali Ke Produk
                                             </h3>
                                         </div>

@@ -133,7 +133,7 @@
                                     <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> L</a>
                                     <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> XL</a><br><br> --}}
 
-                                    <a href="#" class="btn btn-outline-secondary btn-sm bi bi-cart3" style="border-radius: 25px; width:100%;"> Keranjang</a><br><br>
+                                    <a href="/keranjang" class="btn btn-outline-secondary btn-sm bi bi-cart3" style="border-radius: 25px; width:100%;"> Keranjang</a><br><br>
 
                                     <h5><strong>Deskripsi</strong></h5><p>{{ $products->deskripsi_produk }}</p>
                                 </div>
