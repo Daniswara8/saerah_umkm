@@ -75,7 +75,7 @@
                     <tr>
                         <th>No</th>
                         <th>Foto</th>
-                        <th>Nama Produk</th>
+                        <th>Nama</th>
                         {{-- <th>Ukuran</th> --}}
                         <th>Deskripsi</th>
                         {{-- <th>Motif</th> --}}
