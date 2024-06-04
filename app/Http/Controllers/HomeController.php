@@ -19,7 +19,7 @@ class HomeController extends Controller
         }
         
         public function show($id): View {
-            $pro = Product::find($id); // Ambil produk berdasarkan ID
+            $product = Product::find($id); // Ambil produk berdasarkan ID
             return view('user.product', compact('pro')); // Mengirimkan data pro ke view
         }
 

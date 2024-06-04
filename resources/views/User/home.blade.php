@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>homepage</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <style>
-  body {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    /* Masukkan CSS yang Anda miliki di sini */
+    body {
     background-color: #e7dbdb
   };
 
@@ -80,7 +80,6 @@
   .deskripsi{
     font-size: medium;
   }
-  
   .foto1{
     margin:auto ;
     margin-left:475px;
@@ -115,10 +114,8 @@
     border: 4px solid #9F959E;
     border-radius:15px;
     margin-top:155px;
-    
   }
-
-  .mas img{
+    .mas img{
     width: 178px;
     height:256px;
     margin-right:20px;
@@ -142,20 +139,24 @@
     text-align: center;
     margin-top: 175px;
   }
-  .slide h1{
-    font-size:20px;
-  }
-  
 
-  .add{
-    background-color: #A01B5A;
-    width: 170px;
-    height:30px;
-    border-radius: 20px;
-    color: white;
-  }
+  .carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+  .card {
+    width: 18rem;
+    margin: 10px;
+        }
+  .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+  .carousel-inner {
+    display: flex;
+        }
   
-
   .about{
     margin:auto;
     text-align:center;
@@ -168,10 +169,6 @@
     padding-top:113px;
   }
 
-  .fw-normal{
-    font-size:18px;
-  }
-
   .map-container{
     margin-top:95px;
     text-align:center;
@@ -181,12 +178,8 @@
             height: 100%;
             border: 0;}
 
-  
-
-  
-/*tampilan hp*/
   @media screen and (max-width:576px){
-    h2{
+  h2{
       font-size:medium;
     }
     .form-control{
@@ -256,40 +249,8 @@
       width: 115px;
       margin-bottom:5px;
     }
-
     .fw-bold{
       font-size:10px;
-    }
-    
-    .slide h1{
-      font-size:10px;
-    }
-
-    .slide h2{
-      margin:0px;
-    }
-
-    .outer-frame {
-      width:92px;
-      height:200px;
-      margin:0px 20px 0px 40px;
-      padding: 5px;
-    }
-
-    .inner-frame{
-      width: 75px;
-      height: 100px;
-      border-radius: 10px;
-      margin-left:2px;
-    }
-    .add{ 
-      width: 75px;
-      height:20px;
-      border-radius: 20px;
-      font-size: 10px;
-    }
-    .carousel-indicators{
-      bottom: -50px;
     }
     .about{
       width:300px;
@@ -300,271 +261,169 @@
     .about h3{
       font-size: 14px;
     }
+
     .fw-normal{
     font-size: 12px;
     }
+  
+    
   }
-  
-        
-  
-    </style>
+
+  </style>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-  
-    <div class="col-3">
-                <img src="assets/imgwlc/logosr.png" alt="" width="150px" style="filter: drop-shadow(5px 3px 5px black);">
-            </div>
-
-  
-    <div class="navbar">
-    <a class="navbar-brand" href="#">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ url('/user') }}">Product</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link me-3" href="#tentang">About Us</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-                        <input class="form-control me-2 custom" type="search" placeholder="Cari Disini" aria-label="Search">
-                        <button class="btn btn-outline-secondary rounded-pill bi bi-search cuzz" type="submit"></button>
-        </form>  
-        <a href="{{ url('/register') }}"><i class="bi bi-person-circle me-3" style="margin-left:10px">Masuk</i></a>
-        <a href="#"><i class="bi bi-cart3 me-3"></i></a>
-        
+      <div class="col-3">
+        <img src="assets/imgwlc/logosr.png" alt="" width="150px" style="filter: drop-shadow(5px 3px 5px black);">
+      </div>
+      <div class="navbar">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{ url('/user') }}">Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-3" href="#tentang">About Us</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 custom" type="search" placeholder="Cari Disini" aria-label="Search">
+            <button class="btn btn-outline-secondary rounded-pill bi bi-search cuzz" type="submit"></button>
+          </form>
+          <a href="{{ url('/register') }}"><i class="bi bi-person-circle me-3" style="margin-left:10px">Masuk</i></a>
+          <a href="#"><i class="bi bi-cart3 me-3"></i></a>
+        </div>
       </div>
     </div>
   </nav>
-   
   <br>
 
-<div class="opening d-flex">
-  <div class="pembuka">
-   <h2>
-    Mari Jelajahi Koleksi <br>
-    Fashion Kami yang<br>
-    Eksklusif. <button class="getstarted" id="scrollButton" 
-    onclick=""> <i class="bi bi-caret-right mb-2"></i>Get Started</button><br>
-    <div class="turun"><i class="bi bi-chevron-down"></i></div>    
-  </h2>
-</div>
-
-<div class="batik-atas">
-  <div class="pict1">
-   <img src="assets/imgwlc/batikpanjang1.jpg" >
-  </div>
-
-  <div class="pict2">
-    <img src="assets/imgwlc/batikpanjang2.jpg" >
-  </div>
-
-  <div class="pict3">
-    <img src="assets/imgwlc/batikpanjang3.jpg" >
-  </div>
-</div>
-</div>
-
-<div class="target" id="targetElement">
- <div class="collection">
-  <h3>Saerah Collection</h3>
-  <h1 class="deskripsi">Di Toko Saerah menyediakan berbagai macam baju<br>Batik, Kebaya</h1>
- </div>
-
- <div class="foto1">
-  <div id="img1">
-   <div class="batik">
-    <img src="assets/imgwlc/modelcowok.png" >
-    <p class="fw-capitalize"> Batik</p>
-   </div>
-   <br>
-   <div class="kebaya">
-    <img src="assets/imgwlc/modelcewek.png">
-    <p class="fw-capitalize">Kebaya</p>
-   </div>
- </div>
-</div> 
-</div>
-
-<div class="berita d-flex">
-  <div class="mas">
-  <img src="assets/imgwlc/mas.png" >
-  </div>
-  <div class="diskon">
-  <h2>S A E R A H | S P E S I A L  E D I S I</h2><br>
-  <p class="fw-bold">Diskon Besar Besaran Hingga 80%, Nikmati<br> Berbelanja dengan Senang</p>
-  </div>
-  <div class="mba">
-  <img src="assets/imgwlc/mba.png">
-  </div>
-</div>
-
-<div class="bestsell">
-  <h3>Saerah Best Seller</h3>
-</div>
-
-<div id="carouselExampleIndicators" class="carousel slide">
-   <div class="carousel-indicators">
-     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-   </div>
-     <div class="carousel-inner">
-       <div class="carousel-item active d-inline-flex">
-       <div class="row">
-        <div class="col-md-4">
-         <div class="card me-4">
-          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-            <div class="card-body">
-             <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
-             <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
-             <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
-             <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
-            </div>
-         </div>
-        </div>                                                           
-       </div>
-       <div class="col-md-4">
-        <div class="card me-4">
-         <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-        <div class="card-body">
-         <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
-         <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
-         <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
-         <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
-        </div>
-       </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card me-4">
-          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-        <div class="card-body">
-          <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
-          <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
-          <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
-          <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
-        </div>
-      </div>
-
-        <div class="carousel-item">
-        <div class="row">
-        <div class="col-md-4">
-         <div class="card me-4">
-          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-            <div class="card-body">
-             <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
-             <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
-             <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
-             <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
-            </div>
-         </div>
-        </div>                                                           
-       </div>
-       <div class="col-md-4">
-        <div class="card me-4">
-         <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-        <div class="card-body">
-         <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
-         <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
-         <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
-         <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
-        </div>
-       </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card me-4">
-          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-        <div class="card-body">
-          <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
-          <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
-          <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
-          <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
-        </div>
-      </div>
-        </div>
-
-        <div class="carousel-item">
-        <div class="row">
-        <div class="col-md-4">
-         <div class="card me-4">
-          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-            <div class="card-body">
-             <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
-             <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
-             <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
-             <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
-            </div>
-         </div>
-        </div>                                                           
-       </div>
-       <div class="col-md-4">
-        <div class="card me-4">
-         <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-        <div class="card-body">
-         <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
-         <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
-         <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
-         <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
-        </div>
-       </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card me-4">
-          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-        <div class="card-body">
-          <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
-          <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
-          <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
-          <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
-        </div>
-      </div>
-   </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-</div>
-
-
-<section id="tentang">
-<div class="about">
-  <h3>About Us</h3>
-  <br>
-  <p class="fw-normal">Selamat datang di Saerah, rumah bagi keindahan tradisi dalam busana.<br>
-  Kami dengan bangga menghadirkan koleksi baju adat yang indah dan beragam, merangkul kekayaan budaya Indonesia.<br>
-  Dalam setiap jahitan dan motif, kami memadukan keterampilan tradisional dengan desain yang menarik,<br>
-  menciptakan busana adat yang tak hanya mempesona tapi juga relevan dalam gaya masa kini.</p>
-</div>
-</section>
-
-<div class="map-container">
-<h3>Lokasi</h3>
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.120062121915!2d110.47570119999996!3d-6.995138499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d1fb98592af%3A0x870265347dce57e3!2sgraha%20rias%20KRATON!5e0!3m2!1sid!2sid!4v1715910399923!5m2!1sid!2sid" 
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</div>
-
-<div class="footer">
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div class="col-md-4 d-flex align-items-center">
-      <span class="mb-3 mb-md-0 text-body-secondary"> © 2024 Saerah, Inc </span>
+  <div class="opening d-flex">
+    <div class="pembuka">
+      <h2>Mari Jelajahi Koleksi <br>Fashion Kami yang<br>Eksklusif. <button class="getstarted" id="scrollButton"><i
+            class="bi bi-caret-right mb-2"></i>Get Started</button><br>
+        <div class="turun"><i class="bi bi-chevron-down"></i></div>
+      </h2>
     </div>
-</footer>
-</div>
+    <div class="batik-atas">
+      <div class="pict1"><img src="assets/imgwlc/batikpanjang1.jpg"></div>
+      <div class="pict2"><img src="assets/imgwlc/batikpanjang2.jpg"></div>
+      <div class="pict3"><img src="assets/imgwlc/batikpanjang3.jpg"></div>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <div class="target" id="targetElement">
+    <div class="collection">
+      <h3>Saerah Collection</h3>
+      <h1 class="deskripsi">Di Toko Saerah menyediakan berbagai macam baju<br>Batik, Kebaya</h1>
+    </div>
+
+    <div class="foto1">
+      <div id="img1">
+        <div class="batik">
+          <img src="assets/imgwlc/modelcowok.png">
+          <p class="fw-capitalize">Batik</p>
+        </div>
+        <br>
+        <div class="kebaya">
+          <img src="assets/imgwlc/modelcewek.png">
+          <p class="fw-capitalize">Kebaya</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="berita d-flex">
+    <div class="mas"><img src="assets/imgwlc/mas.png"></div>
+    <div class="diskon">
+      <h2>S A E R A H | S P E S I A L E D I S I</h2><br>
+      <p class="fw-bold">Diskon Besar Besaran Hingga 80%, Nikmati<br>Berbelanja dengan Senang</p>
+    </div>
+    <div class="mba"><img src="assets/imgwlc/mba.png"></div>
+  </div>
+
+  <div class="bestsell">
+    <h3>Saerah Best Seller</h3>
+  </div>
+
+  <div class="container mt-5">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                @foreach($products->chunk(3) as $productChunk)
+                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                        <div class="d-flex justify-content-center">
+                            @foreach($productChunk as $product)
+                                <div class="card me-4">
+                                    <img src="{{ asset('assets/' . $product->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+                                    <div class="card-body">
+                                        <p class="card-text" style="margin-bottom: 0;"><b>{{ $product->nama_produk }}</b></p>
+                                        <p style="margin-bottom: 0;">{{ $product->deskripsi_produk }}</p>
+                                        <p class="text-right"><b>{{ $product->harga_produk }}</b></p>
+                                        <!-- <a href="{{ route('product.show', $product->id) }}" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a> -->
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+           <!--<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>-->
+           <!--<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>-->
+        </div>
+    </div>
+    <a href="{{ url('/user')}}"><p class="fw-normal" style="text-align:center"> Tampilkan Lebih Banyak</p></a>
+
+  <section id="tentang">
+    <div class="about">
+      <h3>About Us</h3><br>
+      <p class="fw-normal">Selamat datang di Saerah, rumah bagi keindahan tradisi dalam busana.<br>
+        Kami dengan bangga menghadirkan koleksi baju adat yang indah dan beragam, merangkul kekayaan budaya
+        Indonesia.<br>
+        Dalam setiap jahitan dan motif, kami memadukan keterampilan tradisional dengan desain yang menarik,<br>
+        menciptakan busana adat yang tak hanya mempesona tapi juga relevan dalam gaya masa kini.</p>
+    </div>
+  </section>
+
+  <div class="map-container">
+    <h3>Lokasi</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15840.480265448787!2d110.475701!3d-6.995138!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d1fb98592af%3A0x870265347dce57e3!2sgraha%20rias%20KRATON!5e0!3m2!1sid!2sid!4v1717464668079!5m2!1sid!2sid"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <footer>
+    <div class="container">
+      <h4>Temukan Kami</h4>
+      <div class="sosial">
+        <i class="bi bi-whatsapp"></i>
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-twitter"></i>
+        <i class="bi bi-envelope"></i>
+      </div>
+      <div class="footer">
+        <h6>&copy; 2024 Saerah | Designed by PPLG SMK Negeri 8 Semarang</h6>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
