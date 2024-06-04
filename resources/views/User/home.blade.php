@@ -27,10 +27,10 @@
     width: 337px;
     border-radius: 20px;
   }
-
+  
   .pembuka{
     margin-top: 15%;
-    margin-right: 453px;
+    margin-right: 450px;
     margin-left: 188px;
     font-size: x-large;
   }
@@ -50,7 +50,7 @@
   }
 
   .batik-atas{
-    margin-top:75px;
+    margin-top:50px;
     border:20px;
     display: flex;
   }
@@ -98,15 +98,12 @@
     width:  264px;
   }
   
- 
   .batik{
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    text-align: center; 
   }
   
   .kebaya{     
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
     margin-left: 33px;
   }
 
@@ -124,7 +121,7 @@
   .mas img{
     width: 178px;
     height:256px;
-    margin-right:33px;
+    margin-right:20px;
     margin-top:20px;
   }
 
@@ -145,28 +142,10 @@
     text-align: center;
     margin-top: 175px;
   }
-
-  .outer-frame {
-    border: 2px solid #333; 
-    border-radius: 9px;
-    padding: 20px; 
-    width: 249px;
-    height: 416px;
-    margin-left:150px;
-    margin-right: 85px;
-    margin-bottom:75px;
+  .slide h1{
+    font-size:20px;
   }
   
-
-  .inner-frame {
-    border: 1px solid #666; 
-    border-radius: 40px;
-    padding: 20px;
-    width: 200px;
-    height: 230px;
-    margin-left: 5px;
-  }
-
 
   .add{
     background-color: #A01B5A;
@@ -187,45 +166,146 @@
     border-radius:15px;
     margin-top:75px;
     padding-top:113px;
-}
+  }
 
-  .lokasi{
+  .fw-normal{
+    font-size:18px;
+  }
+
+  .map-container{
     margin-top:95px;
     text-align:center;
   }
+  .map-container iframe {
+            width: 70%;
+            height: 100%;
+            border: 0;}
 
   
 
+  
+/*tampilan hp*/
   @media screen and (max-width:576px){
     h2{
       font-size:medium;
     }
+    .form-control{
+      width: 226px;
+    }
     .pembuka{
-      margin-left:33px;
-      width:200px;
+      width:150px;
       height:131px;
+      margin-right:25px;
+      margin-left:30px;
     }
 
     .getstarted{
       font-size:small;
-      width:131px;
+      width:125px;
+      height:30px;
+      padding:0px 20px 0px 20px;
     }
-  
+    .turun{
+      text-align:center;
+      margin: auto;
+    }
     .batik-atas img{
-     height:131px;
-     width:75px;
- }
- 
-  .foto1{
-    margin:auto ;
-    margin-left:10px;
-    height: 337px;
-    width:  300px;
-  }
+     height:75px;
+     width:33px;
+     
+    }
+    .pict1 img{
+      margin-right:5px;
+    }
+
+    .pict2 img{
+      margin-right:5px;
+    }
+    .collection{
+      margin-top:75px;
+    }
+    .deskripsi{
+      font-size:small;
+    }
+    .foto1{
+      margin:auto ;
+      margin-left:10px;
+      height: 337px;
+      width:  300px;
+    }
+    #img1 img{
+      height: 188px;
+      width: 151px; 
+    }
+
+    .berita{
+      width:300px;
+      height:151px;
+      margin-top:85px;
+    }
+
+    .berita img{
+      width:75px;
+      height:125px;
+    }
+    .diskon{
+      margin-top:25px;
+    }
+    .diskon h2{
+      font-size :10px;
+      width: 115px;
+      margin-bottom:5px;
+    }
+
+    .fw-bold{
+      font-size:10px;
+    }
+    
+    .slide h1{
+      font-size:10px;
+    }
+
+    .slide h2{
+      margin:0px;
+    }
+
+    .outer-frame {
+      width:92px;
+      height:200px;
+      margin:0px 20px 0px 40px;
+      padding: 5px;
+    }
+
+    .inner-frame{
+      width: 75px;
+      height: 100px;
+      border-radius: 10px;
+      margin-left:2px;
+    }
+    .add{ 
+      width: 75px;
+      height:20px;
+      border-radius: 20px;
+      font-size: 10px;
+    }
+    .carousel-indicators{
+      bottom: -50px;
+    }
+    .about{
+      width:300px;
+      height:250px;
+      padding:10px 3px 0px 3px;
+    }
+
+    .about h3{
+      font-size: 14px;
+    }
+    .fw-normal{
+    font-size: 12px;
+    }
   }
   
-      
-      
+        
   
     </style>
 </head>
@@ -234,8 +314,9 @@
     <div class="container-fluid">
   
     <div class="col-3">
-      <h1><span><b>S</b></span>AERAH</h1>
-    </div>
+                <img src="assets/imgwlc/logosr.png" alt="" width="150px" style="filter: drop-shadow(5px 3px 5px black);">
+            </div>
+
   
     <div class="navbar">
     <a class="navbar-brand" href="#">Home</a>
@@ -255,7 +336,7 @@
                         <input class="form-control me-2 custom" type="search" placeholder="Cari Disini" aria-label="Search">
                         <button class="btn btn-outline-secondary rounded-pill bi bi-search cuzz" type="submit"></button>
         </form>  
-        <a href="#"><i class="bi bi-person-circle me-3" style="margin-left:10px">Masuk</i></a>
+        <a href="{{ url('/register') }}"><i class="bi bi-person-circle me-3" style="margin-left:10px">Masuk</i></a>
         <a href="#"><i class="bi bi-cart3 me-3"></i></a>
         
       </div>
@@ -290,6 +371,7 @@
 </div>
 </div>
 
+<div class="target" id="targetElement">
  <div class="collection">
   <h3>Saerah Collection</h3>
   <h1 class="deskripsi">Di Toko Saerah menyediakan berbagai macam baju<br>Batik, Kebaya</h1>
@@ -299,23 +381,24 @@
   <div id="img1">
    <div class="batik">
     <img src="assets/imgwlc/modelcowok.png" >
-    <h1 style="font-size: x-large;"> Batik</h1>
+    <p class="fw-capitalize"> Batik</p>
    </div>
    <br>
    <div class="kebaya">
     <img src="assets/imgwlc/modelcewek.png">
-    <h1 style="font-size: x-large;">Kebaya</h1>
+    <p class="fw-capitalize">Kebaya</p>
    </div>
  </div>
 </div> 
+</div>
 
 <div class="berita d-flex">
   <div class="mas">
   <img src="assets/imgwlc/mas.png" >
   </div>
   <div class="diskon">
-  <h2 style="font-size:xx-large;">S A E R A H | S P E S I A L  E D I S I</h2><br>
-  <h1 style="font-size:large;">Diskon Besar Besaran Hingga 80%, Nikmati<br> Berbelanja dengan Senang</h1>
+  <h2>S A E R A H | S P E S I A L  E D I S I</h2><br>
+  <p class="fw-bold">Diskon Besar Besaran Hingga 80%, Nikmati<br> Berbelanja dengan Senang</p>
   </div>
   <div class="mba">
   <img src="assets/imgwlc/mba.png">
@@ -332,124 +415,116 @@
      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
    </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active d-inline-flex">
-          <div class="slide-first">
-        <div class="outer-frame">
-        <div class="inner-frame">
-          <img src="" alt="">
+     <div class="carousel-inner">
+       <div class="carousel-item active d-inline-flex">
+       <div class="row">
+        <div class="col-md-4">
+         <div class="card me-4">
+          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+            <div class="card-body">
+             <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
+             <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
+             <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
+             <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
+            </div>
+         </div>
+        </div>                                                           
+       </div>
+       <div class="col-md-4">
+        <div class="card me-4">
+         <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+        <div class="card-body">
+         <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
+         <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
+         <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
+         <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
         </div>
-        <h2>Batik</h2>
-        <h1 style="font-size: larger;">Kemeja kekinian<br>dikombinasi dengan batik</h1>
-        <div class="tambah">
-          <button class="add"  onclick="">
-          <i class="bi bi-cart3 me-3"></i> <a href="#"></a>Add
-          </button>
+       </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card me-4">
+          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+        <div class="card-body">
+          <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
+          <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
+          <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
+          <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
         </div>
       </div>
-    </div>
-    <div class="slide">
-      <div class="outer-frame">
-        <div class="inner-frame">
-          <img src="" alt="">
-        </div>
-        <h2>Kebaya</h2>
-        <h1 style="font-size: larger;">Kebaya dengan berbagai<br>model dan warna</h1>
-        <div class="tambah">
-          <button class="add" id="scrollButton" onclick="">
-            <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="outer-frame">
-        <div class="inner-frame">
-          <img src="" alt="">
-        </div>
-        <h2>Kain Batik</h2>
-        <h1 style="font-size: larger;">Kain batik tradisional berkualitas<br>asli Nusantara</h1>
-        <div class="tambah">
-          <button class="add" id="scrollButton" onclick="">
-            <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
-          </button>         
-        </div>
-    </div>
-          </div>
 
-          <div class="carousel-item position-fixed">
-          <div class="outer-frame">
-        <div class="inner-frame">
-          <img src="" alt="">
+        <div class="carousel-item">
+        <div class="row">
+        <div class="col-md-4">
+         <div class="card me-4">
+          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+            <div class="card-body">
+             <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
+             <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
+             <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
+             <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
+            </div>
+         </div>
+        </div>                                                           
+       </div>
+       <div class="col-md-4">
+        <div class="card me-4">
+         <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+        <div class="card-body">
+         <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
+         <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
+         <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
+         <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
         </div>
-        <h2>Batik</h2>
-        <h1 style="font-size: larger;">Kemeja kekinian<br>dikombinasi dengan batik</h1>
-        <div class="tambah">
-          <button class="add"  onclick="">
-          <i class="bi bi-cart3 me-3"></i> <a href="#"></a>Add
-          </button>
+       </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card me-4">
+          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+        <div class="card-body">
+          <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
+          <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
+          <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
+          <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
         </div>
       </div>
-    </div>
-    <div class="slide">
-      <div class="outer-frame">
-        <div class="inner-frame">
-          <img src="" alt="">
         </div>
-        <h2>Kebaya</h2>
-        <h1 style="font-size: larger;">Kebaya dengan berbagai<br>model dan warna</h1>
-        <div class="tambah">
-          <button class="add" id="scrollButton" onclick="">
-            <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
-          </button>
-          
-        </div>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="outer-frame">
-        <div class="inner-frame">
-          <img src="" alt="">
-        </div>
-        <h2>Kain Batik</h2>
-        <h1 style="font-size: larger;">Kain batik tradisional berkualitas<br>asli Nusantara</h1>
-        <div class="tambah">
-          <button class="add" id="scrollButton" onclick="">
-            <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
-          </button>
-        </div>
-    </div>
-  </div>
 
-          <div class="carousel-item position-fixed">
-          <div class="outer-frame">
-        <div class="inner-frame">
-          <img src="" alt="">
+        <div class="carousel-item">
+        <div class="row">
+        <div class="col-md-4">
+         <div class="card me-4">
+          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+            <div class="card-body">
+             <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
+             <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
+             <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
+             <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
+            </div>
+         </div>
+        </div>                                                           
+       </div>
+       <div class="col-md-4">
+        <div class="card me-4">
+         <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+        <div class="card-body">
+         <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
+         <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
+         <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
+         <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
         </div>
-        <h2>Kebaya</h2>
-        <h1 style="font-size: larger;">Kebaya dengan berbagai<br>model dan warna</h1>
-        <div class="tambah">
-          <button class="add" id="scrollButton" onclick="">
-            <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
-          </button>
+       </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card me-4">
+          <img src="assets/ktgkebaya.jpeg" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+        <div class="card-body">
+          <p class="card-text" style="margin-bottom: 0;"><b>{{ $pro->nama_produk }}</b></p>
+          <p style="margin-bottom: 0;">{{ $pro->deskripsi_produk }}</p>
+          <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
+          <a href="#" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>
         </div>
       </div>
-    </div>
-    <div class="slide">
-      <div class="outer-frame">
-        <div class="inner-frame">
-          <img src="" alt="">
-        </div>
-        <h2>Kain Batik</h2>
-        <h1 style="font-size: larger;">Kain batik tradisional berkualitas<br>asli Nusantara</h1>
-        <div class="tambah">
-          <button class="add" id="scrollButton" onclick="">
-            <a href="#"><i class="bi bi-cart3 me-3"></i></a>Add
-          </button>
-        </div>
-    </div>
-          </div>
-        </div>
+   </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -462,29 +537,34 @@
       </div>
 </div>
 
+
 <section id="tentang">
 <div class="about">
   <h3>About Us</h3>
   <br>
-  <h1 style="font-size:large;">Selamat datang di Saerah, rumah bagi keindahan tradisi dalam busana.<br>
+  <p class="fw-normal">Selamat datang di Saerah, rumah bagi keindahan tradisi dalam busana.<br>
   Kami dengan bangga menghadirkan koleksi baju adat yang indah dan beragam, merangkul kekayaan budaya Indonesia.<br>
   Dalam setiap jahitan dan motif, kami memadukan keterampilan tradisional dengan desain yang menarik,<br>
-  menciptakan busana adat yang tak hanya mempesona tapi juga relevan dalam gaya masa kini.</h1>
+  menciptakan busana adat yang tak hanya mempesona tapi juga relevan dalam gaya masa kini.</p>
 </div>
 </section>
 
-<div class="lokasi">
+<div class="map-container">
 <h3>Lokasi</h3>
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.120062121915!2d110.47570119999996!3d-6.995138499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d1fb98592af%3A0x870265347dce57e3!2sgraha%20rias%20KRATON!5e0!3m2!1sid!2sid!4v1715910399923!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        width="1100"
-        height="400"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.120062121915!2d110.47570119999996!3d-6.995138499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d1fb98592af%3A0x870265347dce57e3!2sgraha%20rias%20KRATON!5e0!3m2!1sid!2sid!4v1715910399923!5m2!1sid!2sid" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
     </iframe>
 </div>
+
+<div class="footer">
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="mb-3 mb-md-0 text-body-secondary"> © 2024 Saerah, Inc </span>
+    </div>
+</footer>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
