@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
-    /* Masukkan CSS yang Anda miliki di sini */
+    /* Dekstop */
     body {
     background-color: #e7dbdb
   };
@@ -19,13 +19,6 @@
 
   .navbar{
     position: relative;
-  }
-
-  .form-control {
-    background-color: black;
-    color: white;
-    width: 337px;
-    border-radius: 20px;
   }
   
   .pembuka{
@@ -115,7 +108,7 @@
     border-radius:15px;
     margin-top:155px;
   }
-    .mas img{
+ .mas img{
     width: 178px;
     height:256px;
     margin-right:20px;
@@ -140,22 +133,16 @@
     margin-top: 175px;
   }
 
-  .carousel-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
+ 
   .card {
     width: 18rem;
     margin: 10px;
         }
+        
   .card-img-top {
   height: 200px;
   object-fit: cover;
 }
-  .carousel-inner {
-    display: flex;
-        }
   
   .about{
     margin:auto;
@@ -178,12 +165,11 @@
             height: 100%;
             border: 0;}
 
+  
+ /* HP */
   @media screen and (max-width:576px){
   h2{
       font-size:medium;
-    }
-    .form-control{
-      width: 226px;
     }
     .pembuka{
       width:150px;
@@ -292,12 +278,9 @@
               <a class="nav-link me-3" href="#tentang">About Us</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2 custom" type="search" placeholder="Cari Disini" aria-label="Search">
-            <button class="btn btn-outline-secondary rounded-pill bi bi-search cuzz" type="submit"></button>
-          </form>
-          <a href="{{ url('/register') }}"><i class="bi bi-person-circle me-3" style="margin-left:10px">Masuk</i></a>
-          <a href="{{ url('/keranjang') }}"><i class="bi bi-cart3 me-3"></i></a>
+         
+            <a href="{{ url('/register') }}"><i class="bi bi-person-circle me-3" style="margin-left:10px"></i></a>
+            <a href="{{ url('/keranjang') }}"><i class="bi bi-cart3 me-3"></i></a>
         </div>
       </div>
     </div>
@@ -353,32 +336,24 @@
   </div>
 
   <div class="container mt-5">
-                @foreach($products->chunk(3) as $productChunk)
-                        <div class="d-flex justify-content-center">
-                            @foreach($productChunk as $product)
-                                <div class="card me-4">
-                                    <img src="{{ asset('assets/' . $product->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-                                    <div class="card-body">
-                                        <p class="card-text" style="margin-bottom: 0;"><b>{{ $product->nama_produk }}</b></p>
-                                        <p style="margin-bottom: 0;">{{ $product->deskripsi_produk }}</p>
-                                        <p class="text-right"><b>{{ $product->harga_produk }}</b></p>
-                                        <!-- <a href="{{ route('product.show', $product->id) }}" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a> -->
-                                    </div>
-                                </div>
-                            @endforeach
+        <div class="row justify-content-center">
+            @foreach($products->take(3) as $product)
+                <div class="col-12 col-md-4">
+                    <div class="card me-4">
+                        <img src="{{ asset('assets/' . $product->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+                        <div class="card-body">
+                            <p class="card-text" style="margin-bottom: 0;"><b>{{ $product->nama_produk }}</b></p>
+                            <!--<p style="margin-bottom: 0;">{{ $product->deskripsi_produk }}</p>-->
+                            <p class="text-right"><b>{{ $product->harga_produk }}</b></p>
+                           <!-- <a href="{{ route('product.show', $product->id) }}" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>-->
                         </div>
-                @endforeach
-    </div>
-           <!--<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>-->
-           <!--<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>-->
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
+
+    
     <a href="{{ url('/user')}}"><p class="fw-normal" style="text-align:center"> Tampilkan Lebih Banyak</p></a>
 
   <section id="tentang">
@@ -404,8 +379,6 @@
       <div class="sosial">
         <i class="bi bi-whatsapp"></i>
         <i class="bi bi-instagram"></i>
-        <i class="bi bi-twitter"></i>
-        <i class="bi bi-envelope"></i>
       </div>
       <div class="footer">
         <h6>&copy; 2024 Saerah | Designed by PPLG SMK Negeri 8 Semarang</h6>
