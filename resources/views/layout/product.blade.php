@@ -8,7 +8,7 @@
         <!-- BOOTSTRAP -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> --}}
 
         <!-- DATA TABLES -->
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
@@ -80,8 +80,8 @@
       .col{
         /* border: 5px solid pink; */
         box-shadow: 0px 3px 8px palevioletred;
-        width:65%;
-        margin-left: 80px;
+        width:75%;
+        /* margin-left: 80px; */
         /* margin-bottom: 50px; */
       }
 
@@ -137,9 +137,14 @@
         margin-top: 15px;
         text-align: center;
     }
+    /* detail */
+
     }
 
 
+    /* .col-12{
+        margin-left: auto;
+    } */
 
     .btn-sm.bi.bi-cart3{
         margin-bottom: 0;
@@ -154,7 +159,7 @@
 
     /* ukuran foto */
     .img-fluid.gambar{
-        height: 200px;
+        height: 240px;
         object-fit: cover;
     }
 
@@ -211,7 +216,7 @@
       }
 
       span{
-        color: rgb(165, 165, 165);
+        color: rgb(212, 83, 152);
         margin-bottom:0;
       }
 
@@ -257,6 +262,25 @@
       body{
         background: #e7dbdb;
       }
+
+      /* detail produk || jumlah yang dipilih */
+      .wrapper {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 20px;
+        }
+        .minus, .plus {
+            cursor: pointer;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            user-select: none;
+        }
+        .num {
+            width: 30px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -264,8 +288,8 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
 
-            <div class="col-3">
-                <h1><span><b>S</b></span>AERAH</h1>
+            <div class="col-2">
+                <img src="/assets/logosr.png" alt="" width="100px" style="filter: drop-shadow(5px 3px 5px black);">
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -275,27 +299,27 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" href="user">Product</a>
+                        <a class="nav-link active" href="/user">Product</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active me-3" href="#">About</a>
                     </li>
                 </ul>
-                    <form class="d-flex" role="search">
+                    {{-- <form class="d-flex" role="search">
                         <input class="form-control me-2 custom" type="search" placeholder="Cari Disini" aria-label="Search">
                         <button class="btn btn-outline-secondary bi bi-search cuzz" type="submit"></button>
+                    </form> --}}
+                    <form action="{{ route('search') }} " class="d-flex" role="search" method="GET">
+                        <input class="form-control me-2 custom" type="search" name="query" placeholder="Cari Di Sini" aria-label="Search" value="{{ request('query') }}">
+                        <button class="btn btn-outline-dark bi bi-search cuzz" type="submit"></button>
                     </form>
-                    {{-- <i class="bi bi-search"></i> --}}
-                    {{-- <a href="#" class="btn btn-dark btn-sm bi bi-search" style="border-radius: 25px; margin-right:15px;"> Cari Di sini</a> --}}
-                    {{-- <input class="form-control me-1" type="search" placeholder="Cari disini" aria-label="Search">
-                    <button class="btn btn-outline-success me-3" type="submit"><i class="bi bi-search"></i></button> --}}
-                </form>
-                <a href="#"><i class="bi bi-person-circle" style="margin-left: 10px;"></i></a>
+
+
+                <a href="#"><i class="bi bi-person-circle" style="margin-left: 30px;"></i></a>
                 <a href="#"><i class="bi bi-cart3 me-3" style="margin-left: 10px;"></i></a>
-                {{-- <a href="#"><i class="bi bi-heart me-3"></i></a> --}}
             </div>
     </div>
 </nav>

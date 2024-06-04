@@ -1,12 +1,81 @@
 @extends('layout/product')
 @section('content')
 
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const plus = document.querySelector(".plus");
+            const minus = document.querySelector(".minus");
+            const num = document.querySelector(".num");
+            let maxLimit = @json($products->first()->jumlah_produk);  // Menggunakan @json untuk menghindari kesalahan sintaks
+
+            let a = 1;
+
+            const updateStock = () => {
+                $.ajax({
+                    url: "{{ route('product.stock', ['product' => $products->first()->id]) }}",  // Mengambil produk pertama untuk demonstrasi
+                    method: "GET",
+                    success: function(response) {
+                        maxLimit = response.stock;
+                    }
+                });
+            };
+
+            plus.addEventListener("click", () => {
+                if (a < maxLimit) {
+                    a++;
+                    num.innerText = a;
+                    console.log(a);
+                } else {
+                    updateStock(); // Update stock jika sudah mencapai limit
+                }
+            });
+
+            minus.addEventListener("click", () => {
+                if (a > 1) {
+                    a--;
+                    num.innerText = a;
+                    console.log(a);
+                }
+            });
+        });
+    </script> --}}
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const plus = document.querySelector(".plus");
+        const minus = document.querySelector(".minus");
+        const num = document.querySelector(".num");
+        const maxLimit = {{$products->jumlah_produk}};  // Jumlah maksimum produk
+
+        let a = 1;
+
+        plus.addEventListener("click", () => {
+            if (a < maxLimit) {
+                a++;
+                num.innerText = (a < maxLimit) ? "" + a : a;
+                console.log(a);
+            }
+        });
+
+        minus.addEventListener("click", () => {
+            if (a > 1) {
+                a--;
+                num.innerText = (a < 10) ? "" + a : a;
+                console.log(a);
+            }
+        });
+    });
+</script>
+
 <div class="div">
     <center><h1>DETAIL<span> PRODUCT</span></h1></center>
     <br>
 </div>
 
 <body>
+
+    <a href="/user" class="btn btn-outline-secondary btn-md bi bi-arrow-90deg-left" style="margin-bottom: 10px; margin-left:12px;"></a>
 
     <div class="container">
         <div class="row g-0">
@@ -16,33 +85,47 @@
                         <div class="row">
 
                             <div class="images col-md-6">
-                                <img src="{{ asset('assets/' . $products->foto_produk) }}" class="detfoto" style=" margin-top:8px; width:100%;">
+                                <img src="{{ asset('assets/' . $products->foto_produk) }}" class="detfoto" style=" margin-top:8px; margin-bottom:8px; width:100%; border-radius:8px; object-fit:cover;">
                             </div>
 
-                                <div class="teks col-md-6">
-                                    <h1>{{ $products->nama_produk }}</h1>
-                                    <h5><strong>Harga:</strong> Rp. {{ $products->harga_produk }}</h5>
-                                    <p><strong>Jumlah</strong></p>
-                                    <input type="number" min = "0" value="0"><br><br>
-                                    {{-- <p><strong>Size</strong></p> --}}
+                                <div class="teks col-md-6" style="text-transform: capitalize;">
+                                    <h2>{{ $products->nama_produk }}</h2><br>
 
-                                    <div class="form-group">
+                                    <h5><strong>Harga:</strong> Rp. {{ $products->harga_produk }}</h5>
+
+                                    <div class="form-ukuran">
                                         <label for="" class="font-weight-bold"><strong>Ukuran</strong></label>
                                         <select name="ukuran_produk" id="" class="form-control @error('ukuran_produk') is-invalid @enderror">
-                                        <option selected></option>
-                                        <option>XS</option>
-                                        <option>S</option>
-                                        <option>M</option>
-                                        <option>L</option>
-                                        <option>XL</option>
-                                        <option>Lain-lain</option>
+                                            <option selected></option>
+                                            <option>XS</option>
+                                            <option>S</option>
+                                            <option>M</option>
+                                            <option>L</option>
+                                            <option>XL</option>
                                         </select>
                                         @error('ukuran_produk')
                                         <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                         </div>
                                         @enderror
-                                    </div>
+                                    </div><br>
+
+                                    <h5>Jumlah</h5>
+                                    <div class="wrapper">
+                                        <span class="minus">-</span>
+                                        <span class="num">1</span>
+                                        <span class="plus">+</span>
+                                    </div><br>
+
+                                    {{-- <div class="quantity-container">
+                                        <button class="minus">-</button>
+                                        <input type="text" class="num" disabled value="1" style="width: 7%;"></input>
+                                        <button class="plus">+</button>
+                                    </div><br> --}}
+
+                                    {{-- <p><strong>Jumlah</strong></p>
+                                    <input type="number" min = "0" value="0"><br><br> --}}
+                                    {{-- <p><strong>Size</strong></p> --}}
 
                                     {{-- <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> XS</a>
                                     <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> S</a>
@@ -50,9 +133,9 @@
                                     <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> L</a>
                                     <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> XL</a><br><br> --}}
 
-                                    <p>{{ $products->deskripsi_produk }}</p>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm bi bi-cart3" style="border-radius: 25px; width:100%;"> Keranjang</a><br><br>
 
-                                    <a href="#" class="btn btn-outline-secondary btn-sm bi bi-cart3" style="border-radius: 25px; width:100%;"> Keranjang</a>
+                                    <h5><strong>Deskripsi</strong></h5><p>{{ $products->deskripsi_produk }}</p>
                                 </div>
                         </div>
                     </div>

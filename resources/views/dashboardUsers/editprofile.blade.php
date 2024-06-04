@@ -87,7 +87,7 @@
                       <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail"
                         value="{{ Auth::user()->email }}">
                     </div>
-                  </div>
+                  </div>  
 
                   <div class="d-flex justify-content-center mt-4 mb-1">
                     <button type="submit" class="btn btn-primary btn-md w-25 mx-5">Submit</button>

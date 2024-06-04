@@ -39,7 +39,7 @@ class ProductController extends Controller
 
         if ($request->hasFile('foto_produk')) {
             $imageName = time() . '.' . $request->foto_produk->extension();
-            $request->foto_produk->move(public_path('storage/images/'), $imageName);
+            $request->foto_produk->move(public_path('assets/'), $imageName);
 
             $slug = Str::slug($request->nama_produk, '_');
 
@@ -79,7 +79,7 @@ class ProductController extends Controller
 
                 // Move the uploaded file
                 $imageName = time() . '.' . $request->foto_produk->extension();
-                $request->foto_produk->move(public_path('storage/images/'), $imageName);
+                $request->foto_produk->move(public_path('assets/'), $imageName);
 
             $slug = Str::slug($request->nama_produk, '_');
 
@@ -149,4 +149,18 @@ class ProductController extends Controller
                 return view('user.detailproduct', compact('products'));
             }
 
+            public function search(Request $request) {
+                $query = $request->input('query');
+                $products = product::where('nama_produk', 'LIKE', "%{$query}%")
+                             ->orWhere('deskripsi_produk', 'LIKE', "%{$query}%")
+                             ->get();
+
+                return view('user/product', compact('products'));
+            }
+
+            // Metode untuk mengembalikan stok terbaru
+            // public function stock(product $products)
+            // {
+            //     return response()->json(['stock' => $products->jumlah_produk]);
+            // }
 }
