@@ -297,7 +297,7 @@
             <button class="btn btn-outline-secondary rounded-pill bi bi-search cuzz" type="submit"></button>
           </form>
           <a href="{{ url('/register') }}"><i class="bi bi-person-circle me-3" style="margin-left:10px">Masuk</i></a>
-          <a href="#"><i class="bi bi-cart3 me-3"></i></a>
+          <a href="{{ url('/keranjang') }}"><i class="bi bi-cart3 me-3"></i></a>
         </div>
       </div>
     </div>
@@ -353,16 +353,7 @@
   </div>
 
   <div class="container mt-5">
-        <div id="carouselExampleIndicators" class="carousel slide">
-          
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
                 @foreach($products->chunk(3) as $productChunk)
-                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                         <div class="d-flex justify-content-center">
                             @foreach($productChunk as $product)
                                 <div class="card me-4">
@@ -376,9 +367,8 @@
                                 </div>
                             @endforeach
                         </div>
-                    </div>
                 @endforeach
-            </div>
+    </div>
            <!--<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
