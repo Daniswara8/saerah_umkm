@@ -83,7 +83,7 @@ class PelangganController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect()->route('login.index')->with('success', 'Berhasil Logout');
+        return redirect()->route('index')->with('success', 'Berhasil Logout');
     }
 
     public function editProfile()
