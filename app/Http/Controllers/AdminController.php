@@ -61,11 +61,12 @@ class AdminController extends Controller
     public function store(request $request)
     {
         $this->validate($request,[
-        'nama'      =>'required',
-        'email'     =>'required|min:8|unique:admins',
-        'password'  =>'required',
-        'kontak'    =>'required',
-        'alamat'    =>'required',
+        'nama'              =>'required',
+        'email'             =>'required|min:8|unique:admins',
+        'password'          =>'required',
+        'kontak'            =>'required',
+        'alamat'            =>'required',
+        'konfirmasi_pass'   =>'required',
     ]);
 
     $slug = str::slug($request->nama, '-');
@@ -78,6 +79,7 @@ class AdminController extends Controller
         'alamat'            =>$request->alamat,
         'status_aktif'      =>$request->status_aktif,
         'slug_link'         =>$slug,
+        'konfirmasi_pass'   =>$request->konfirmasi_pass, 
         'created_at'        =>NOW()
     ]);
     return redirect()->route('customerAdmin.index')->with(
@@ -90,23 +92,25 @@ class AdminController extends Controller
     $pelanggans = User::where('slug_link', $slug_link)->firstOrFail();
 
     $this->validate($request, [
-        'email'     => 'required|min:8|unique:admins,email,' . $pelanggans->id,
-        'password'  => 'required',
-        'nama'      => 'required',
-        'kontak'    => 'required',
-        'alamat'    => 'required',
+        'email'             => 'required|min:8|unique:admins,email,' . $pelanggans->id,
+        'password'          => 'required',
+        'nama'              => 'required',
+        'kontak'            => 'required',
+        'alamat'            => 'required',
+        'konfirmasi_pass'   => 'required',
     ]);
 
     $slug = Str::slug($request->nama, '-');
 
     $pelanggans->update([
-        'email'         => $request->email,
-        'password'      => $request->password,
-        'nama'          => $request->nama,
-        'kontak'        => $request->kontak,
-        'alamat'        => $request->alamat,
-        'status_aktif'  => $request->status_aktif,
-        'slug_link'     => $slug,
+        'email'             => $request->email,
+        'password'          => $request->password,
+        'nama'              => $request->nama,
+        'kontak'            => $request->kontak,
+        'alamat'            => $request->alamat,
+        'status_aktif'      => $request->status_aktif,
+        'slug_link'         => $slug,
+        'konfirmasi_pass'   => $request->konfirmasi_pass, 
         'updated_at'    => now()
     ]);
     return redirect()->route('customerAdmin.index')->with('success', 'Data Berhasil Diubah!');
@@ -128,23 +132,25 @@ class AdminController extends Controller
     $pelanggans = User::where('slug_link', $slug_link)->firstOrFail();
 
     $this->validate($request, [
-        'email'     => 'required|min:8|unique:admins,email,' . $pelanggans->id,
-        'password'  => 'required',
-        'nama'      => 'required',
-        'kontak'    => 'required',
-        'alamat'    => 'required',
+        'email'             => 'required|min:8|unique:admins,email,' . $pelanggans->id,
+        'password'          => 'required',
+        'nama'              => 'required',
+        'kontak'            => 'required',
+        'alamat'            => 'required',
+        'konfirmasi_pass'   => 'required',
     ]);
 
     $slug = Str::slug($request->nama, '-');
 
     $pelanggans->update([
-        'email'         => $request->email,
-        'password'      => $request->password,
-        'nama'          => $request->nama,
-        'kontak'        => $request->kontak,
-        'alamat'        => $request->alamat,
-        'status_aktif'  => $request->status_aktif,
-        'slug_link'     => $slug,
+        'email'             => $request->email,
+        'password'          => $request->password,
+        'nama'              => $request->nama,
+        'kontak'            => $request->kontak,
+        'alamat'            => $request->alamat,
+        'status_aktif'      => $request->status_aktif,
+        'slug_link'         => $slug,
+        'konfirmasi_pass'   => $request->konfirmasi_pass, 
         'updated_at'    => now()
     ]);
     return redirect()->route('customerAdmin.index')->with('success', 'Data Berhasil Dihapus!');

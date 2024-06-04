@@ -69,33 +69,32 @@ class ProductController extends Controller
         }
 
         public function update(Request $request, string $Slug_link) {
-            // Validate form
             $request->validate([
                 'foto_produk' => 'image|mimes:jpeg,png,jpg',
                 'harga_produk' => 'numeric',
                 'jumlah_produk' => 'integer',
-                'Slug_link' => 'unique:products,Slug_link',
+                'Slug_link' => 'unique:products,Slug_link,' . $Slug_link,
             ]);
 
-                // Move the uploaded file
-                $imageName = time() . '.' . $request->foto_produk->extension();
-                $request->foto_produk->move(public_path('assets/'), $imageName);
-
-            $slug = Str::slug($request->nama_produk, '_');
-
             $products = product::where('Slug_link', $Slug_link)->firstOrFail();
-            $products->update([
-                'foto_produk' => $imageName, // Update hanya jika ada file yang diunggah
+
+            $data = [
                 'nama_produk' => $request->nama_produk,
                 'deskripsi_produk' => $request->deskripsi_produk,
                 'harga_produk' => $request->harga_produk,
-                //  'ukuran_produk' => $request->ukuran_produk,
-                // 'motif_produk' => $request->motif_produk,
                 'jumlah_produk' => $request->jumlah_produk,
-                'Slug_link' => $slug
-            ]);
+                'Slug_link' => Str::slug($request->nama_produk, '_'),
+            ];
 
-            return redirect()->route('product.admin')->with(['success' => 'Berhasil memperbarui produk !'])->with('image', $imageName);
+            if ($request->hasFile('foto_produk')) {
+                $imageName = time() . '.' . $request->foto_produk->extension();
+                $request->foto_produk->move(public_path('assets/'), $imageName);
+                $data['foto_produk'] = $imageName;
+            }
+
+            $products->update($data);
+
+            return redirect()->route('product.admin')->with(['success' => 'Berhasil memperbarui produk !']);
         }
 
             // SOFT DELETE
@@ -118,7 +117,7 @@ class ProductController extends Controller
                 // Memulihkan produk
                 $products->restore();
 
-                // Redirect ke halaman history dengan pesan sukses  
+                // Redirect ke halaman history dengan pesan sukses
                 return redirect()->route('product.admin')->with(['success' => 'Berhasil memulihkan produk !']);
             }
 
