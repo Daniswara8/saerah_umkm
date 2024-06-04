@@ -24,6 +24,12 @@ Route::get('/', function () {
     return view('dashboardUsers.dashboard');
 });
 
+
+Route::get('/keranjang', function () {
+    return view('keranjang.keranjang');
+});
+
+
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home', 'index')->name('index');
     Route::get('/product/{id}', 'show')->name('product.show');
