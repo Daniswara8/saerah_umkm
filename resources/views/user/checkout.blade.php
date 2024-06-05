@@ -3,18 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-<title>chec</title>
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="">
-<meta property="og:type" content="">
-<meta property="og:url" content="">
-<meta property="og:image" content="">
-<script src="https://js.stripe.com/v3/"></script>
-<link rel="shortcut icon" type="image/x-icon" href="assets/bgl.jpg">
-<link rel="stylesheet" href="{{ asset('css/main.css') }}">
-<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <title>chec</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/bgl.jpg">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 
 <body>
@@ -78,6 +78,7 @@
                                             <div class="SubmitButton-TextContainer">
                                                 <span class="SubmitButton-Text SubmitButton-Text--current Text Text-color--default Text-fontWeight--500 Text--truncate" aria-hidden="false">Pay</span>
                                                 <span class="SubmitButton-Text SubmitButton-Text--pre Text Text-color--default Text-fontweight--500 Text--truncate" aria hidden="true">Processing...</span>
+												<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                                             </div>
                                             <div class="SubmitButton-IconContainer">
                                                 <div class="SubmitButton-Icon SubmitButton-Icon--pre">
@@ -139,31 +140,31 @@
             </div>
         </section>
 
-    </footer>    
+    </footer>
     <!-- Vendor JS-->
-<script src="js/vendor/modernizr-3.6.0.min.js"></script>
-<script src="js/vendor/jquery-3.6.0.min.js"></script>
-<script src="js/vendor/jquery-migrate-3.3.0.min.js"></script>
-<script src="js/vendor/bootstrap.bundle.min.js"></script>
-<script src="js/plugins/slick.js"></script>
-<script src="js/plugins/jquery.syotimer.min.js"></script>
-<script src="js/plugins/wow.js"></script>
-<script src="js/plugins/jquery-ui.js"></script>
-<script src="js/plugins/perfect-scrollbar.js"></script>
-<script src="js/plugins/magnific-popup.js"></script>
-<script src="js/plugins/select2.min.js"></script>
-<script src="js/plugins/waypoints.js"></script>
-<script src="js/plugins/counterup.js"></script>
-<script src="js/plugins/jquery.countdown.min.js"></script>
-<script src="js/plugins/images-loaded.js"></script>
-<script src="js/plugins/isotope.js"></script>
-<script src="js/plugins/scrollup.js"></script>
-<script src="js/plugins/jquery.vticker-min.js"></script>
-<script src="js/plugins/jquery.theia.sticky.js"></script>
-<script src="js/plugins/jquery.elevatezoom.js"></script>
-<!-- Template  JS -->
-<script src="js/main.js?v=3.3"></script>
-<script src="js/shop.js?v=3.3"></script>    
+    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/plugins/slick.js"></script>
+    <script src="js/plugins/jquery.syotimer.min.js"></script>
+    <script src="js/plugins/wow.js"></script>
+    <script src="js/plugins/jquery-ui.js"></script>
+    <script src="js/plugins/perfect-scrollbar.js"></script>
+    <script src="js/plugins/magnific-popup.js"></script>
+    <script src="js/plugins/select2.min.js"></script>
+    <script src="js/plugins/waypoints.js"></script>
+    <script src="js/plugins/counterup.js"></script>
+    <script src="js/plugins/jquery.countdown.min.js"></script>
+    <script src="js/plugins/images-loaded.js"></script>
+    <script src="js/plugins/isotope.js"></script>
+    <script src="js/plugins/scrollup.js"></script>
+    <script src="js/plugins/jquery.vticker-min.js"></script>
+    <script src="js/plugins/jquery.theia.sticky.js"></script>
+    <script src="js/plugins/jquery.elevatezoom.js"></script>
+    <!-- Template  JS -->
+    <script src="js/main.js?v=3.3"></script>
+    <script src="js/shop.js?v=3.3"></script>
     <!-- <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
@@ -185,14 +186,50 @@
     
     <script src="assets/js/main.js?v=3.3"></script>
     <script src="assets/js/shop.js?v=3.3"></script> -->
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('order-btn').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah link dari melakukan aksi default (navigasi)
+
+            // Menampilkan pesan SweetAlert
+            Swal.fire({
+                title: "Orderanmu sudah masuk!",
+                text: "Terimakasih telah memesan!",
+                icon: "success"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect ke halaman berikutnya setelah menutup SweetAlert
+                    window.location.href = "/home"; // Ganti dengan URL halaman berikutnya
+                }
+            });
+        });
+    </script>
 </body>
 
 <style>
-.ConfirmTerms {
-    line-height: 17px;
-    text-align: left;
-}
-
+    .ConfirmTerms {
+        line-height: 17px;
+        text-align: left;
+    }
 </style>
+
+    <script>
+        document.getElementById('order-btn').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah link dari melakukan aksi default (navigasi)
+
+            // Menampilkan pesan SweetAlert
+            Swal.fire({
+                title: "Orderanmu sudah masuk!",
+                text: "Terimakasih telah memesan!",
+                icon: "success"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect ke halaman berikutnya setelah menutup SweetAlert
+                    window.location.href = "/tes"; // Ganti dengan URL halaman berikutnya
+                }
+            });
+        });
+    </script>
 
 </html>
