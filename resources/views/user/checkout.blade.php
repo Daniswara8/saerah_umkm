@@ -78,6 +78,7 @@
                                             <div class="SubmitButton-TextContainer">
                                                 <span class="SubmitButton-Text SubmitButton-Text--current Text Text-color--default Text-fontWeight--500 Text--truncate" aria-hidden="false">Pay</span>
                                                 <span class="SubmitButton-Text SubmitButton-Text--pre Text Text-color--default Text-fontweight--500 Text--truncate" aria hidden="true">Processing...</span>
+												<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                                             </div>
                                             <div class="SubmitButton-IconContainer">
                                                 <div class="SubmitButton-Icon SubmitButton-Icon--pre">
@@ -185,6 +186,25 @@
     
     <script src="assets/js/main.js?v=3.3"></script>
     <script src="assets/js/shop.js?v=3.3"></script> -->
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('order-btn').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah link dari melakukan aksi default (navigasi)
+
+            // Menampilkan pesan SweetAlert
+            Swal.fire({
+                title: "Orderanmu sudah masuk!",
+                text: "Terimakasih telah memesan!",
+                icon: "success"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect ke halaman berikutnya setelah menutup SweetAlert
+                    window.location.href = "/home"; // Ganti dengan URL halaman berikutnya
+                }
+            });
+        });
+    </script>
 </body>
 
 <style>
@@ -194,5 +214,23 @@
 }
 
 </style>
+
+    <script>
+        document.getElementById('order-btn').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah link dari melakukan aksi default (navigasi)
+
+            // Menampilkan pesan SweetAlert
+            Swal.fire({
+                title: "Orderanmu sudah masuk!",
+                text: "Terimakasih telah memesan!",
+                icon: "success"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect ke halaman berikutnya setelah menutup SweetAlert
+                    window.location.href = "/tes"; // Ganti dengan URL halaman berikutnya
+                }
+            });
+        });
+    </script>
 
 </html>
