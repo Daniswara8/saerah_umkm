@@ -26,8 +26,16 @@ class ProductController extends Controller
         return view('admin/product', compact('products'));
     }
 
-    public function create() {
-        return view('admin/plusproduk');
+    public function tambahDataProduct(): View
+    {
+        $products = product::all();
+        return view('admin.plusproduk', compact('products'));
+    }
+
+    public function history(): View
+    {
+        $products = product::all();
+        return view('admin.history', compact('products'));
     }
 
     public function store(Request $request) {
@@ -122,10 +130,10 @@ class ProductController extends Controller
                 return redirect()->route('product.admin')->with(['success' => 'Berhasil memulihkan produk !']);
             }
 
-            public function history() {
-                $products = product::onlyTrashed()->get();
-                return view('admin.history', compact('products'));
-            }
+            // public function history() {
+            //     $products = product::onlyTrashed()->get();
+            //     return view('admin.history', compact('products'));
+            // }
 
             public function deletePermanent($id) : RedirectResponse {
                 $products = product::withTrashed()->findOrFail($id);

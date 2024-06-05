@@ -12,7 +12,7 @@
 
         <div class="col-12 justify-content-center text-center">
             <a href="{{ route('product.admin') }}" class="btn btn-success btn-sm me-3">Produk</a>
-            <a href="{{ route('product.history') }}" class="btn btn-info btn-sm me-3">History</a>
+            <a href="{{ route('masterAdmin.history') }}" class="btn btn-info btn-sm me-3">History</a>
             {{-- <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm me-3">Tambah</a> --}}
         </div><br>
 
@@ -34,7 +34,6 @@
 
                 <tbody>
                     @foreach ($products as $no => $pro )
-
                     <tr>
                         <td> {{ ++$no }} </td>
                         <td> <img src="{{ asset('assets/' . $pro->foto_produk) }}" class="p-2 img-fluid gambartu"> </td>
@@ -46,7 +45,7 @@
                         <td> {{ $pro->jumlah_produk }} </td>
 
                         <td>
-                            <form onsubmit="return confirm('Yakin ingin mempublish ini ?');" action="{{ route('product.restore', ['Slug_link' => $pro->Slug_link]) }}" method="POST">
+                            <form onsubmit="return confirm('Yakin ingin memulihkan ini?');" action="{{ route('product.restore', $pro->Slug_link) }}" method="POST">
                                 @csrf
                                 @method('POST')
                                 <button type="submit" class="btn btn-success btn-sm mt-2">
@@ -54,7 +53,7 @@
                                 </button>
                             </form>
 
-                            <form onsubmit="return confirm('Yakin ingin menghapus ini ?');" action="{{ route('product.deletePermanent', $pro->id) }}" method="POST">
+                            <form onsubmit="return confirm('Yakin ingin menghapus ini secara permanen?');" action="{{ route('product.deletePermanent', $pro->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-info btn-sm mt-2">
@@ -62,7 +61,6 @@
                                 </button>
                             </form>
                         </td>
-
                     </tr>
                     @endforeach
                 </tbody>
@@ -85,6 +83,5 @@
 
     </div>
 </div>
-
 
 @endsection
