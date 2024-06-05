@@ -93,7 +93,7 @@
 
                                     <h5><strong>Harga:</strong> Rp. {{ $products->harga_produk }}</h5>
 
-                                    <div class="form-ukuran">
+                                    {{-- <div class="form-ukuran">
                                         <label for="" class="font-weight-bold"><strong>Ukuran</strong></label>
                                         <select name="ukuran_produk" id="" class="form-control @error('ukuran_produk') is-invalid @enderror">
                                             <option selected></option>
@@ -115,7 +115,7 @@
                                         <span class="minus">-</span>
                                         <span class="num">1</span>
                                         <span class="plus">+</span>
-                                    </div><br>
+                                    </div><br> --}}
 
                                     {{-- <div class="quantity-container">
                                         <button class="minus">-</button>
@@ -133,9 +133,10 @@
                                     <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> L</a>
                                     <input type="checkbox" class="btn btn-outline-dark btn-sm" style="width:5%;"> XL</a><br><br> --}}
 
-                                    <a href="/keranjang" class="btn btn-outline-secondary btn-sm bi bi-cart3" style="border-radius: 25px; width:100%;"> Keranjang</a><br><br>
 
-                                    <h5><strong>Deskripsi</strong></h5><p>{{ $products->deskripsi_produk }}</p>
+
+                                    <h5><strong>Deskripsi</strong></h5><p>{{ $products->deskripsi_produk }}</p><br>
+                                    <a href="/keranjang" class="btn btn-outline-secondary btn-sm bi bi-cart3" style="border-radius: 25px; width:100%;"> Keranjang</a><br><br>
                                 </div>
                         </div>
                     </div>

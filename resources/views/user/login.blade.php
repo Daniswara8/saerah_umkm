@@ -21,6 +21,58 @@
     .position-relative {
       position: relative;
     }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1rem;
+      }
+
+      .row {
+        margin: 0;
+      }
+
+      .col-md-8,
+      .col-lg-7,
+      .col-xl-6 {
+        display: none;
+      }
+
+      .col-md-7,
+      .col-lg-5,
+      .col-xl-5 {
+        padding: 0;
+      }
+
+      .text-white {
+        color: #000;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .form-control {
+        margin-bottom: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .form-control {
+        padding: .75rem;
+      }
+
+      .btn {
+        padding: .75rem;
+      }
+    }
   </style>
 </head>
 
