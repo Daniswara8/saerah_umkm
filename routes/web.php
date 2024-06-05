@@ -21,7 +21,7 @@ use App\Http\Controllers\PelangganController;
 */
 
 Route::get('/', function () {
-    return view('dashboardUsers.dashboard');
+    return view('user.home');
 });
 
 
