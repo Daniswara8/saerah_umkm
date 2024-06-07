@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PelangganController;
-
+use App\Http\Controllers\StripePaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,10 @@ use App\Http\Controllers\PelangganController;
 
 Route::get('/', function () {
     return view('user.home');
+});
+
+Route::get('/checkout', function () {
+    return view('user.checkout');
 });
 
 
