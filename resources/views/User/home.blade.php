@@ -206,8 +206,8 @@
 
     .pembuka {
       margin-top: 15%;
-      margin-right: 450px;
-      margin-left: 188px;
+      /* margin-right: 450px;
+      margin-left: 188px; */
       font-size: x-large;
     }
 
@@ -287,7 +287,7 @@
     .berita {
       margin: auto;
       background-color: #D2CECE;
-      width: 1138px;
+      width: 75%;
       height: 310px;
       border: 4px solid #9F959E;
       border-radius: 15px;
@@ -343,7 +343,7 @@
       margin: auto;
       text-align: center;
       background-color: #D2CECE;
-      width: 1130px;
+      width: 75%;
       height: 410px;
       border: 4px solid #9F959E;
       border-radius: 15px;
@@ -481,7 +481,7 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <div class="col-3">
-        <img src="assets/imgwlc/logosr.png" alt="" width="150px" style="filter: drop-shadow(5px 3px 5px black);">
+        <img src="assets/logosr.png" alt="" width="70px" style="filter: drop-shadow(5px 3px 5px black); margin:20px;">
       </div>
       <div class="navbar">
         <a class="navbar-brand">Home</a>
@@ -511,7 +511,6 @@
         @csrf
         </form>
       @endauth
-
           <a href="{{ url('/keranjang') }}" class="custom-link"><i class="bi bi-cart3 me-3"></i></a>
         </div>
       </div>
@@ -538,24 +537,23 @@
 @endif
 
   <div class="opening d-flex">
-    <div class="pembuka">
-      <h2>Mari Jelajahi Koleksi <br>Fashion Kami yang<br>Eksklusif.
+    <div class="pembuka" style="text-align:center;">
+      <h2 class="text-center">Halo Bang
       </h2>
     </div>
-    <div class="batik-atas">
+    <!-- <div class="batik-atas">
       <div class="pict1"><img src="assets/imgwlc/batikpanjang1.jpg"></div>
       <div class="pict2"><img src="assets/imgwlc/batikpanjang2.jpg"></div>
       <div class="pict3"><img src="assets/imgwlc/batikpanjang3.jpg"></div>
-    </div>
+    </div> -->
   </div>
 
-  <div class="target" id="targetElement">
+  <!-- <div class="target" id="targetElement">
     <div class="collection">
       <h3>Saerah Collection</h3>
       <h1 class="deskripsi">Di Toko Saerah menyediakan berbagai macam baju<br>Batik, Kebaya</h1>
     </div>
-
-    <div class="foto1">
+    <div class="foto1 justify-content-center">
       <div id="img1">
         <div class="batik">
           <img src="assets/imgwlc/modelcowok.png">
@@ -568,7 +566,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="berita d-flex">
     <div class="mas"><img src="assets/imgwlc/mas.png"></div>
@@ -624,10 +622,10 @@
       allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 
-  
+
   <footer class="bg-body-tertiary text-center">
   <!-- Grid container -->
-  <div class="container p-2 "></div>
+  <div class="container p-2"></div>
   <!-- Grid container -->
 
   <!-- Copyright -->
@@ -636,7 +634,6 @@
   </div>
   <!-- Copyright-->
 </footer>
- 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
