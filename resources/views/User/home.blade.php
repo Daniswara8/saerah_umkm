@@ -484,7 +484,7 @@
         <img src="assets/imgwlc/logosr.png" alt="" width="150px" style="filter: drop-shadow(5px 3px 5px black);">
       </div>
       <div class="navbar">
-        <a class="navbar-brand" href="#">Home</a>
+        <a class="navbar-brand">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -586,8 +586,8 @@
   <div class="container mt-5">
       <div class="row justify-content-center">
             @foreach($products->take(3) as $product)
-                <div class="col-12 col-md-4">
-                    <div class="card me-4">
+                <div class="ccol-12 col-sm-6 col-md-4 mb-3">
+                    <div class="card me-2">
                         <img src="{{ asset('assets/' . $product->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px;">
                         <div class="card-body">
                             <p class="card-text" style="margin-bottom: 0;"><b>{{ $product->nama_produk }}</b></p>
@@ -599,9 +599,7 @@
                 </div>
             @endforeach
         </div>
-    </div>
-
-     
+    </div>   
   </div>
   <a href="{{ url('/user')}}">
     <p class="fw-normal" style="text-align:center"> Tampilkan Lebih Banyak</p>
@@ -626,18 +624,19 @@
       allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 
-  <footer>
-    <div class="container">
-      <h4>Temukan Kami</h4>
-      <div class="sosial">
-        <i class="bi bi-whatsapp"></i>
-        <i class="bi bi-instagram"></i>
-      </div>
-      <div class="footer">
-        <h6>&copy; 2024 Saerah | Designed by PPLG SMK Negeri 8 Semarang</h6>
-      </div>
-    </div>
-  </footer>
+  
+  <footer class="bg-body-tertiary text-center">
+  <!-- Grid container -->
+  <div class="container p-2 "></div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3 text-white" style="background-color: #373A40;">
+  <h6>&copy; 2024 Saerah | Designed by PPLG SMK Negeri 8 Semarang</h6>        
+  </div>
+  <!-- Copyright-->
+</footer>
+ 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
