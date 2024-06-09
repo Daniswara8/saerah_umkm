@@ -43,6 +43,7 @@ class PelangganController extends Controller
         User::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'konfirmasi_pass' => $request->password_confirmation,
             'nama' => $request->nama,
             'kontak' => $request->kontak,
             'alamat' => $request->alamat,
@@ -150,7 +151,8 @@ class PelangganController extends Controller
         // Jika ada password baru, update password
         if ($request->filled('new_password')) {
             if (Hash::check($request->input('current_password'), $user->password)) {
-                $user->password = ($request->input('new_password'));
+                $user->password = Hash::make($request->input('new_password')); // Hash kata sandi baru
+                $user->konfirmasi_pass = $request->input('new_password_confirmation'); // Simpan konfirmasi kata sandi sebagai teks biasa
             } else {
                 return back()->withErrors(['current_password' => 'Password saat ini tidak cocok.'])->withInput();
             }
@@ -160,5 +162,5 @@ class PelangganController extends Controller
 
         return redirect()->back()->with('success', 'Kata sandi berhasil diperbarui!');
     }
-}
 
+}

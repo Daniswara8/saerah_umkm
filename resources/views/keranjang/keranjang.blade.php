@@ -20,12 +20,12 @@
 
                                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                                <img src="{{ asset('assets/images/batikJawa.jpg') }}" alt="Batik Jawa"
+                                                <img src="{{ asset('assets/images/1717055729.jpg') }}" alt="Batik Jawa"
                                                     class="img-fluid rounded" />
                                             </div>
                                             <div class="col-md-3 col-lg-3 col-xl-3">
                                                 <h5 class="text-black mb-0">
-                                                    Batik Jawa
+                                                    kebaya Adat Jawa
                                                 </h5>
                                             </div>
                                             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -54,12 +54,12 @@
 
                                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                                <img src="{{ asset('assets/images/batikSumatera.jpg') }}"
+                                                <img src="{{ asset('assets/images/1717056730.jpg') }}"
                                                     alt="Batik Sumatera" class="img-fluid rounded" />
                                             </div>
                                             <div class="col-md-3 col-lg-3 col-xl-3">
                                                 <h5 class="text-black mb-0">
-                                                    Batik Sumatera
+                                                    Kebaya Brukat Pink
                                                 </h5>
                                             </div>
                                             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -88,12 +88,12 @@
 
                                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                                <img src="{{ asset('assets/images/bajuDenang.jpg') }}" alt="Baju Demang"
+                                                <img src="{{ asset('assets/images/1717055885.jpg') }}" alt="Baju Demang"
                                                     class="img-fluid rounded" />
                                             </div>
                                             <div class="col-md-3 col-lg-3 col-xl-3">
                                                 <h5 class="text-black mb-0">
-                                                    Baju Demang
+                                                    Baju Kurung
                                                 </h5>
                                             </div>
                                             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -128,16 +128,15 @@
                                         <hr />
                                         <div>
                                             <label class="fw-bold" for="nama">Nama :</label>
-                                            <label for="kita">Daniswara Zavier Putra Akmal</label>
+                                            <label for="kita">{{ Auth::user()->nama }}</label>
                                         </div>
                                         <div>
                                             <label class="fw-bold" for="nomer">No Telepon :</label>
-                                            <label for="telepon">085640673917</label>
+                                            <label for="telepon">{{ Auth::user()->kontak }}</label>
                                         </div>
                                         <div>
                                             <label class="fw-bold" for="dikirim">Dikirim ke :</label>
-                                            <label for="alamat">Jalan Singa Timur II No. 1 RT 2 RW 12 Kelurahan Palebon
-                                                Kecamatan Pedurungan</label>
+                                            <label for="alamat">{{ Auth::user()->alamat }}</label>
                                         </div>
                                         <hr class="my-4" />
                                         <div class="d-flex justify-content-between mb-4">
