@@ -37,7 +37,7 @@ Route::get('/keranjang', function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home', 'index')->name('index');
     Route::get('/product/{id}', 'show')->name('product.show');
-});
+}); 
 
 
 // Route::controller(ProductController::class)->group(function () {

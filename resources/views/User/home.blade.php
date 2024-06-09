@@ -416,45 +416,25 @@
   </div>
 
   <div class="container mt-5">
-    <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="row justify-content-center">
+      @foreach($products->take(3) as $product)
+          <div class="col-12 col-md-4">
+              <div class="card me-4">
+                  <img src="{{ asset('assets/' . $product->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+                  <div class="card-body">
+                      <p class="card-text" style="margin-bottom: 0;"><b>{{ $product->nama_produk }}</b></p>
+                      <!--<p style="margin-bottom: 0;">{{ $product->deskripsi_produk }}</p>-->
+                      <p class="text-right"><b>{{ $product->harga_produk }}</b></p>
+                     <!-- <a href="{{ route('product.show', $product->id) }}" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>-->
+                  </div>
+              </div>
+          </div>
+      @endforeach
+  </div>
+</div>
 
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-          aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-          aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        @foreach($products->chunk(3) as $productChunk)
-      <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-        <div class="d-flex justify-content-center">
-        @foreach($productChunk as $product)
-      <div class="card me-4">
-        <img src="{{ asset('assets/' . $product->foto_produk) }}" class="p-2 img-fluid gambar"
-        style="margin-top: 10px;">
-        <div class="card-body">
-        <p class="card-text" style="margin-bottom: 0;"><b>{{ $product->nama_produk }}</b></p>
-        <p style="margin-bottom: 0;">{{ $product->deskripsi_produk }}</p>
-        <p class="text-right"><b>{{ $product->harga_produk }}</b></p>
-        <!-- <a href="{{ route('product.show', $product->id) }}" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a> -->
-        </div>
-      </div>
-    @endforeach
-        </div>
-      </div>
-    @endforeach
-      </div>
-      <!--<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>-->
-      <!--<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>-->
-    </div>
+
+<a href="{{ url('/user')}}"><p class="fw-normal" style="text-align:center"> Tampilkan Lebih Banyak</p></a>
   </div>
   <a href="{{ url('/user')}}">
     <p class="fw-normal" style="text-align:center"> Tampilkan Lebih Banyak</p>
