@@ -23,7 +23,7 @@
   
   .pembuka{
     margin-top: 15%;
-    margin-right: 450px;
+    margin-right: 200px;
     margin-left: 188px;
     font-size: x-large;
   }
@@ -75,7 +75,7 @@
   }
   .foto1{
     margin:auto ;
-    margin-left:475px;
+    margin-left:230px;
     height: 337px;
     width:  300px;
   }
@@ -102,7 +102,7 @@
   .berita{
     margin:auto;
     background-color: #D2CECE;
-    width:1138px;
+    width:1000px;
     height:310px;
     border: 4px solid #9F959E;
     border-radius:15px;
@@ -148,7 +148,7 @@
     margin:auto;
     text-align:center;
     background-color: #D2CECE;
-    width:1130px;
+    width:1000px;
     height:410px;
     border: 4px solid #9F959E;
     border-radius:15px;
@@ -206,7 +206,7 @@
 
     .pembuka {
       margin-top: 15%;
-      /* margin-right: 450px;
+      /*margin-right: 300px;
       margin-left: 188px; */
       font-size: x-large;
     }
@@ -538,17 +538,16 @@
 
   <div class="opening d-flex">
     <div class="pembuka" style="text-align:center;">
-      <h2 class="text-center">Halo Bang
+      <h2 class="text-center">Mari Jelajahi Koleksi Terbaik Kami
       </h2>
     </div>
-    <!-- <div class="batik-atas">
+    <div class="batik-atas">
       <div class="pict1"><img src="assets/imgwlc/batikpanjang1.jpg"></div>
       <div class="pict2"><img src="assets/imgwlc/batikpanjang2.jpg"></div>
       <div class="pict3"><img src="assets/imgwlc/batikpanjang3.jpg"></div>
-    </div> -->
+    </div>
   </div>
 
-  <!-- <div class="target" id="targetElement">
     <div class="collection">
       <h3>Saerah Collection</h3>
       <h1 class="deskripsi">Di Toko Saerah menyediakan berbagai macam baju<br>Batik, Kebaya</h1>
@@ -566,7 +565,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+   
 
   <div class="berita d-flex">
     <div class="mas"><img src="assets/imgwlc/mas.png"></div>
