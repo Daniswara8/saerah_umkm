@@ -14,12 +14,12 @@ class HomeController extends Controller
 {
 
         public function index(): View {
-            $products = Product::all(); // Mengambil semua produk
+            $products = product::all(); // Mengambil semua produk
             return view('user.home', compact('products')); // Mengirimkan data products ke view
         }
 
         public function show($id): View {
-            $products = Product::find($id); // Ambil produk berdasarkan ID
+            $products = product::find($id); // Ambil produk berdasarkan ID
             return view('user.product', compact('products')); // Mengirimkan data pro ke view
 
         }

@@ -12,8 +12,8 @@
 
         <div class="col-12 justify-content-center text-center">
             <a href="{{ route('product.admin') }}" class="btn btn-success btn-sm me-3">Produk</a>
-            <a href="{{ route('product.history') }}" class="btn btn-info btn-sm me-3">History</a>
-            <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm me-3">Tambah</a>
+            <a href="{{ route('masterAdmin.history') }}" class="btn btn-info btn-sm me-3">History</a>
+            <a href="{{ route('masterAdmin.plus') }}" class="btn btn-primary btn-sm me-3">Tambah</a>
         </div><br>
 
         <div class="col-12">
