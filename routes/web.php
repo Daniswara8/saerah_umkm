@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PelangganController;
-
+use App\Http\Controllers\StripePaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +20,10 @@ use App\Http\Controllers\PelangganController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboardUsers.dashboard');
+Route::get('/home', [ProductController::class, 'index']);
+
+Route::get('/checkout', function () {
+    return view('user.checkout');
 });
 
 
@@ -48,8 +50,8 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(ProductController::class)->group(function () {
     Route::get('/user', 'index')->name('user.index');
     Route::get('/product', 'admin')->name('product.admin');
-    Route::get('/product/history', 'history')->name('product.history');
-    Route::get('/product/create', 'create')->name('product.create');
+    Route::get('/historyproduct', 'history')->name('masterAdmin.history');
+    Route::get('/tambahProduct', 'tambahDataProduct')->name('masterAdmin.plus');
     Route::post('/product/kirim', 'store')->name('product.store');
     Route::get('/product/edit/{slug_link}', 'edit')->name('product.edit');
     Route::put('/product/update/{slug_link}', 'update')->name('product.update');

@@ -43,7 +43,6 @@ class PelangganController extends Controller
         User::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'konfirmasi_pass' => $request->password_confirmation,
             'nama' => $request->nama,
             'kontak' => $request->kontak,
             'alamat' => $request->alamat,
@@ -164,3 +163,4 @@ class PelangganController extends Controller
     }
 
 }
+
