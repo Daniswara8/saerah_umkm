@@ -34,8 +34,10 @@ class ProductController extends Controller
 
     public function history(): View
     {
-        $products = product::all();
+        $products = product::onlyTrashed()->get();
         return view('admin.history', compact('products'));
+        // $products = product::all();
+        // return view('admin.history', compact('products'));
     }
 
     public function store(Request $request) {

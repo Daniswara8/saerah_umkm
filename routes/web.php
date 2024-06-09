@@ -20,9 +20,7 @@ use App\Http\Controllers\StripePaymentController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboardUsers.dashboard');
-});
+Route::get('/home', [ProductController::class, 'index']);
 
 Route::get('/checkout', function () {
     return view('user.checkout');
