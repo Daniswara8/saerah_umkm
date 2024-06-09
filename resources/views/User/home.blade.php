@@ -176,85 +176,304 @@
       height:131px;
       margin-right:25px;
       margin-left:30px;
+
+      background-color: #e7dbdb;
     }
 
-    .getstarted{
-      font-size:small;
-      width:125px;
-      height:30px;
-      padding:0px 20px 0px 20px;
+    .custom-link {
+      color: black !important;
+      text-decoration: none;
     }
-    .turun{
-      text-align:center;
+
+    .custom-link:hover {
+      color: gray;
+    }
+
+    span {
+      color: #777B7E;
+    }
+
+    .navbar {
+      position: relative;
+    }
+
+    .form-control {
+      background-color: black;
+      color: white;
+      width: 337px;
+      border-radius: 20px;
+    }
+
+    .pembuka {
+      margin-top: 15%;
+      margin-right: 450px;
+      margin-left: 188px;
+      font-size: x-large;
+    }
+
+    .getstarted {
+      background-color: black;
+      color: white;
+      font-size: large;
+      border-radius: 20px;
+      height: 33px;
+      padding: 0px 40px 0px 40px;
+    }
+
+    .turun {
+      margin-left: 112px;
+      margin-top: 32px;
+    }
+
+    .batik-atas {
+      margin-top: 50px;
+      border: 20px;
+      display: flex;
+    }
+
+    .pict1 img {
+      margin-right: 15px;
+      width: 160px;
+      height: 355px;
+    }
+
+    .pict2 img {
+      width: 160px;
+      height: 355px;
+      margin-right: 15px;
+    }
+
+    .pict3 img {
+      width: 160px;
+      height: 355px;
+    }
+
+    .collection {
+      text-align: center;
+      margin-top: 160px;
+    }
+
+    .deskripsi {
+      font-size: medium;
+    }
+
+    .foto1 {
       margin: auto;
-    }
-    .batik-atas img{
-     height:75px;
-     width:33px;
-     
-    }
-    .pict1 img{
-      margin-right:5px;
-    }
-
-    .pict2 img{
-      margin-right:5px;
-    }
-    .collection{
-      margin-top:75px;
-    }
-    .deskripsi{
-      font-size:small;
-    }
-    .foto1{
-      margin:auto ;
-      margin-left:10px;
+      margin-left: 475px;
       height: 337px;
-      width:  300px;
-    }
-    #img1 img{
-      height: 188px;
-      width: 151px; 
+      width: 300px;
     }
 
-    .berita{
-      width:300px;
-      height:151px;
-      margin-top:85px;
+    #img1 {
+      display: flex;
     }
 
-    .berita img{
-      width:75px;
-      height:125px;
-    }
-    .diskon{
-      margin-top:25px;
-    }
-    .diskon h2{
-      font-size :10px;
-      width: 115px;
-      margin-bottom:5px;
-    }
-    .fw-bold{
-      font-size:10px;
-    }
-    .about{
-      width:300px;
-      height:250px;
-      padding:10px 3px 0px 3px;
+    #img1 img {
+      position: relative;
+      margin-top: 75px;
+      height: 337px;
+      width: 264px;
     }
 
-    .about h3{
-      font-size: 14px;
+    .batik {
+      text-align: center;
     }
 
-    .fw-normal{
-    font-size: 12px;
+    .kebaya {
+      text-align: center;
+      margin-left: 33px;
     }
-  
-    
-  }
 
+    .berita {
+      margin: auto;
+      background-color: #D2CECE;
+      width: 1138px;
+      height: 310px;
+      border: 4px solid #9F959E;
+      border-radius: 15px;
+      margin-top: 155px;
+    }
+
+    .mas img {
+      width: 178px;
+      height: 256px;
+      margin-right: 20px;
+      margin-top: 20px;
+    }
+
+    .mba img {
+      width: 180px;
+      height: 256px;
+      margin-top: 20px;
+    }
+
+    .diskon {
+      text-align: center;
+      width: 747px;
+      height: 76px;
+      margin-top: 75px;
+    }
+
+    .bestsell {
+      text-align: center;
+      margin-top: 175px;
+    }
+
+    .carousel-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      width: 18rem;
+      margin: 10px;
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .carousel-inner {
+      display: flex;
+    }
+
+    .about {
+      margin: auto;
+      text-align: center;
+      background-color: #D2CECE;
+      width: 1130px;
+      height: 410px;
+      border: 4px solid #9F959E;
+      border-radius: 15px;
+      margin-top: 75px;
+      padding-top: 113px;
+    }
+
+    .map-container {
+      margin-top: 95px;
+      text-align: center;
+    }
+
+    .map-container iframe {
+      width: 70%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media screen and (max-width:576px) {
+      h2 {
+        font-size: medium;
+      }
+
+      .form-control {
+        width: 226px;
+      }
+
+      .pembuka {
+        width: 150px;
+        height: 131px;
+        margin-right: 25px;
+        margin-left: 30px;
+      }
+
+      .getstarted {
+        font-size: small;
+        width: 125px;
+        height: 30px;
+        padding: 0px 20px 0px 20px;
+      }
+
+      .turun {
+        text-align: center;
+        margin: auto;
+      }
+
+      .batik-atas img {
+        height: 75px;
+        width: 33px;
+
+      }
+
+      .pict1 img {
+        margin-right: 5px;
+      }
+
+      .pict2 img {
+        margin-right: 5px;
+      }
+
+      .collection {
+        margin-top: 75px;
+      }
+
+      .deskripsi {
+        font-size: small;
+      }
+
+      .foto1 {
+        margin: auto;
+        margin-left: 10px;
+        height: 337px;
+        width: 300px;
+      }
+
+      #img1 img {
+        height: 188px;
+        width: 151px;
+      }
+
+      .berita {
+        width: 300px;
+        height: 151px;
+        margin-top: 85px;
+      }
+
+      .berita img {
+        width: 75px;
+        height: 125px;
+      }
+
+      .diskon {
+        margin-top: 25px;
+      }
+
+      .diskon h2 {
+        font-size: 10px;
+        width: 115px;
+        margin-bottom: 5px;
+      }
+
+      .fw-bold {
+        font-size: 10px;
+      }
+
+      .about {
+        width: 300px;
+        height: 250px;
+        padding: 10px 3px 0px 3px;
+      }
+
+      .about h3 {
+        font-size: 14px;
+      }
+
+      .fw-normal {
+        font-size: 12px;
+      }
+
+      /* Tambahkan gaya untuk link custom */
+    .custom-link {
+      color: black !important;
+      text-decoration: none;
+    }
+
+    .custom-link:hover {
+      color: gray;
+    }
+
+    }
   </style>
 </head>
 
@@ -278,20 +497,49 @@
               <a class="nav-link me-3" href="#tentang">About Us</a>
             </li>
           </ul>
-         
-            <a href="{{ url('/register') }}"><i class="bi bi-person-circle me-3" style="margin-left:10px"></i></a>
-            <a href="{{ url('/keranjang') }}"><i class="bi bi-cart3 me-3"></i></a>
+
+          @guest
+        <a href="{{ url('/login') }}" class="custom-link"><i class="bi bi-person-circle me-3" style="margin-left:10px">Masuk</i></a>
+      @endguest
+
+          @auth
+        <a href="{{ url('/dashboard') }}"
+        onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="custom-link" style="color: black; text-decoration: none;">
+        <i class="bi bi-person-circle me-3" style="margin-left:10px"></i>
+        </a>
+        <form id="logout-form" action="/dashboard" method="GET" style="display: none;">
+        @csrf
+        </form>
+      @endauth
+
+          <a href="{{ url('/keranjang') }}" class="custom-link"><i class="bi bi-cart3 me-3"></i></a>
         </div>
       </div>
     </div>
   </nav>
   <br>
 
+  @csrf
+
+@if (session('success'))
+  <div class="alert alert-success text-center">
+    {{ session('success') }}
+  </div>
+@endif
+
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li class="list-unstyled">{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
   <div class="opening d-flex">
     <div class="pembuka">
-      <h2>Mari Jelajahi Koleksi <br>Fashion Kami yang<br>Eksklusif. <button class="getstarted" id="scrollButton"><i
-            class="bi bi-caret-right mb-2"></i>Get Started</button><br>
-        <div class="turun"><i class="bi bi-chevron-down"></i></div>
+      <h2>Mari Jelajahi Koleksi <br>Fashion Kami yang<br>Eksklusif.
       </h2>
     </div>
     <div class="batik-atas">
@@ -336,7 +584,7 @@
   </div>
 
   <div class="container mt-5">
-        <div class="row justify-content-center">
+      <div class="row justify-content-center">
             @foreach($products->take(3) as $product)
                 <div class="col-12 col-md-4">
                     <div class="card me-4">
@@ -353,8 +601,12 @@
         </div>
     </div>
 
-    
-    <a href="{{ url('/user')}}"><p class="fw-normal" style="text-align:center"> Tampilkan Lebih Banyak</p></a>
+     
+  </div>
+  <a href="{{ url('/user')}}">
+    <p class="fw-normal" style="text-align:center"> Tampilkan Lebih Banyak</p>
+  </a>
+
 
   <section id="tentang">
     <div class="about">
@@ -369,8 +621,9 @@
 
   <div class="map-container">
     <h3>Lokasi</h3>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15840.480265448787!2d110.475701!3d-6.995138!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d1fb98592af%3A0x870265347dce57e3!2sgraha%20rias%20KRATON!5e0!3m2!1sid!2sid!4v1717464668079!5m2!1sid!2sid"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15840.480265448787!2d110.475701!3d-6.995138!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d1fb98592af%3A0x870265347dce57e3!2sgraha%20rias%20KRATON!5e0!3m2!1sid!2sid!4v1717464668079!5m2!1sid!2sid"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 
   <footer>
