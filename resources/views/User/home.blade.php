@@ -23,8 +23,8 @@
   
   .pembuka{
     margin-top: 15%;
-    margin-right: 200px;
-    margin-left: 188px;
+    margin-right: 190px;
+    margin-left: 110px;
     font-size: x-large;
   }
 
@@ -272,7 +272,7 @@
       position: relative;
       margin-top: 75px;
       height: 337px;
-      width: 264px;
+      width: 251px;
     }
 
     .batik {
@@ -414,7 +414,8 @@
 
       .foto1 {
         margin: auto;
-        margin-left: 10px;
+        margin-left: 40px;
+        margin-right:20px;
         height: 337px;
         width: 300px;
       }
@@ -447,6 +448,10 @@
 
       .fw-bold {
         font-size: 10px;
+      }
+
+      .container{
+        margin-left:10px;
       }
 
       .about {
@@ -538,7 +543,7 @@
 
   <div class="opening d-flex">
     <div class="pembuka" style="text-align:center;">
-      <h2 class="text-center">Mari Jelajahi Koleksi Terbaik Kami
+      <h2 class="text-center">Mari Jelajahi<br> Koleksi Terbaik<br> Kami
       </h2>
     </div>
     <div class="batik-atas">
@@ -581,23 +586,23 @@
   </div>
 
   <div class="container mt-5">
-      <div class="row justify-content-center">
-            @foreach($products->take(3) as $product)
-                <div class="ccol-12 col-sm-6 col-md-4 mb-3">
-                    <div class="card me-2">
-                        <img src="{{ asset('assets/' . $product->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px;">
-                        <div class="card-body">
-                            <p class="card-text" style="margin-bottom: 0;"><b>{{ $product->nama_produk }}</b></p>
-                            <!--<p style="margin-bottom: 0;">{{ $product->deskripsi_produk }}</p>-->
-                            <p class="text-right"><b>{{ $product->harga_produk }}</b></p>
-                           <!-- <a href="{{ route('product.show', $product->id) }}" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>-->
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>   
+    <div class="row justify-content-center">
+      @foreach($products->take(3) as $product)
+          <div class="col-12 col-md-4">
+              <div class="card me-4">
+                  <img src="{{ asset('assets/' . $product->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px;">
+                  <div class="card-body">
+                      <p class="card-text" style="margin-bottom: 0;"><b>{{ $product->nama_produk }}</b></p>
+                      <!--<p style="margin-bottom: 0;">{{ $product->deskripsi_produk }}</p>-->
+                      <p class="text-right"><b>{{ $product->harga_produk }}</b></p>
+                     <!-- <a href="{{ route('product.show', $product->id) }}" class="btn btn-outline-secondary btn-sm bi bi-eye" style="border-radius: 25px; width:100%;"> Detail</a>-->
+                  </div>
+              </div>
+          </div>
+      @endforeach
   </div>
+</div>
+
   <a href="{{ url('/user')}}">
     <p class="fw-normal" style="text-align:center"> Tampilkan Lebih Banyak</p>
   </a>

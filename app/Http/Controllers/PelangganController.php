@@ -1,8 +1,7 @@
-<?php
-
+<?php 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\User; // Pastikan impor model benar
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -43,6 +42,7 @@ class PelangganController extends Controller
         User::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'konfirmasi_pass' => $request->password_confirmation,
             'nama' => $request->nama,
             'kontak' => $request->kontak,
             'alamat' => $request->alamat,
@@ -115,7 +115,6 @@ class PelangganController extends Controller
         ) {
             return redirect()->back()->with('info', 'Data tidak terubah!');
         } else {
-
             // Update data profil
             $user->nama = $request->input('nama');
             $user->kontak = $request->input('kontak');
@@ -161,6 +160,4 @@ class PelangganController extends Controller
 
         return redirect()->back()->with('success', 'Kata sandi berhasil diperbarui!');
     }
-
 }
-
