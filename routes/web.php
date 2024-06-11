@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\KeranjangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +63,6 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/produk/detail/{id}', 'detail')->name('produk.detail');
     // button pencarian
     Route::get('/search', 'search')->name('search');
-
 });
 
 Route::controller(PelangganController::class)->group(function () {
@@ -100,6 +100,12 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/deleteCustomer/softdelete/{Slug_link}', 'softdelete')->name('customerAdmin.softDeleted');
         Route::delete('/customerAdmin/{slug}', 'destroy')->name('customerAdmin.destroy');
     });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang.index');
+    Route::post('/keranjang/add/{productId}', [KeranjangController::class, 'tambahKeranjang'])->name('keranjang.add');
+    Route::delete('/keranjang/remove/{cartId}', [KeranjangController::class, 'hapusKeranjang'])->name('keranjang.remove');
 });
 
 

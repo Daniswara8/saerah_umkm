@@ -19,7 +19,7 @@ class KeranjangController extends Controller
             ['quantity' => DB::raw('quantity + 1')]
         );
 
-        return redirect()->route('keranjang.keranjang')->with('success', 'Produk berhasil ditambahkan ke keranjang!');
+        return redirect()->route('keranjang.index')->with('success', 'Produk berhasil ditambahkan ke keranjang!');
     }
 
     public function index()
@@ -34,6 +34,6 @@ class KeranjangController extends Controller
         $cart = Keranjang::findOrFail($cartId);
         $cart->delete();
 
-        return redirect()->route('keranjang.keranjang')->with('success', 'Produk berhasil dihapus dari keranjang!');
+        return redirect()->route('keranjang.remove')->with('success', 'Produk berhasil dihapus dari keranjang!');
     }
 }

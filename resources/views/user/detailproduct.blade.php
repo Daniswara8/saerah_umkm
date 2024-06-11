@@ -1,92 +1,55 @@
 @extends('layout/product')
 @section('content')
-
-{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const plus = document.querySelector(".plus");
             const minus = document.querySelector(".minus");
             const num = document.querySelector(".num");
-            let maxLimit = @json($products->first()->jumlah_produk);  // Menggunakan @json untuk menghindari kesalahan sintaks
+            const maxLimit = {{ $products->jumlah_produk }}; // Jumlah maksimum produk
 
             let a = 1;
-
-            const updateStock = () => {
-                $.ajax({
-                    url: "{{ route('product.stock', ['product' => $products->first()->id]) }}",  // Mengambil produk pertama untuk demonstrasi
-                    method: "GET",
-                    success: function(response) {
-                        maxLimit = response.stock;
-                    }
-                });
-            };
 
             plus.addEventListener("click", () => {
                 if (a < maxLimit) {
                     a++;
-                    num.innerText = a;
+                    num.innerText = (a < maxLimit) ? "" + a : a;
                     console.log(a);
-                } else {
-                    updateStock(); // Update stock jika sudah mencapai limit
                 }
             });
 
             minus.addEventListener("click", () => {
                 if (a > 1) {
                     a--;
-                    num.innerText = a;
+                    num.innerText = (a < 10) ? "" + a : a;
                     console.log(a);
                 }
             });
         });
-    </script> --}}
+    </script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const plus = document.querySelector(".plus");
-        const minus = document.querySelector(".minus");
-        const num = document.querySelector(".num");
-        const maxLimit = {{$products->jumlah_produk}};  // Jumlah maksimum produk
+    <div class="div">
+        <center>
+            <h1>DETAIL<span> PRODUCT</span></h1>
+        </center>
+        <br>
+    </div>
 
-        let a = 1;
+    <body>
 
-        plus.addEventListener("click", () => {
-            if (a < maxLimit) {
-                a++;
-                num.innerText = (a < maxLimit) ? "" + a : a;
-                console.log(a);
-            }
-        });
+        <a href="/user" class="btn btn-outline-secondary btn-md bi bi-arrow-90deg-left"
+            style="margin-bottom: 10px; margin-left:12px;"></a>
 
-        minus.addEventListener("click", () => {
-            if (a > 1) {
-                a--;
-                num.innerText = (a < 10) ? "" + a : a;
-                console.log(a);
-            }
-        });
-    });
-</script>
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
 
-<div class="div">
-    <center><h1>DETAIL<span> PRODUCT</span></h1></center>
-    <br>
-</div>
-
-<body>
-
-    <a href="/user" class="btn btn-outline-secondary btn-md bi bi-arrow-90deg-left" style="margin-bottom: 10px; margin-left:12px;"></a>
-
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-
-                            <div class="images col-md-6">
-                                <img src="{{ asset('assets/' . $products->foto_produk) }}" class="detfoto" style=" margin-top:8px; margin-bottom:8px; width:100%; border-radius:8px; object-fit:cover;">
-                            </div>
+                                <div class="images col-md-6">
+                                    <img src="{{ asset('assets/' . $products->foto_produk) }}" class="detfoto"
+                                        style=" margin-top:8px; margin-bottom:8px; width:100%; border-radius:8px; object-fit:cover;">
+                                </div>
 
                                 <div class="teks col-md-6" style="text-transform: capitalize;">
                                     <h2>{{ $products->nama_produk }}</h2><br>
@@ -135,22 +98,30 @@
 
 
 
-                                    <h5><strong>Deskripsi</strong></h5><p>{{ $products->deskripsi_produk }}</p><br>
-                                    <a href="/keranjang" class="btn btn-outline-secondary btn-sm bi bi-cart3" style="border-radius: 25px; width:100%;"> Keranjang</a><br><br>
+                                    <h5><strong>Deskripsi</strong></h5>
+                                    <p>{{ $products->deskripsi_produk }}</p><br>
+
+
+                                    <form action="{{ route('keranjang.add', $products->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-outline-secondary btn-sm"
+                                            style="border-radius: 25px; width:100%;">Tambah ke Keranjang</button>
+                                    </form>
+
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <br><br>
+        <br><br>
 
 
 
-    {{-- <img src="{{ asset('storage/images/' . $products->foto_produk) }}" class="detfoto" style="margin-bottom: 50px;"> --}}
+        {{-- <img src="{{ asset('storage/images/' . $products->foto_produk) }}" class="detfoto" style="margin-bottom: 50px;"> --}}
 
-    {{-- <h1>{{ $products->nama_produk }}</h1>
+        {{-- <h1>{{ $products->nama_produk }}</h1>
     <p>{{ $products->deskripsi_produk }}</p>
 
     <p><strong>Jumlah </strong></p><input type="number" min = "0" value="1"><br><br>
@@ -167,8 +138,8 @@
     <a href="#" class="btn btn-outline-secondary btn-sm bi bi-cart3" style="border-radius: 25px; width:25%;"> Keranjang</a>
 </body> --}}
 
-{{-- <div class="container flex"> --}}
-    {{-- @foreach ($products as $pro)
+        {{-- <div class="container flex"> --}}
+        {{-- @foreach ($products as $pro)
         <div class="left">
             <img src="{{ asset('storage/images/' . $pro->foto_produk) }}" class="p-2 img-fluid gambar" style="margin-top: 10px; border-radius:100px 0px;">
                 <div class="card-body">
@@ -177,11 +148,11 @@
                     <p class="text-right"><b>{{ $pro->harga_produk }}</b></p>
 
                     {{-- <a href="#"><i class="bi bi-cart3"></i></a> rgb(255, 141, 179) --}}
-                    {{-- <a href="#" class="btn btn-outline-secondary btn-sm bi bi-cart3" style="border-radius: 25px; width:100%;"> Tambah</a> --}}
-                {{-- </div> --}}
+        {{-- <a href="#" class="btn btn-outline-secondary btn-sm bi bi-cart3" style="border-radius: 25px; width:100%;"> Tambah</a> --}}
         {{-- </div> --}}
-    {{-- @endforeach
+        {{-- </div> --}}
+        {{-- @endforeach
 </div> --}}
 
-</body>
+    </body>
 @endsection

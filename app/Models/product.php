@@ -35,4 +35,3 @@ class Product extends Model
                      ->orWhere('deskripsi_produk', 'LIKE', "%{$term}%");
     }
 }
-

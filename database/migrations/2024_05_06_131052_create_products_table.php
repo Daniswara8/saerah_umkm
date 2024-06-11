@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('harga_produk', 10, 3);
             $table->bigInteger('jumlah_produk');
             $table->string('Slug_link');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }
