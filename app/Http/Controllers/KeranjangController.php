@@ -34,6 +34,17 @@ class KeranjangController extends Controller
         $cart = Keranjang::findOrFail($cartId);
         $cart->delete();
 
-        return redirect()->route('keranjang.remove')->with('success', 'Produk berhasil dihapus dari keranjang!');
+        return redirect()->route('keranjang.index')->with('success', 'Produk berhasil dihapus dari keranjang!');
     }
+
+    public function updateQuantity(Request $request, $cartId)
+{
+    $cart = Keranjang::findOrFail($cartId);
+    $newQuantity = $cart->quantity + $request->input('change');
+    if ($newQuantity > 0) {
+        $cart->quantity = $newQuantity;
+        $cart->save();
+    }
+    return response()->json(['success' => true]);
+}
 }

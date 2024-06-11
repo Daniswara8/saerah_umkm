@@ -106,6 +106,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang.index');
     Route::post('/keranjang/add/{productId}', [KeranjangController::class, 'tambahKeranjang'])->name('keranjang.add');
     Route::delete('/keranjang/remove/{cartId}', [KeranjangController::class, 'hapusKeranjang'])->name('keranjang.remove');
+    Route::post('/keranjang/update/{cartId}', [KeranjangController::class, 'updateQuantity'])->name('keranjang.update');
 });
 
 
