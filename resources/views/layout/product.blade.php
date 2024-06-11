@@ -304,16 +304,16 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/user">Product</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active me-3" href="/home">About</a>
-                    </li>
+                    </li> -->
                 </ul>
                     {{-- <form class="d-flex" role="search">
                         <input class="form-control me-2 custom" type="search" placeholder="Cari Disini" aria-label="Search">
                         <button class="btn btn-outline-secondary bi bi-search cuzz" type="submit"></button>
                     </form> --}}
                     <form action="{{ route('search') }} " class="d-flex" role="search" method="GET">
-                        <input class="form-control me-2 custom" type="search" name="query" placeholder="Cari Di Sini" aria-label="Search" value="{{ request('query') }}">
+                        <input class="form-control me-2 custom w-100" type="search" name="query" placeholder="Cari Di Sini" aria-label="Search" value="{{ request('query') }}">
                         <button class="btn btn-outline-dark bi bi-search cuzz" type="submit"></button>
                     </form>
 

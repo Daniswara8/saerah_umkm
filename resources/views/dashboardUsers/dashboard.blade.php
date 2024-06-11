@@ -104,6 +104,15 @@
                                     <td>
                                         nama
                                     </td>
+                                    <td>
+                                        nama
+                                    </td>
+                                    <td>
+                                        nama
+                                    </td>
+                                    <td>
+                                        nama
+                                    </td>
                                     {{-- <td>
                              @if ($lat->update_at != null)
                              {{ Carbon\Carbon::parse($lat->update_at)->format('d-m-Y H:i:s') }}
