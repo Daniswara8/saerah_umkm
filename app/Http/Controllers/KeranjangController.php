@@ -25,8 +25,10 @@ class KeranjangController extends Controller
     public function index()
     {
         $cartItems = Keranjang::where('user_id', Auth::id())->get();
-
-        return view('keranjang.keranjang', compact('cartItems'));
+        $totalPrice = $cartItems->sum(function ($item) {
+            return $item->quantity * $item->product->harga_produk;
+        });
+        return view('keranjang.keranjang', compact('cartItems', 'totalPrice'));
     }
 
     public function hapusKeranjang($cartId)
@@ -38,13 +40,13 @@ class KeranjangController extends Controller
     }
 
     public function updateQuantity(Request $request, $cartId)
-{
-    $cart = Keranjang::findOrFail($cartId);
-    $newQuantity = $cart->quantity + $request->input('change');
-    if ($newQuantity > 0) {
-        $cart->quantity = $newQuantity;
-        $cart->save();
+    {
+        $cart = Keranjang::findOrFail($cartId);
+        $newQuantity = $cart->quantity + $request->input('change');
+        if ($newQuantity > 0) {
+            $cart->quantity = $newQuantity;
+            $cart->save();
+        }
+        return response()->json(['success' => true]);
     }
-    return response()->json(['success' => true]);
-}
 }
