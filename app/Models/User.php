@@ -25,6 +25,7 @@ class User extends Authenticatable
         'password',
         'konfirmasi_pass',
         'status_publish',
+        'level',
         'status_aktif',
         'slug_link',
         'deleted_at',

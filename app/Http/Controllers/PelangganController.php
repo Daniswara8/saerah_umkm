@@ -46,6 +46,7 @@ class PelangganController extends Controller
             'nama' => $request->nama,
             'kontak' => $request->kontak,
             'alamat' => $request->alamat,
+            'level' => 'user',
             'slug_link' => $slug,
             'created_at' => now(),
         ]);
@@ -54,30 +55,80 @@ class PelangganController extends Controller
     }
 
     // Login
-    public function proses(Request $request)
-    {
-        Session::flash('email', $request->email);
-
+    public function proses(Request $request){
+        // untuk mengonfirmasi data yang ada didatabase
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|string',
-        ], [
-            'email.required' => "Email Wajib Diisi!",
-            'email.email' => "Format Email tidak valid!",
-            'password.required' => "Password Wajib Diisi!",
+            'password' => 'required|min:6',
         ]);
-
-        $infologin = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
-
-        if (Auth::attempt($infologin)) {
-            return redirect('dashboard')->with('success', 'Berhasil Login');
+        // akun admin 
+        $adminEmail = 'admingp@GPhotoadmin.com';
+        $adminPassword = 'gpganteng-admin';
+    
+        if ($request->email === $adminEmail && $request->password === $adminPassword) {
+            $admin = User::where('email', $adminEmail)->first();
+    
+            if (!$admin) {
+                $admin = User::create([
+                    'nama' => 'Admin',
+                    'email' => $adminEmail,
+                    'password' => Hash::make($adminPassword),
+                    'kontak' => '1234567890',
+                    'level' => 'admin',
+                    'alamat' => 'Alamat Admin',
+                    'konfirmasi_pass' => 'gpganteng-admin',
+                    'slug_link' => 'admin'
+                ]);
+            }
+        } 
+    
+        $data = $request->only('email', 'password');
+        // ini untuk hanya mengambil email dan password
+    
+        if (Auth::attempt( $data)) {
+            // pilih kasih level
+            $user = Auth::user();
+            $request->session()->put('nama_admin', $user->name);
+            // mengapa menggunakan "$user = Auth::user();"? Hal ini sangat berguna ketika Anda perlu menyimpan informasi
+            // terkait pengguna yang melakukan suatu tindakan, seperti membuat atau memperbarui catatan dalam database.
+            if ($user->level == 'admin') {
+                // kalo level admin masuk ke tampilan admin
+                return redirect()->route('customerAdmin.index');
+            } else {
+                // kalo level user masuk ke tampilan user
+                return redirect()->route('dashboard.indexdashboard');
+            }
         } else {
+            // kalo email atau password salah
             return redirect('login')->withErrors('Email atau Password tidak valid!');
         }
     }
+    
+    
+    // public function proses(Request $request)
+    // {
+    //     Session::flash('email', $request->email);
+
+    //     $request->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required|string',
+    //     ], [
+    //         'email.required' => "Email Wajib Diisi!",
+    //         'email.email' => "Format Email tidak valid!",
+    //         'password.required' => "Password Wajib Diisi!",
+    //     ]);
+
+    //     $infologin = [
+    //         'email' => $request->email,
+    //         'password' => $request->password,
+    //     ];
+
+    //     if (Auth::attempt($infologin)) {
+    //         return redirect('dashboard')->with('success', 'Berhasil Login');
+    //     } else {
+    //         return redirect('login')->withErrors('Email atau Password tidak valid!');
+    //     }
+    // }
 
     public function logout(Request $request)
     {
