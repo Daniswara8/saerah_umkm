@@ -63,8 +63,8 @@ class PelangganController extends Controller
             'password' => 'required|min:6',
         ]);
         // akun admin 
-        $adminEmail = 'admingp@GPhotoadmin.com';
-        $adminPassword = 'gpganteng-admin';
+        $adminEmail = 'saerahadm@adminsr.com';
+        $adminPassword = 'butik-saearah-adm2000';
 
         if ($request->email === $adminEmail && $request->password === $adminPassword) {
             $admin = User::where('email', $adminEmail)->first();
