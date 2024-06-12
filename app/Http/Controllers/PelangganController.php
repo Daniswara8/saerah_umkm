@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers;
 
 use App\Models\User; // Pastikan impor model benar
@@ -55,7 +55,8 @@ class PelangganController extends Controller
     }
 
     // Login
-    public function proses(Request $request){
+    public function proses(Request $request)
+    {
         // untuk mengonfirmasi data yang ada didatabase
         $request->validate([
             'email' => 'required|email',
@@ -64,10 +65,10 @@ class PelangganController extends Controller
         // akun admin 
         $adminEmail = 'admingp@GPhotoadmin.com';
         $adminPassword = 'gpganteng-admin';
-    
+
         if ($request->email === $adminEmail && $request->password === $adminPassword) {
             $admin = User::where('email', $adminEmail)->first();
-    
+
             if (!$admin) {
                 $admin = User::create([
                     'nama' => 'Admin',
@@ -80,12 +81,12 @@ class PelangganController extends Controller
                     'slug_link' => 'admin'
                 ]);
             }
-        } 
-    
+        }
+
         $data = $request->only('email', 'password');
         // ini untuk hanya mengambil email dan password
-    
-        if (Auth::attempt( $data)) {
+
+        if (Auth::attempt($data)) {
             // pilih kasih level
             $user = Auth::user();
             $request->session()->put('nama_admin', $user->name);
@@ -103,8 +104,8 @@ class PelangganController extends Controller
             return redirect('login')->withErrors('Email atau Password tidak valid!');
         }
     }
-    
-    
+
+
     // public function proses(Request $request)
     // {
     //     Session::flash('email', $request->email);
