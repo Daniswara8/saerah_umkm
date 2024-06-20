@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\PembayaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +108,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/keranjang/add/{productId}', [KeranjangController::class, 'tambahKeranjang'])->name('keranjang.add');
     Route::delete('/keranjang/remove/{cartId}', [KeranjangController::class, 'hapusKeranjang'])->name('keranjang.remove');
     Route::post('/keranjang/update/{cartId}', [KeranjangController::class, 'updateQuantity'])->name('keranjang.update');
+
+
+    Route::get('/pembayaran/create', [PembayaranController::class, 'create'])->name('pembayaran.create');
+    Route::post('/pembayaran/store', [PembayaranController::class, 'store'])->name('pembayaran.store');
+    Route::get('/pembayaran/{id}', [PembayaranController::class, 'show'])->name('pembayaran.show');
+    Route::get('/checkout', [PembayaranController::class, 'checkout'])->name('checkout');
 });
 
 

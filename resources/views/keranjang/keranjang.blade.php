@@ -107,7 +107,7 @@
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-center">
-                        <a href="#" class="btn btn-primary">Checkout</a>
+                        <a href="{{ route('pembayaran.create') }}" class="btn btn-primary">Checkout</a>
                     </div>
                 </div>
             </div>
