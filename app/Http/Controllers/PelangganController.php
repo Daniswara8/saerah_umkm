@@ -77,7 +77,7 @@ class PelangganController extends Controller
                     'kontak' => '1234567890',
                     'level' => 'admin',
                     'alamat' => 'Alamat Admin',
-                    'konfirmasi_pass' => 'gpganteng-admin',
+                    'konfirmasi_pass' => $adminPassword,
                     'slug_link' => 'admin'
                 ]);
             }
