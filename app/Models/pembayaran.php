@@ -14,6 +14,7 @@ class Pembayaran extends Model
         'total_harga',
         'status',
         'metode_pembayaran',
+        'bukti_pembayaran',
     ];
 
     public function user()
@@ -21,3 +22,4 @@ class Pembayaran extends Model
         return $this->belongsTo(User::class);
     }
 }
+

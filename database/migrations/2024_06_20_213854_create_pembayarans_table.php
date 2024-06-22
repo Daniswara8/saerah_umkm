@@ -14,6 +14,7 @@ class CreatePembayaransTable extends Migration
             $table->decimal('total_harga', 15, 2);
             $table->string('status')->default('pending');
             $table->string('metode_pembayaran');
+            $table->string('bukti_pembayaran')->nullable();
             $table->timestamps();
         });
     }

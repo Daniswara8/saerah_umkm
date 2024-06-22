@@ -39,10 +39,30 @@
                         </tbody>
                     </table>
                 </div>
-                <form action="{{ route('checkout') }}" method="GET">
+
+                <form action="{{ route('pembayaran.store') }}" method="POST" enctype="multipart/form-data" id="payment-form">
                     @csrf
+                    <div class="form-group mt-3">
+                        <label for="metode_pembayaran">Pilih Metode Pembayaran:</label>
+                        <select class="form-control" id="metode_pembayaran" name="metode_pembayaran" required>
+                            <option value="">Pilih Metode Pembayaran</option>
+                            <option value="qris">QRIS</option>
+                            <option value="cod">COD</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-3" id="bukti_pembayaran" style="display: none;">
+                        <label for="bukti_pembayaran">Unggah Bukti Pembayaran:</label>
+                        <input type="file" class="form-control-file" name="bukti_pembayaran" id="bukti_pembayaran_input">
+                    </div>
+
+                    <div class="form-group mt-3" id="qris_image" style="display: none;">
+                        <label>Scan QRIS untuk Melakukan Pembayaran:</label>
+                        <img src="{{ asset('assets/images/qris.jpg') }}" alt="QRIS" class="img-fluid">
+                    </div>
+
                     <div class="d-flex justify-content-center mt-3">
-                        <button type="submit" class="btn btn-primary">Lanjutkan Ke Pembayaran</button>
+                        <button type="submit" class="btn btn-primary" id="order-btn">Lanjutkan Ke Pembayaran</button>
                     </div>
                 </form>
             </div>
@@ -87,4 +107,38 @@
             }
         }
     </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: "Orderanmu sudah masuk!",
+                text: "Terimakasih telah memesan!",
+                icon: "success"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            });
+        });
+
+        document.getElementById('metode_pembayaran').addEventListener('change', function() {
+            var metode = this.value;
+            var buktiPembayaran = document.getElementById('bukti_pembayaran');
+            var buktiPembayaranInput = document.getElementById('bukti_pembayaran_input');
+            var qrisImage = document.getElementById('qris_image');
+
+            if (metode === 'qris') {
+                buktiPembayaran.style.display = 'block';
+                buktiPembayaranInput.required = true;
+                qrisImage.style.display = 'block';
+            } else {
+                buktiPembayaran.style.display = 'none';
+                buktiPembayaranInput.required = false;
+                qrisImage.style.display = 'none';
+            }
+        });
+    </script>
 @endsection

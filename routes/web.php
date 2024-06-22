@@ -21,10 +21,10 @@ use App\Http\Controllers\PembayaranController;
 */
 
 // Public Routes
-Route::get('/home', [ProductController::class, 'index']);
+// Route::get('/home', [ProductController::class, 'index']);
 
 Route::controller(HomeController::class)->group(function () {
-    Route::get('/home', 'index')->name('index');
+    Route::get('/', 'index')->name('index');
     Route::get('/product/{id}', 'show')->name('product.show');
 });
 
@@ -43,8 +43,10 @@ Route::controller(PelangganController::class)->group(function () {
 
 // Protected Routes
 Route::middleware(['auth'])->group(function () {
-    // Admin Routes
+    // Admin Routes 
     Route::middleware(['ceklevel:admin'])->group(function () {
+
+        // admin User
         Route::controller(AdminController::class)->group(function () {
             Route::get('/tambahCustomer', 'tambahDataCustomer')->name('masterAdmin.index');
             Route::get('/customerAdmin', 'tampilDataCustomer')->name('customerAdmin.index');
@@ -58,6 +60,24 @@ Route::middleware(['auth'])->group(function () {
             Route::put('/deleteCustomer/softdelete/{slug_link}', 'softdelete')->name('customerAdmin.softDeleted');
             Route::delete('/customerAdmin/{slug}', 'destroy')->name('customerAdmin.destroy');
         });
+
+        // admin Product
+        // Route::controller(ProductController::class)->group(function () {
+        //     Route::get('/user', 'index')->name('user.index');
+        //     Route::get('/product', 'admin')->name('product.admin');
+        //     Route::get('/historyproduct', 'history')->name('masterAdmin.history');
+        //     Route::get('/tambahProduct', 'tambahDataProduct')->name('masterAdmin.plus');
+        //     Route::post('/product/kirim', 'store')->name('product.store');
+        //     Route::get('/product/edit/{slug_link}', 'edit')->name('product.edit');
+        //     Route::put('/product/update/{slug_link}', 'update')->name('product.update');
+        //     Route::get('/product/hapus/{slug_link}', 'hapus')->name('product.hapus');
+        //     Route::put('/product/softdelete/{slug_link}', 'softdelete')->name('product.softdelete');
+        //     Route::post('/product/restore/{slug_link}', 'restore')->name('product.restore');
+        //     Route::delete('/product/permanent-delete/{id}', 'deletePermanent')->name('product.deletePermanent');
+        //     Route::get('/produk/detail/{id}', 'detail')->name('produk.detail');
+        //     // button pencarian
+        //     Route::get('/search', 'search')->name('search');
+        // });
     });
 
     // User Routes
@@ -83,4 +103,21 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/editpass', 'indexpass')->name('dashboard.indexpass');
         });
     });
+});
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/user', 'index')->name('user.index');
+    Route::get('/product', 'admin')->name('product.admin');
+    Route::get('/historyproduct', 'history')->name('masterAdmin.history');
+    Route::get('/tambahProduct', 'tambahDataProduct')->name('masterAdmin.plus');
+    Route::post('/product/kirim', 'store')->name('product.store');
+    Route::get('/product/edit/{slug_link}', 'edit')->name('product.edit');
+    Route::put('/product/update/{slug_link}', 'update')->name('product.update');
+    Route::get('/product/hapus/{slug_link}', 'hapus')->name('product.hapus');
+    Route::put('/product/softdelete/{slug_link}', 'softdelete')->name('product.softdelete');
+    Route::post('/product/restore/{slug_link}', 'restore')->name('product.restore');
+    Route::delete('/product/permanent-delete/{id}', 'deletePermanent')->name('product.deletePermanent');
+    Route::get('/produk/detail/{id}', 'detail')->name('produk.detail');
+    // button pencarian
+    Route::get('/search', 'search')->name('search');
 });
