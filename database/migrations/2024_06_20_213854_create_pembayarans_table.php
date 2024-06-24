@@ -11,8 +11,8 @@ class CreatePembayaransTable extends Migration
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->decimal('total_harga', 15, 2);
-            $table->string('status')->default('pending');
+            $table->decimal('total_harga', 12, 2);
+            $table->enum('status', ['pending', 'success', 'failed'])->default('pending');
             $table->string('metode_pembayaran');
             $table->string('bukti_pembayaran')->nullable();
             $table->timestamps();
@@ -23,4 +23,4 @@ class CreatePembayaransTable extends Migration
     {
         Schema::dropIfExists('pembayarans');
     }
-};  
+}

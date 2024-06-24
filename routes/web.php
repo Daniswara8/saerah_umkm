@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\PembayaranController;
-
+use App\Http\Controllers\HistoryPembelianController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +21,8 @@ use App\Http\Controllers\PembayaranController;
 */
 
 // Public Routes
-// Route::get('/home', [ProductController::class, 'index']);
+Route::get('/user', [ProductController::class, 'index'])->name('user.index');
+Route::get('/produk/detail/{id}',[ProductController::class, 'detail'])->name('produk.detail');
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('index');
@@ -63,7 +64,6 @@ Route::middleware(['auth'])->group(function () {
 
         // admin Product
         // Route::controller(ProductController::class)->group(function () {
-        //     Route::get('/user', 'index')->name('user.index');
         //     Route::get('/product', 'admin')->name('product.admin');
         //     Route::get('/historyproduct', 'history')->name('masterAdmin.history');
         //     Route::get('/tambahProduct', 'tambahDataProduct')->name('masterAdmin.plus');
@@ -74,10 +74,10 @@ Route::middleware(['auth'])->group(function () {
         //     Route::put('/product/softdelete/{slug_link}', 'softdelete')->name('product.softdelete');
         //     Route::post('/product/restore/{slug_link}', 'restore')->name('product.restore');
         //     Route::delete('/product/permanent-delete/{id}', 'deletePermanent')->name('product.deletePermanent');
-        //     Route::get('/produk/detail/{id}', 'detail')->name('produk.detail');
         //     // button pencarian
         //     Route::get('/search', 'search')->name('search');
         // });
+
     });
 
     // User Routes
@@ -92,8 +92,6 @@ Route::middleware(['auth'])->group(function () {
         Route::controller(PembayaranController::class)->group(function () {
             Route::get('/pembayaran/create', 'create')->name('pembayaran.create');
             Route::post('/pembayaran/store', 'store')->name('pembayaran.store');
-            Route::get('/pembayaran/{id}', 'show')->name('pembayaran.show');
-            Route::get('/checkout', 'checkout')->name('checkout');
         });
 
         Route::controller(DashboarduserController::class)->group(function () {
@@ -102,11 +100,15 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/editprofile', 'indexedit')->name('dashboard.indexedit');
             Route::get('/editpass', 'indexpass')->name('dashboard.indexpass');
         });
+
+       
+
     });
 });
 
+
 Route::controller(ProductController::class)->group(function () {
-    Route::get('/user', 'index')->name('user.index');
+    // Route::get('/user', 'index')->name('user.index');
     Route::get('/product', 'admin')->name('product.admin');
     Route::get('/historyproduct', 'history')->name('masterAdmin.history');
     Route::get('/tambahProduct', 'tambahDataProduct')->name('masterAdmin.plus');
@@ -117,7 +119,14 @@ Route::controller(ProductController::class)->group(function () {
     Route::put('/product/softdelete/{slug_link}', 'softdelete')->name('product.softdelete');
     Route::post('/product/restore/{slug_link}', 'restore')->name('product.restore');
     Route::delete('/product/permanent-delete/{id}', 'deletePermanent')->name('product.deletePermanent');
-    Route::get('/produk/detail/{id}', 'detail')->name('produk.detail');
+    // Route::get('/produk/detail/{id}', 'detail')->name('produk.detail');
     // button pencarian
     Route::get('/search', 'search')->name('search');
 });
+
+
+Route::controller(HistoryPembelianController::class)->group(function () {
+    Route::get('/history',  'index')->name('history.index');
+    Route::get('/history/{id}', 'show')->name('history.show');
+});
+
