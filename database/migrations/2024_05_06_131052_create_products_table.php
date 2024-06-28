@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('foto_produk')->nullable();
             $table->string('nama_produk');
-            // $table->string('ukuran_produk');
-            // $table->string('motif_produk');
             $table->text('deskripsi_produk');
             $table->decimal('harga_produk', 10, 3);
             $table->bigInteger('jumlah_produk');
