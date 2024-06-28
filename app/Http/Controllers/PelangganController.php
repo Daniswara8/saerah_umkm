@@ -97,7 +97,7 @@ class PelangganController extends Controller
                 return redirect()->route('customerAdmin.index');
             } else {
                 // kalo level user masuk ke tampilan user
-                return redirect()->route('dashboard.indexdashboard');
+                return redirect()->route('dashboard.indexdashboard')->with('success', 'Berhasil Login');
             }
         } else {
             // kalo email atau password salah
