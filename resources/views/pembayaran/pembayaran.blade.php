@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="d-flex justify-content-center mt-3">
-                        <button type="submit" class="btn btn-primary" id="order-btn">Lanjutkan Ke Pembayaran</button>
+                        <button type="submit" class="btn btn-primary" id="order-btn">Checkout</button>
                     </div>
                 </form>
             </div>

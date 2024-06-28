@@ -101,14 +101,17 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/editpass', 'indexpass')->name('dashboard.indexpass');
         });
 
-       
+        
 
     });
 });
 
 
+
+
+// untuk sementara, admin bagian product tidak diberi middleware
+// karena untuk keperluan history, sering menggunakan migrate:fresh
 Route::controller(ProductController::class)->group(function () {
-    // Route::get('/user', 'index')->name('user.index');
     Route::get('/product', 'admin')->name('product.admin');
     Route::get('/historyproduct', 'history')->name('masterAdmin.history');
     Route::get('/tambahProduct', 'tambahDataProduct')->name('masterAdmin.plus');
@@ -119,7 +122,6 @@ Route::controller(ProductController::class)->group(function () {
     Route::put('/product/softdelete/{slug_link}', 'softdelete')->name('product.softdelete');
     Route::post('/product/restore/{slug_link}', 'restore')->name('product.restore');
     Route::delete('/product/permanent-delete/{id}', 'deletePermanent')->name('product.deletePermanent');
-    // Route::get('/produk/detail/{id}', 'detail')->name('produk.detail');
     // button pencarian
     Route::get('/search', 'search')->name('search');
 });

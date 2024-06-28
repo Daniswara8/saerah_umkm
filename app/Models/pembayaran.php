@@ -21,5 +21,17 @@ class Pembayaran extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function keranjangs()
+    {
+        return $this->hasMany(Keranjang::class);
+    }
+
+    public function histories()
+    {
+        return $this->hasMany(History::class);
+    }
 }
+
+
 
