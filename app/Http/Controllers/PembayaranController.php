@@ -26,6 +26,7 @@ class PembayaranController extends Controller
         $request->validate([
             'metode_pembayaran' => 'required|string',
             'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'alamat_pengiriman' => 'required|string|max:255',
         ]);
     
         $cartItems = Keranjang::where('user_id', Auth::id())->get();
@@ -38,6 +39,7 @@ class PembayaranController extends Controller
             'total_harga' => $totalPrice,
             'status' => 'pending',
             'metode_pembayaran' => $request->input('metode_pembayaran'),
+            'alamat_pengiriman' => $request->input('alamat_pengiriman'),
         ];
     
         if ($request->hasFile('bukti_pembayaran')) {

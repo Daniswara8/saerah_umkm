@@ -61,6 +61,11 @@
                         <img src="{{ asset('assets/images/qris.jpg') }}" alt="QRIS" class="img-fluid">
                     </div>
 
+                    <div class="form-group mt-3">
+                        <label for="alamat_pengiriman">Alamat Pengiriman:</label>
+                        <textarea class="form-control" id="alamat_pengiriman" name="alamat_pengiriman" required></textarea>
+                    </div>
+
                     <div class="d-flex justify-content-center mt-3">
                         <button type="submit" class="btn btn-primary" id="order-btn">Checkout</button>
                     </div>

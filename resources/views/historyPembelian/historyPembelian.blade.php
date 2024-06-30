@@ -16,6 +16,7 @@
                                         {{ number_format($pembayaran->total_harga, 0, ',', '.') }}</p>
                                     <p class="card-text">Status: {{ ucfirst($pembayaran->status) }}</p>
                                     <p class="card-text">Metode Pembayaran: {{ $pembayaran->metode_pembayaran }}</p>
+                                    <p class="card-text">Alamat Pengiriman: {{ $pembayaran->alamat_pengiriman }}</p>
                                 </div>
                             </div>
                             <hr>

@@ -22,7 +22,7 @@ use App\Http\Controllers\HistoryPembelianController;
 */
 Route::get('/pesanan', function () {
     return view('admin.dataOrder.pesananbaru');
-})->name('pesanan');
+})->name('pesanan.index');
 
 // Public Routes
 Route::get('/user', [ProductController::class, 'index'])->name('user.index');

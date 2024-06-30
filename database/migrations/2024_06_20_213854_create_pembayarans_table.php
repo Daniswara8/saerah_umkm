@@ -15,6 +15,7 @@ class CreatePembayaransTable extends Migration
             $table->enum('status', ['pending', 'success', 'failed'])->default('pending');
             $table->string('metode_pembayaran');
             $table->string('bukti_pembayaran')->nullable();
+            $table->text('alamat_pengiriman')->nullable();
             $table->timestamps();
         });
     }
