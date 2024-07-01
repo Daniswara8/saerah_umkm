@@ -9,6 +9,8 @@ use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\HistoryPembelianController;
+use App\Http\Controllers\AdminOrderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,9 @@ use App\Http\Controllers\HistoryPembelianController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/pesanan', function () {
-    return view('admin.dataOrder.pesananbaru');
-})->name('pesanan.index');
+// Route::get('/pesanan', function () {
+//     return view('admin.dataOrder.pesananbaru');
+// })->name('pesanan.index');
 
 // Public Routes
 Route::get('/user', [ProductController::class, 'index'])->name('user.index');
@@ -134,5 +136,9 @@ Route::controller(ProductController::class)->group(function () {
 Route::controller(HistoryPembelianController::class)->group(function () {
     Route::get('/history', 'index')->name('history.index');
     Route::get('/history/{id}', 'show')->name('history.show');
+    Route::get('/admin/orders', 'PesananBaru')->name('adminOrder.index');
 });
+
+
+
 

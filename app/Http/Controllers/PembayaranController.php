@@ -37,7 +37,7 @@ class PembayaranController extends Controller
         $pembayaranData = [
             'user_id' => Auth::id(),
             'total_harga' => $totalPrice,
-            'status' => 'pending',
+            'status_pengiriman' => 'pending',
             'metode_pembayaran' => $request->input('metode_pembayaran'),
             'alamat_pengiriman' => $request->input('alamat_pengiriman'),
         ];

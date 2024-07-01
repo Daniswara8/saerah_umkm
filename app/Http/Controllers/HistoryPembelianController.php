@@ -21,4 +21,13 @@ class HistoryPembelianController extends Controller
         $histories = History::where('pembayaran_id', $id)->with('product')->get();
         return view('historyPembelian.detailHistoryPembelian', compact('pembayaran', 'histories'));
     }
+
+    public function PesananBaru()
+    {
+        // Mengambil semua data pembayaran beserta history nya
+        $pembayarans = Pembayaran::with('user', 'histories.product')->orderByDesc('created_at')->get();
+
+        return view('admin.dataOrder.pesananBaru', compact('pembayarans'));
+    }
+    
 }

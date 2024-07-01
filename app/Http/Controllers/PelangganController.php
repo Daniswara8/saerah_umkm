@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\User; // Pastikan impor model benar
+use App\Models\User; 
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;

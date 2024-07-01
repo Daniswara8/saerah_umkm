@@ -14,7 +14,8 @@
                                     <h5 class="card-title">ID Pembayaran: {{ $pembayaran->id }}</h5>
                                     <p class="card-text">Total Harga: Rp.
                                         {{ number_format($pembayaran->total_harga, 0, ',', '.') }}</p>
-                                    <p class="card-text">Status: {{ ucfirst($pembayaran->status) }}</p>
+                                    <p class="card-text">Status Pengiriman : {{ ucfirst($pembayaran->status_pengiriman) }}
+                                    </p>
                                     <p class="card-text">Metode Pembayaran: {{ $pembayaran->metode_pembayaran }}</p>
                                     <p class="card-text">Alamat Pengiriman: {{ $pembayaran->alamat_pengiriman }}</p>
                                 </div>
@@ -22,9 +23,11 @@
                             <hr>
                             <h5 class="mt-3 text-center">Produk yang Dibeli:</h5>
                             @foreach ($pembayaran->histories as $history)
-                                <div class="card mt-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $history->product->nama_produk }}</h5>
+                                <div class="card mt-4">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-text">Nama Produk: {{ $history->product->nama_produk }}
+                                        </h5>
+                                        <h5 class="card-text">Foto Produk: </h5>
                                         <img src="{{ asset('assets/' . $history->product->foto_produk) }}"
                                             alt="{{ $history->product->nama_produk }}" class="img-fluid mb-3"
                                             style="height: 200px; width: auto;">
