@@ -31,12 +31,13 @@
                         <thead>
                             <tr>
                                 <th data-priority="1">No</th>
-                                <th data-priority="1">Foto</th>
+                                <th data-priority="1">Foto Produk</th>
                                 <th data-priority="1">Nama Pemesan</th>
                                 <th data-priority="1">Alamat Pengiriman</th>
-                                <th>Deskripsi</th>
+                                <th>Metode Pembayaran</th>
                                 <th>Harga</th>
                                 <th>Jumlah</th>
+                                <th>Bukti Pembayaran</th>
                                 <th>Status Pengiriman</th>
                                 <th data-priority="1">Aksi</th>
                             </tr>
@@ -49,15 +50,21 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>
                                             <div class="col">
-                                                <img src="{{ asset('assets/' . $history->product->foto_produk) }}"
+                                                <img src="{{ asset('assets/cache/' . $history->product->foto_produk) }}"
                                                     class="img-fluid" style="max-width: 200px; max-height: 200px;">
                                             </div>
                                         </td>
                                         <td>{{ $pembayaran->user->nama }}</td>
                                         <td>{{ $pembayaran->alamat_pengiriman }}</td>
-                                        <td>{{ $history->product->nama_produk }}</td>
+                                        <td>{{ $pembayaran->metode_pembayaran }}</td>
                                         <td>Rp. {{ number_format($history->harga_produk, 0, ',', '.') }}</td>
                                         <td>{{ $history->quantity }}</td>
+                                        <td>
+                                            <div class="col">
+                                                <img src="{{ asset('assets/cache/' . $pembayaran->bukti_pembayaran) }}"
+                                                    class="img-fluid" style="max-width: 200px; max-height: 200px;">
+                                            </div>
+                                        </td>
                                         <td>{{ ucfirst($pembayaran->status_pengiriman) }}</td>
                                         <td>
                                             <a href="#" class="btn btn-primary btn-sm" role="button">
@@ -78,12 +85,13 @@
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Foto</th>
+                                <th>Foto Produk</th>
                                 <th>Nama Pemesan</th>
                                 <th>Alamat Pengiriman</th>
-                                <th>Deskripsi</th>
+                                <th>Metode Pembayaran</th>
                                 <th>Harga</th>
                                 <th>Jumlah</th>
+                                <th>Bukti Pembayaran</th>
                                 <th>Status Pengiriman</th>
                                 <th>Aksi</th>
                             </tr>

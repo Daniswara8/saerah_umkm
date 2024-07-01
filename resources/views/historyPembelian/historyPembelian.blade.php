@@ -28,7 +28,7 @@
                                         <h5 class="card-text">Nama Produk: {{ $history->product->nama_produk }}
                                         </h5>
                                         <h5 class="card-text">Foto Produk: </h5>
-                                        <img src="{{ asset('assets/' . $history->product->foto_produk) }}"
+                                        <img src="{{ asset('assets/cache/' . $history->product->foto_produk) }}"
                                             alt="{{ $history->product->nama_produk }}" class="img-fluid mb-3"
                                             style="height: 200px; width: auto;">
                                         <p class="card-text">Harga: Rp.

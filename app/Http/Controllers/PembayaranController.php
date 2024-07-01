@@ -45,7 +45,7 @@ class PembayaranController extends Controller
         if ($request->hasFile('bukti_pembayaran')) {
             $image = $request->file('bukti_pembayaran');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('uploads'), $imageName);
+            $image->move(public_path('assets/cache'), $imageName);
             $pembayaranData['bukti_pembayaran'] = $imageName;
         }
     

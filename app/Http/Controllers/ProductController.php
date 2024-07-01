@@ -50,7 +50,7 @@ class ProductController extends Controller
 
         if ($request->hasFile('foto_produk')) {
             $imageName = time() . '.' . $request->foto_produk->extension();
-            $request->foto_produk->move(public_path('assets/'), $imageName);
+            $request->foto_produk->move(public_path('assets/cache/'), $imageName);
 
             $slug = Str::slug($request->nama_produk, '_');
 
@@ -59,8 +59,6 @@ class ProductController extends Controller
                 'nama_produk' => $request->nama_produk,
                 'deskripsi_produk' => $request->deskripsi_produk,
                 'harga_produk' => $request->harga_produk,
-                // 'ukuran_produk' => $request->ukuran_produk,
-                // 'motif_produk' => $request->motif_produk,
                 'jumlah_produk' => $request->jumlah_produk,
                 'Slug_link' => $slug
             ]);
@@ -99,7 +97,7 @@ class ProductController extends Controller
 
             if ($request->hasFile('foto_produk')) {
                 $imageName = time() . '.' . $request->foto_produk->extension();
-                $request->foto_produk->move(public_path('assets/'), $imageName);
+                $request->foto_produk->move(public_path('assets/cache/'), $imageName);
                 $data['foto_produk'] = $imageName;
             }
 

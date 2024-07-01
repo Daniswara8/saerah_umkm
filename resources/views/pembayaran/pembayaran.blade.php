@@ -22,7 +22,7 @@
                             @foreach ($cartItems as $item)
                                 <tr>
                                     <td class="d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('assets/' . $item->product->foto_produk) }}"
+                                        <img src="{{ asset('assets/cache/' . $item->product->foto_produk) }}"
                                             alt="{{ $item->product->nama_produk }}" class="product-image">
                                     </td>
                                     <td>{{ $item->product->nama_produk }}</td>
@@ -40,7 +40,8 @@
                     </table>
                 </div>
 
-                <form action="{{ route('pembayaran.store') }}" method="POST" enctype="multipart/form-data" id="payment-form">
+                <form action="{{ route('pembayaran.store') }}" method="POST" enctype="multipart/form-data"
+                    id="payment-form">
                     @csrf
                     <div class="form-group mt-3">
                         <label for="metode_pembayaran">Pilih Metode Pembayaran:</label>
@@ -115,7 +116,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        document.getElementById('payment-form').addEventListener('submit', function (event) {
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
             Swal.fire({
