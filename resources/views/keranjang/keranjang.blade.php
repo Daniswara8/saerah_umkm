@@ -8,7 +8,7 @@
                 <img src="assets/imgwlc/logosr.png" alt="" width="150px" style="filter: drop-shadow(5px 3px 5px black);">
             </div>
             <div class="navbar">
-                <a class="navbar-brand" href="#">Home</a>
+                <a class="navbar-brand" href="{{route('home.index')}}">Home</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -17,9 +17,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ url('/user') }}">Product</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link me-3" href="#tentang">About Us</a>
-                        </li>
+                        </li> -->
                     </ul>
                     @guest
                         <a href="{{ url('/login') }}" class="custom-link"><i class="bi bi-person-circle me-3" style="margin-left:10px">Masuk</i></a>
