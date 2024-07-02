@@ -137,6 +137,8 @@ Route::controller(HistoryPembelianController::class)->group(function () {
     Route::get('/history', 'index')->name('history.index');
     Route::get('/history/{id}', 'show')->name('history.show');
     Route::get('/admin/orders', 'PesananBaru')->name('adminOrder.index');
+    Route::get('/admin/orders/dikemas', 'PesananDikemas')->name('adminOrder.dikemas');
+    Route::post('/update-status/{id}', 'updateStatusPembelian')->name('updateStatus.pembelian');
 });
 
 

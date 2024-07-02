@@ -24,10 +24,31 @@ class HistoryPembelianController extends Controller
 
     public function PesananBaru()
     {
-        // Mengambil semua data pembayaran beserta history nya
-        $pembayarans = Pembayaran::with('user', 'histories.product')->orderByDesc('created_at')->get();
+        // Mengambil semua data pembayaran dengan status selain 'dikemas'
+        $pembayarans = Pembayaran::with('user', 'histories.product')
+            ->where('status_pengiriman', '!=', 'dikemas')
+            ->orderByDesc('created_at')
+            ->get();
 
         return view('admin.dataOrder.pesananBaru', compact('pembayarans'));
+    }   
+
+    public function PesananDikemas()
+    {
+        $pembayarans = Pembayaran::with('user', 'histories.product')
+            ->where('status_pengiriman', 'dikemas')
+            ->orderByDesc('created_at')
+            ->get();
+        return view('admin.dataOrder.pesananDikemas', compact('pembayarans'));
+    }
+
+    public function updateStatusPembelian(Request $request, $id)
+    {
+        $pembayaran = Pembayaran::findOrFail($id);
+        $pembayaran->status_pengiriman = $request->status;
+        $pembayaran->save();
+
+        return redirect()->route('adminOrder.dikemas')->with('status', 'Status pengiriman diperbarui!');
     }
     
 }
