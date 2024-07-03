@@ -211,9 +211,16 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="/editprofile" class="nav-link">
+                                    <a href="{{ route('adminOrder.dikirim') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pesanan Dikirim</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('adminOrder.tiba') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Pesanan Tiba</p>
                                     </a>
                                 </li>
 

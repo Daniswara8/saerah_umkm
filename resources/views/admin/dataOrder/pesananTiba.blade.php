@@ -64,15 +64,15 @@
                                     </td>
                                     <td>{{ ucfirst($pembayaran->status_pengiriman) }}</td>
                                     <td>
-                                        <form id="ubahStatusPengirimanTiba{{ $pembayaran->id }}"
+                                        {{-- <form id="ubahStatusPengirimanTiba{{ $pembayaran->id }}"
                                             action="{{ route('updateStatus.tiba', $pembayaran->id) }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="status_pengiriman" value="tiba">
                                             <button type="button" class="btn btn-success btn-sm"
-                                                onclick="confirmTiba({{ $pembayaran->id }})">
+                                                onclick="confirmKirim({{ $pembayaran->id }})">
                                                 <i class="bi bi-send-check-fill"></i>
                                             </button>
-                                        </form>
+                                        </form> --}}
                                         <a href="#" class="btn btn-danger btn-sm mt-3" role="button">
                                             <i class="bi bi-trash3"></i>
                                         </a>

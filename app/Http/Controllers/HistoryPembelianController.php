@@ -63,6 +63,15 @@ class HistoryPembelianController extends Controller
         return view('admin.dataOrder.pesananDibatalkan', compact('pembayarans'));
     }
 
+    public function PesananTiba() 
+    {
+        $pembayarans = Pembayaran::with('user', 'histories.product')
+            ->where('status_pengiriman', 'tiba')
+            ->orderByDesc('created_at')
+            ->get();
+        return view('admin.dataOrder.pesananTiba', compact('pembayarans'));
+    }
+
 
 
     public function updateStatusPembelianPengemasan(Request $request, $id)
@@ -99,6 +108,15 @@ class HistoryPembelianController extends Controller
         $pembayaran->save();
 
         return redirect()->route('adminOrder.dikirim')->with('status', 'Status pengiriman diubah menjadi, pesanan dikirim!');
+    }
+
+    public function updateStatusPembelianTiba(Request $request, $id)
+    {
+        $pembayaran = Pembayaran::findOrFail($id);
+        $pembayaran->status_pengiriman = $request->status_pengiriman;
+        $pembayaran->save();
+
+        return redirect()->route('adminOrder.tiba')->with('status', 'Status pengiriman diubah menjadi, pesanan dikirim!');
     }
     
 }

@@ -80,7 +80,7 @@
                                                 method="POST">
                                                 @csrf
                                                 <input type="hidden" name="status_pengiriman" value="dibatalkan">
-                                                <button type="button" class="btn btn-danger btn-sm"
+                                                <button type="button" class="btn btn-danger btn-sm mt-3"
                                                     onclick="confirmBatal({{ $pembayaran->id }})">
                                                     <i class="bi bi-slash-circle"></i>
                                                 </button>

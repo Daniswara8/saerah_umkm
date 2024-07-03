@@ -64,7 +64,8 @@
                                     </td>
                                     <td>{{ ucfirst($pembayaran->status_pengiriman) }}</td>
                                     <td>
-                                        <form id="ubahStatusPengirimanDikirim{{ $pembayaran->id }}"
+
+                                        <form id="ubahStatusPengirimanKirim{{ $pembayaran->id }}"
                                             action="{{ route('updateStatus.dikirim', $pembayaran->id) }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="status_pengiriman" value="dikirim">
@@ -73,12 +74,28 @@
                                                 <i class="bi bi-truck"></i>
                                             </button>
                                         </form>
-                                        <a href="#" class="btn btn-warning btn-sm mt-3" role="button">
-                                            <i class="bi bi-truck"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-danger btn-sm mt-3" role="button">
-                                            <i class="bi bi-trash3"></i>
-                                        </a>
+
+                                        <form id="ubahStatusPengirimanBatal{{ $pembayaran->id }}"
+                                            action="{{ route('updateStatus.dibatalkan', $pembayaran->id) }}"
+                                            method="POST">
+                                            @csrf
+                                            <input type="hidden" name="status_pengiriman" value="dibatalkan">
+                                            <button type="button" class="btn btn-danger btn-sm mt-3"
+                                                onclick="confirmBatal({{ $pembayaran->id }})">
+                                                <i class="bi bi-slash-circle"></i>
+                                            </button>
+                                        </form>
+
+                                        <form id="ubahStatusPengirimanBaru{{ $pembayaran->id }}"
+                                            action="{{ route('updateStatus.dikemas', $pembayaran->id) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="status_pengiriman" value="pending">
+                                            <button type="button" class="btn btn-warning btn-sm mt-3"
+                                                onclick="confirmBaru({{ $pembayaran->id }})">
+                                                <i class="bi bi-inbox-fill"></i>
+                                            </button>
+                                        </form>
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -116,7 +133,39 @@
                 confirmButtonText: 'Ya, Kirim!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('ubahStatusPengirimanDikirim' + id).submit();
+                    document.getElementById('ubahStatusPengirimanKirim' + id).submit();
+                }
+            });
+        }
+
+        function confirmBatal(id) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin pesanan barang akan dibatalkan?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Batalkan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('ubahStatusPengirimanBatal' + id).submit();
+                }
+            });
+        }
+
+        function confirmBaru(id) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin pesanan barang akan diubah lagi menjadi pending?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Ubah!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('ubahStatusPengirimanBaru' + id).submit();
                 }
             });
         }
