@@ -142,10 +142,12 @@ Route::controller(HistoryPembelianController::class)->group(function () {
     Route::get('/admin/orders', 'PesananBaru')->name('adminOrder.index');
     Route::get('/admin/orders/dikemas', 'PesananDikemas')->name('adminOrder.dikemas');
     Route::get('/admin/orders/dibatalkan', 'PesananDibatalkan')->name('adminOrder.dibatalkan');
+    Route::get('/admin/orders/dikirim', 'PesananDikirim')->name('adminOrder.dikirim');
 
-    Route::post('/update-status/{id}', 'updateStatusPembelianPengemasan')->name('updateStatus.pengemasan');
+    Route::post('/update-status/{id}', 'updateStatusPembelianPengemasan')->name('updateStatus.dikemas');
     Route::post('/update-status-dibatalkan/{id}', 'updateStatusPembelianDibatalkan')->name('updateStatus.dibatalkan');
     Route::post('/update-status-dipulihkan/{id}', 'updateStatusPembelianDipulihkan')->name('updateStatus.dipulihkan');
+    Route::post('/update-status-dikirim/{id}', 'updateStatusPembelianDikirim')->name('updateStatus.dikirim');
 });
 
 

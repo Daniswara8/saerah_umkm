@@ -64,10 +64,19 @@
                                     </td>
                                     <td>{{ ucfirst($pembayaran->status_pengiriman) }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-success btn-sm" role="button">
-                                            <i class="bi bi-basket"></i>
+                                        <form id="ubahStatusPengirimanDikirim{{ $pembayaran->id }}"
+                                            action="{{ route('updateStatus.dikirim', $pembayaran->id) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="status_pengiriman" value="dikirim">
+                                            <button type="button" class="btn btn-success btn-sm"
+                                                onclick="confirmKirim({{ $pembayaran->id }})">
+                                                <i class="bi bi-truck"></i>
+                                            </button>
+                                        </form>
+                                        <a href="#" class="btn btn-warning btn-sm mt-3" role="button">
+                                            <i class="bi bi-truck"></i>
                                         </a>
-                                        <a href="#" class="btn btn-danger btn-sm" role="button">
+                                        <a href="#" class="btn btn-danger btn-sm mt-3" role="button">
                                             <i class="bi bi-trash3"></i>
                                         </a>
                                     </td>
@@ -96,13 +105,20 @@
     </div>
 
     <script>
-        // Script untuk menampilkan pesan setelah form berhasil disubmit
-        @if (session('status'))
+        function confirmKirim(id) {
             Swal.fire({
-                title: 'Berhasil!',
-                text: '{{ session('status') }}',
-                icon: 'success'
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin barang akan dikirim?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Kirim!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('ubahStatusPengirimanDikirim' + id).submit();
+                }
             });
-        @endif
+        }
     </script>
 @endsection

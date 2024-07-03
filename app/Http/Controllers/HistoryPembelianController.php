@@ -45,6 +45,15 @@ class HistoryPembelianController extends Controller
         return view('admin.dataOrder.pesananDikemas', compact('pembayarans'));
     }
 
+    public function PesananDikirim()
+    {
+        $pembayarans = Pembayaran::with('user', 'histories.product')
+            ->where('status_pengiriman', 'dikirim')
+            ->orderByDesc('created_at')
+            ->get();
+        return view('admin.dataOrder.pesananDikirim', compact('pembayarans'));
+    }
+
     public function PesananDibatalkan() 
     {
         $pembayarans = Pembayaran::with('user', 'histories.product')
@@ -59,15 +68,16 @@ class HistoryPembelianController extends Controller
     public function updateStatusPembelianPengemasan(Request $request, $id)
     {
         $pembayaran = Pembayaran::findOrFail($id);
-        $pembayaran->status_pengiriman = $request->status;
+        $pembayaran->status_pengiriman = $request->status_pengiriman;
         $pembayaran->save();
 
         return redirect()->route('adminOrder.dikemas')->with('status', 'Status pengiriman diperbarui!');
     }
+
     public function updateStatusPembelianDibatalkan(Request $request, $id)
     {
         $pembayaran = Pembayaran::findOrFail($id);
-        $pembayaran->status_pengiriman = $request->status;
+        $pembayaran->status_pengiriman = $request->status_pengiriman;
         $pembayaran->save();
 
         return redirect()->route('adminOrder.dibatalkan')->with('status', 'Status pengiriman diubah menjadi dibatalkan!');
@@ -76,10 +86,19 @@ class HistoryPembelianController extends Controller
     public function updateStatusPembelianDipulihkan(Request $request, $id)
     {
         $pembayaran = Pembayaran::findOrFail($id);
-        $pembayaran->status_pengiriman = $request->status;
+        $pembayaran->status_pengiriman = $request->status_pengiriman;
         $pembayaran->save();
 
         return redirect()->route('adminOrder.index')->with('status', 'Status pengiriman berhasil dipulihkan menjadi pesanan baru!');
+    }
+
+    public function updateStatusPembelianDikirim(Request $request, $id)
+    {
+        $pembayaran = Pembayaran::findOrFail($id);
+        $pembayaran->status_pengiriman = $request->status_pengiriman;
+        $pembayaran->save();
+
+        return redirect()->route('adminOrder.dikirim')->with('status', 'Status pengiriman diubah menjadi, pesanan dikirim!');
     }
     
 }

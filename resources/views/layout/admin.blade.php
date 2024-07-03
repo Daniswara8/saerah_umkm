@@ -181,7 +181,7 @@
 
                         <li class="nav-item">
                             <a href="/product" class="nav-link">
-                                <i class="nav-icon bi bi-cart"></i>
+                                <i class="nav-icon bi bi-box-fill"></i>
                                 <p>
                                     Data Produk
                                 </p>
@@ -190,7 +190,7 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon bi bi-truck"></i>
+                                <i class="nav-icon bi bi-cart"></i>
                                 <p>
                                     Data Order
                                     <i class="right fas fa-angle-left"></i>
@@ -213,7 +213,7 @@
                                 <li class="nav-item">
                                     <a href="/editprofile" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Pesanan Diantar</p>
+                                        <p>Pesanan Dikirim</p>
                                     </a>
                                 </li>
 
@@ -943,10 +943,10 @@
             });
         });
     </script>
-  <!-- DataTables -->
-  
-  <!-- Include SweetAlert2 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <!-- DataTables -->
+
+    <!-- Include SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </body>
 
 </html>

@@ -65,10 +65,10 @@
                                         <td>{{ $pembayaran->status_pengiriman }}</td>
                                         <td>
                                             <form id="ubahStatusPengirimanKemas{{ $pembayaran->id }}"
-                                                action="{{ route('updateStatus.pengemasan', $pembayaran->id) }}"
+                                                action="{{ route('updateStatus.dikemas', $pembayaran->id) }}"
                                                 method="POST">
                                                 @csrf
-                                                <input type="hidden" name="status" value="dikemas">
+                                                <input type="hidden" name="status_pengiriman" value="dikemas">
                                                 <button type="button" class="btn btn-success btn-sm"
                                                     onclick="confirmKemas({{ $pembayaran->id }})">
                                                     <i class="bi bi-basket"></i>
@@ -79,11 +79,13 @@
                                                 action="{{ route('updateStatus.dibatalkan', $pembayaran->id) }}"
                                                 method="POST">
                                                 @csrf
-                                                <input type="hidden" name="status" value="dibatalkan">
-                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                <input type="hidden" name="status_pengiriman" value="dibatalkan">
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                    onclick="confirmBatal({{ $pembayaran->id }})">
                                                     <i class="bi bi-slash-circle"></i>
                                                 </button>
                                             </form>
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -110,7 +112,7 @@
         </div>
 
         <script>
-            function confirmKemas() {
+            function confirmKemas(id) {
                 Swal.fire({
                     title: 'Apakah anda yakin?',
                     text: "Apakah anda yakin barang akan dikemas?",
@@ -121,20 +123,25 @@
                     confirmButtonText: 'Ya, kemas!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('ubahStatusPengirimanKemas').submit();
+                        document.getElementById('ubahStatusPengirimanKemas' + id).submit();
                     }
                 });
             }
 
-            @if (session('status'))
+            function confirmBatal(id) {
                 Swal.fire({
-                    title: 'Berhasil!',
-                    text: '{{ session('status') }}',
-                    icon: 'success'
-                }).then(() => {
-                    window.location.href =
-                        '{{ route('adminOrder.dikemas') }}';
+                    title: 'Apakah anda yakin?',
+                    text: "Apakah anda yakin pesanan akan dibatalkan?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, batalkan!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('ubahStatusPengirimanBatal' + id).submit();
+                    }
                 });
-            @endif
+            }
         </script>
     @endsection
