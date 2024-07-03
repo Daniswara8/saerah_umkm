@@ -64,18 +64,27 @@
                                     </td>
                                     <td>{{ ucfirst($pembayaran->status_pengiriman) }}</td>
                                     <td>
-                                        {{-- <form id="ubahStatusPengirimanTiba{{ $pembayaran->id }}"
-                                            action="{{ route('updateStatus.tiba', $pembayaran->id) }}" method="POST">
+
+                                        <form id="ubahStatusPengirimanKirim{{ $pembayaran->id }}"
+                                            action="{{ route('updateStatus.dikirim', $pembayaran->id) }}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="status_pengiriman" value="tiba">
-                                            <button type="button" class="btn btn-success btn-sm"
+                                            <input type="hidden" name="status_pengiriman" value="dikirim">
+                                            <button type="button" class="btn btn-warning btn-sm"
                                                 onclick="confirmKirim({{ $pembayaran->id }})">
-                                                <i class="bi bi-send-check-fill"></i>
+                                                <i class="bi bi-truck"></i>
                                             </button>
-                                        </form> --}}
-                                        <a href="#" class="btn btn-danger btn-sm mt-3" role="button">
-                                            <i class="bi bi-trash3"></i>
-                                        </a>
+                                        </form>
+
+                                        <form id="ubahStatusPengirimanBatal{{ $pembayaran->id }}"
+                                            action="{{ route('updateStatus.dibatalkan', $pembayaran->id) }}"
+                                            method="POST">
+                                            @csrf
+                                            <input type="hidden" name="status_pengiriman" value="dibatalkan">
+                                            <button type="button" class="btn btn-danger btn-sm mt-3"
+                                                onclick="confirmBatal({{ $pembayaran->id }})">
+                                                <i class="bi bi-slash-circle"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -102,10 +111,10 @@
     </div>
 
     <script>
-        function confirmTiba(id) {
+        function confirmKirim(id) {
             Swal.fire({
                 title: 'Apakah anda yakin?',
-                text: "Apakah anda yakin barang akan dikirim?",
+                text: "Apakah anda yakin status barang akan diubah lagi menjadi dikirim?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -113,7 +122,23 @@
                 confirmButtonText: 'Ya, Kirim!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('ubahStatusPengirimanTiba' + id).submit();
+                    document.getElementById('ubahStatusPengirimanKirim' + id).submit();
+                }
+            });
+        }
+
+        function confirmBatal(id) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin pesanan barang akan dibatalkan?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Batalkan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('ubahStatusPengirimanBatal' + id).submit();
                 }
             });
         }

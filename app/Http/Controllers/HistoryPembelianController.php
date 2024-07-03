@@ -118,5 +118,14 @@ class HistoryPembelianController extends Controller
 
         return redirect()->route('adminOrder.tiba')->with('status', 'Status pengiriman diubah menjadi, pesanan dikirim!');
     }
+
+    public function destroy($id)
+    {
+        $pembayaran = Pembayaran::findOrFail($id);
+        $pembayaran->delete();
+
+        return redirect()->route('adminOrder.dibatalkan')->with('status', 'Pesanan berhasil dihapus!');
+    }
+
     
 }

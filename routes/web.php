@@ -150,6 +150,7 @@ Route::controller(HistoryPembelianController::class)->group(function () {
     Route::post('/update-status-dipulihkan/{id}', 'updateStatusPembelianDipulihkan')->name('updateStatus.dipulihkan');
     Route::post('/update-status-dikirim/{id}', 'updateStatusPembelianDikirim')->name('updateStatus.dikirim');
     Route::post('/update-status-tiba/{id}', 'updateStatusPembelianTiba')->name('updateStatus.tiba');
+    Route::post('/delete/{id}', 'destroy')->name('deleteOrder');
 });
 
 

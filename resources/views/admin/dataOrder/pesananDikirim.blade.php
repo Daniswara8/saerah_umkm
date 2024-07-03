@@ -20,7 +20,7 @@
         <div class="">
 
             <div class="col-12 mt-3">
-                <h1 class="ms-3">Data Pesanan Yang Sedang Telah Tiba</h1>
+                <h1 class="ms-3">Data Pesanan Yang Sedang Sedang Dikirim</h1>
             </div>
 
             <div class="col-12 mt-5">
@@ -73,9 +73,27 @@
                                                 <i class="bi bi-send-check-fill"></i>
                                             </button>
                                         </form>
-                                        <a href="#" class="btn btn-danger btn-sm mt-3" role="button">
-                                            <i class="bi bi-trash3"></i>
-                                        </a>
+
+                                        <form id="ubahStatusPengirimanBatal{{ $pembayaran->id }}"
+                                            action="{{ route('updateStatus.dibatalkan', $pembayaran->id) }}"
+                                            method="POST">
+                                            @csrf
+                                            <input type="hidden" name="status_pengiriman" value="dibatalkan">
+                                            <button type="button" class="btn btn-danger btn-sm mt-3"
+                                                onclick="confirmBatal({{ $pembayaran->id }})">
+                                                <i class="bi bi-slash-circle"></i>
+                                            </button>
+                                        </form>
+
+                                        <form id="ubahStatusPengirimanKemas{{ $pembayaran->id }}"
+                                            action="{{ route('updateStatus.dikemas', $pembayaran->id) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="status_pengiriman" value="dikemas">
+                                            <button type="button" class="btn btn-warning btn-sm mt-3"
+                                                onclick="confirmKemas({{ $pembayaran->id }})">
+                                                <i class="bi bi-basket"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -105,15 +123,47 @@
         function confirmTiba(id) {
             Swal.fire({
                 title: 'Apakah anda yakin?',
-                text: "Apakah anda yakin barang akan dikirim?",
+                text: "Apakah anda yakin barang sudah tiba di tempat tujuan?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Kirim!'
+                confirmButtonText: 'Ya, sudah tiba!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     document.getElementById('ubahStatusPengirimanTiba' + id).submit();
+                }
+            });
+        }
+
+        function confirmKemas(id) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin status barang akan diubah lagi menjadi dikemas?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, kemas!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('ubahStatusPengirimanKemas' + id).submit();
+                }
+            });
+        }
+
+        function confirmBatal(id) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin pesanan barang akan dibatalkan?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Batalkan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('ubahStatusPengirimanBatal' + id).submit();
                 }
             });
         }

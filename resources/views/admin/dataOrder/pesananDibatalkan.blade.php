@@ -64,18 +64,26 @@
                                     </td>
                                     <td>{{ $pembayaran->status_pengiriman }}</td>
                                     <td>
-                                        <form id="ubahStatusPengiriman"
+                                        <form id="ubahStatusPengirimanBaru"
                                             action="{{ route('updateStatus.dipulihkan', $pembayaran->id) }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="status_pengiriman" value="pending">
-                                            <button type="submit" class="btn btn-success btn-sm">
+                                            <button type="button" class="btn btn-success btn-sm"
+                                                onclick="confirmBaru({{ $pembayaran->id }})">
                                                 <i class="bi bi-arrow-clockwise"></i>
                                             </button>
                                         </form>
 
-                                        <button class="btn btn-danger btn-sm mt-3">
-                                            <i class="bi bi-trash3"></i>
-                                        </button>
+                                        <form id="deleteOrder{{ $pembayaran->id }}"
+                                            action="{{ route('deleteOrder', $pembayaran->id) }}" method="POST"
+                                            style="display:inline;">
+                                            @csrf
+                                            <button type="button" class="btn btn-danger btn-sm mt-3"
+                                                onclick="confirmDelete({{ $pembayaran->id }})">
+                                                <i class="bi bi-trash3"></i>
+                                            </button>
+                                        </form>
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -100,4 +108,38 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function confirmBaru(id) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin pesanan barang akan dipulihkan lagi?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Pulihkan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('ubahStatusPengirimanBaru' + id).submit();
+                }
+            });
+        }
+
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Pesanan ini akan dihapus secara permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('deleteOrder' + id).submit();
+                }
+            });
+        }
+    </script>
 @endsection
