@@ -41,6 +41,16 @@
                                 </div>
                             @endforeach
                             <a href="{{ route('history.show', $pembayaran->id) }}" class="btn btn-primary mt-3">Detail</a>
+
+                            <form id="ubahStatusPengirimanTiba{{ $pembayaran->id }}"
+                                action="{{ route('updateStatus.diterima', $pembayaran->id) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="status_pengiriman" value="diterima">
+                                <button type="button" class="btn btn-success mt-3"
+                                    onclick="confirmTiba({{ $pembayaran->id }})">
+                                    Konfirmasi Barang Telah Diterima
+                                </button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
@@ -53,4 +63,29 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function confirmTiba(id) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin pesanan barang sudah tiba?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Sudah!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        text: 'Terima Kasih Telah Berbelanja Di Toko Kami!',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        document.getElementById('ubahStatusPengirimanTiba' + id).submit();
+                    });
+                }
+            });
+        }
+    </script>
 @endsection

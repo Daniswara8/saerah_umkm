@@ -225,7 +225,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="/editprofile" class="nav-link">
+                                    <a href="{{ route('adminOrder.diterima') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pesanan Diterima</p>
                                     </a>

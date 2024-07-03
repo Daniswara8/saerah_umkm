@@ -12,7 +12,7 @@ class CreatePembayaransTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->decimal('total_harga', 12, 2);
-            $table->enum('status_pengiriman', ['pending', 'dikemas', 'dikirim', 'dibatalkan', 'tiba'])->default('pending');
+            $table->enum('status_pengiriman', ['pending', 'dikemas', 'dikirim', 'dibatalkan', 'tiba', 'diterima'])->default('pending');
             $table->string('metode_pembayaran');
             $table->string('bukti_pembayaran')->nullable();
             $table->text('alamat_pengiriman')->nullable();
