@@ -14,7 +14,7 @@
                                     <h5 class="card-title">ID Pembayaran: {{ $pembayaran->id }}</h5>
                                     <p class="card-text">Total Harga: Rp.
                                         {{ number_format($pembayaran->total_harga, 0, ',', '.') }}</p>
-                                    <p class="card-text">Status Pengiriman : {{ ucfirst($pembayaran->status_pengiriman) }}
+                                    <p class="card-text">Status Pengiriman: {{ ucfirst($pembayaran->status_pengiriman) }}
                                     </p>
                                     <p class="card-text">Metode Pembayaran: {{ $pembayaran->metode_pembayaran }}</p>
                                     <p class="card-text">Alamat Pengiriman: {{ $pembayaran->alamat_pengiriman }}</p>
@@ -25,8 +25,7 @@
                             @foreach ($pembayaran->histories as $history)
                                 <div class="card mt-4">
                                     <div class="card-body text-center">
-                                        <h5 class="card-text">Nama Produk: {{ $history->product->nama_produk }}
-                                        </h5>
+                                        <h5 class="card-text">Nama Produk: {{ $history->product->nama_produk }}</h5>
                                         <h5 class="card-text">Foto Produk: </h5>
                                         <img src="{{ asset('assets/cache/' . $history->product->foto_produk) }}"
                                             alt="{{ $history->product->nama_produk }}" class="img-fluid mb-3"
@@ -40,17 +39,43 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <a href="{{ route('history.show', $pembayaran->id) }}" class="btn btn-primary mt-3">Detail</a>
+                            <div class="d-flex justify-content-start mt-3">
 
-                            <form id="ubahStatusPengirimanTiba{{ $pembayaran->id }}"
-                                action="{{ route('updateStatus.diterima', $pembayaran->id) }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="status_pengiriman" value="diterima">
-                                <button type="button" class="btn btn-success mt-3"
-                                    onclick="confirmTiba({{ $pembayaran->id }})">
-                                    Konfirmasi Barang Telah Diterima
-                                </button>
-                            </form>
+                                <a href="{{ route('history.show', $pembayaran->id) }}"
+                                    class="btn btn-primary mx-2">Detail</a>
+
+                                @if ($pembayaran->status_pengiriman === 'tiba')
+                                    <form id="ubahStatusPengirimanTiba{{ $pembayaran->id }}"
+                                        action="{{ route('updateStatus.diterima', $pembayaran->id) }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="status_pengiriman" value="diterima">
+                                        <button type="button" class="btn btn-success mx-2"
+                                            onclick="confirmTiba({{ $pembayaran->id }})">
+                                            Konfirmasi Barang Telah Diterima
+                                        </button>
+                                    </form>
+                                @else 
+                                    <button type="button" class="btn btn-success mx-2" disabled>
+                                        Konfirmasi Barang Telah Diterima
+                                    </button>
+                                @endif
+
+                                @if ($pembayaran->status_pengiriman === 'pending')
+                                    <form id="ubahStatusPengirimanBatal{{ $pembayaran->id }}"
+                                        action="{{ route('updateStatus.dibatalkan', $pembayaran->id) }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="status_pengiriman" value="dibatalkan">
+                                        <button type="button" class="btn btn-danger mx-2"
+                                            onclick="confirmBatal({{ $pembayaran->id }})">
+                                            Batalkan Pesanan
+                                        </button>
+                                    </form>
+                                @else
+                                    <button type="button" class="btn btn-danger mx-2" disabled>
+                                        Batalkan Pesanan
+                                    </button>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -83,6 +108,29 @@
                         confirmButtonText: 'OK'
                     }).then(() => {
                         document.getElementById('ubahStatusPengirimanTiba' + id).submit();
+                    });
+                }
+            });
+        }
+
+        function confirmBatal(id) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Apakah anda yakin ingin membatalkan pesanan ini?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Batalkan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Dibatalkan!',
+                        text: 'Pesanan telah dibatalkan.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        document.getElementById('ubahStatusPengirimanBatal' + id).submit();
                     });
                 }
             });

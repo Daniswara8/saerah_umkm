@@ -24,9 +24,11 @@
                         <div class="card-body">
                             <h5 class="card-text">Nama Produk: {{ $history->product->nama_produk }}</h5>
                             <h5 class="card-text">Foto Produk: </h5>
-                            <img src="{{ asset('assets/cache/' . $history->product->foto_produk) }}"
-                                alt="{{ $history->product->nama_produk }}" class="img-fluid mb-3"
-                                style="height: 200px; width: auto;">
+                            <div class="col">
+                                <img src="{{ asset('assets/cache/' . $history->product->foto_produk) }}"
+                                    alt="{{ $history->product->nama_produk }}" class="img-fluid mb-3"
+                                    style="height: 200px; width: auto;">
+                            </div>
                             <p class="card-text">Harga: Rp. {{ number_format($history->harga_produk, 0, ',', '.') }}</p>
                             <p class="card-text">Kuantitas: {{ $history->quantity }}</p>
                             <p class="card-text">Total: Rp.
