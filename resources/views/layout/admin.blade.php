@@ -16,6 +16,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css') }}">
 
+
+
     <link rel="icon" href="icon_path" type="gambar/tipe ikon">
 </head>
 
@@ -179,7 +181,7 @@
 
                         <li class="nav-item">
                             <a href="/product" class="nav-link">
-                                <i class="nav-icon bi bi-cart"></i>
+                                <i class="nav-icon bi bi-box-fill"></i>
                                 <p>
                                     Data Produk
                                 </p>
@@ -188,7 +190,7 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon bi bi-truck"></i>
+                                <i class="nav-icon bi bi-cart"></i>
                                 <p>
                                     Data Order
                                     <i class="right fas fa-angle-left"></i>
@@ -202,7 +204,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/editprofile" class="nav-link">
+                                    <a href="{{ route('adminOrder.dikemas') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pesanan Dikemas</p>
                                     </a>
@@ -211,7 +213,7 @@
                                 <li class="nav-item">
                                     <a href="/editprofile" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Pesanan Diantar</p>
+                                        <p>Pesanan Dikirim</p>
                                     </a>
                                 </li>
 
@@ -223,7 +225,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="/editprofile" class="nav-link">
+                                    <a href="{{ route('adminOrder.dibatalkan') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pesanan Dibatalkan</p>
                                     </a>
@@ -890,6 +892,11 @@
     </div>
     <!-- ./wrapper -->
 
+    <!-- Include SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+
+
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
     <script src="{{ asset('template/plugins/jquery/jquery.min.js') }}"></script>
@@ -936,6 +943,10 @@
             });
         });
     </script>
+    <!-- DataTables -->
+
+    <!-- Include SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </body>
 
 </html>

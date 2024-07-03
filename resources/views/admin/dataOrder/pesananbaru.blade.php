@@ -4,26 +4,23 @@
         <style>
             .table-custom {
                 background-color: #f8f9fa;
-                /* Abu-abu muda untuk keseluruhan tabel */
             }
 
             .table-custom thead th,
             .table-custom tfoot th {
                 background-color: #e9ecef;
-                /* Abu-abu sedikit lebih gelap untuk header dan footer */
             }
 
             .table-custom tbody tr:nth-child(even) {
                 background-color: #e9ecef;
-                /* Abu-abu sedikit lebih gelap untuk baris genap */
             }
         </style>
 
         <div class="content-wrapper">
-            <div class="container">
+            <div class="">
 
                 <div class="col-sm-6 mt-3">
-                    <h1 class="m-0">Data Customer</h1>
+                    <h1 class="ms-3">Data Pesanan Baru</h1>
                 </div>
 
                 <div class="col-12 mt-5">
@@ -65,17 +62,30 @@
                                                     class="img-fluid" style="max-width: 200px; max-height: 200px;">
                                             </div>
                                         </td>
-                                        <td>{{ ucfirst($pembayaran->status_pengiriman) }}</td>
+                                        <td>{{ $pembayaran->status_pengiriman }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-primary btn-sm" role="button">
-                                                <i class="bi bi-eye"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-success btn-sm" role="button">
-                                                <i class="bi bi-pencil"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-danger btn-sm" role="button">
-                                                <i class="bi bi-trash3"></i>
-                                            </a>
+                                            <form id="ubahStatusPengirimanKemas{{ $pembayaran->id }}"
+                                                action="{{ route('updateStatus.dikemas', $pembayaran->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                <input type="hidden" name="status_pengiriman" value="dikemas">
+                                                <button type="button" class="btn btn-success btn-sm"
+                                                    onclick="confirmKemas({{ $pembayaran->id }})">
+                                                    <i class="bi bi-basket"></i>
+                                                </button>
+                                            </form>
+
+                                            <form id="ubahStatusPengirimanBatal{{ $pembayaran->id }}"
+                                                action="{{ route('updateStatus.dibatalkan', $pembayaran->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                <input type="hidden" name="status_pengiriman" value="dibatalkan">
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                    onclick="confirmBatal({{ $pembayaran->id }})">
+                                                    <i class="bi bi-slash-circle"></i>
+                                                </button>
+                                            </form>
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -100,4 +110,38 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function confirmKemas(id) {
+                Swal.fire({
+                    title: 'Apakah anda yakin?',
+                    text: "Apakah anda yakin barang akan dikemas?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, kemas!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('ubahStatusPengirimanKemas' + id).submit();
+                    }
+                });
+            }
+
+            function confirmBatal(id) {
+                Swal.fire({
+                    title: 'Apakah anda yakin?',
+                    text: "Apakah anda yakin pesanan akan dibatalkan?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, batalkan!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('ubahStatusPengirimanBatal' + id).submit();
+                    }
+                });
+            }
+        </script>
     @endsection
