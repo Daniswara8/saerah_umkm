@@ -4,53 +4,53 @@
 <div class="container mt-5">
     <h1 class="mb-4 text-center">Halaman Pembayaran</h1>
 
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title text-center">Ringkasan Harga</h4>
-            <div class="table-responsive mt-3">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Gambar Produk</th>
-                            <th>Nama Produk</th>
-                            <th>Harga</th>
-                            <th>Jumlah</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($cartItems as $item)
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-center">Ringkasan Harga</h4>
+                <div class="table-responsive mt-3">
+                    <table class="table table-bordered">
+                        <thead>
                             <tr>
-                                <td class="d-flex justify-content-center align-items-center">
-                                    <img src="{{ asset('assets/' . $item->product->foto_produk) }}"
-                                        alt="{{ $item->product->nama_produk }}" class="product-image">
-                                </td>
-                                <td>{{ $item->product->nama_produk }}</td>
-                                <td>Rp. {{ number_format($item->product->harga_produk, 0, ',', '.') }}</td>
-                                <td>{{ $item->quantity }}</td>
-                                <td>Rp. {{ number_format($item->quantity * $item->product->harga_produk, 0, ',', '.') }}
-                                </td>
+                                <th class="text-center">Gambar Produk</th>
+                                <th>Nama Produk</th>
+                                <th>Harga</th>
+                                <th>Jumlah</th>
+                                <th>Total</th>
                             </tr>
-                        @endforeach
-                        <tr>
-                            <th colspan="4">Total Harga Yang Harus Dibayar</th>
-                            <th>Rp. {{ number_format($totalPrice, 0, ',', '.') }}</th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <form action="{{ route('pembayaran.store') }}" method="POST" enctype="multipart/form-data"
-                id="payment-form">
-                @csrf
-                <div class="form-group mt-3">
-                    <label for="metode_pembayaran">Pilih Metode Pembayaran:</label>
-                    <select class="form-control" id="metode_pembayaran" name="metode_pembayaran" required>
-                        <option value="">Pilih Metode Pembayaran</option>
-                        <option value="qris">QRIS</option>
-                        <option value="cod">COD</option>
-                    </select>
+                        </thead>
+                        <tbody>
+                            @foreach ($cartItems as $item)
+                                <tr>
+                                    <td class="d-flex justify-content-center align-items-center">
+                                        <img src="{{ asset('assets/cache/' . $item->product->foto_produk) }}"
+                                            alt="{{ $item->product->nama_produk }}" class="product-image">
+                                    </td>
+                                    <td>{{ $item->product->nama_produk }}</td>
+                                    <td>Rp. {{ number_format($item->product->harga_produk, 0, ',', '.') }}</td>
+                                    <td>{{ $item->quantity }}</td>
+                                    <td>Rp. {{ number_format($item->quantity * $item->product->harga_produk, 0, ',', '.') }}
+                                    </td>
+                                </tr>
+                            @endforeach
+                            <tr>
+                                <th colspan="4">Total Harga Yang Harus Dibayar</th>
+                                <th>Rp. {{ number_format($totalPrice, 0, ',', '.') }}</th>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+
+                <form action="{{ route('pembayaran.store') }}" method="POST" enctype="multipart/form-data"
+                    id="payment-form">
+                    @csrf
+                    <div class="form-group mt-3">
+                        <label for="metode_pembayaran">Pilih Metode Pembayaran:</label>
+                        <select class="form-control" id="metode_pembayaran" name="metode_pembayaran" required>
+                            <option value="">Pilih Metode Pembayaran</option>
+                            <option value="qris">QRIS</option>
+                            <option value="cod">COD</option>
+                        </select>
+                    </div>
 
                 <div class="form-group mt-3" id="bukti_pembayaran" style="display: none;">
                     <label for="bukti_pembayaran">Unggah Bukti Pembayaran:</label>
@@ -116,10 +116,10 @@
     }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    document.getElementById('payment-form').addEventListener('submit', function (event) {
-        event.preventDefault();
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
         Swal.fire({
             title: "Orderanmu sudah masuk!",

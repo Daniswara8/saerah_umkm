@@ -93,7 +93,7 @@
                             <div class="form-group">
                                 <label for="" class="font-weight-bold">Foto Produk</label>
                                 @if ($products->foto_produk)
-                                    <img src="{{ asset('assets/' . $products->foto_produk) }}" alt="Saerah"
+                                    <img src="{{ asset('assets/cache/' . $products->foto_produk) }}" alt="Saerah"
                                         class="img-fluid" style="width: 200px; margin: 15px;">
                                 @else
                                     <p>Tidak ada gambar yang tersedia</p>

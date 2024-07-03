@@ -47,7 +47,7 @@
                             <div class="row">
 
                                 <div class="images col-md-6">
-                                    <img src="{{ asset('assets/' . $products->foto_produk) }}" class="detfoto"
+                                    <img src="{{ asset('assets/cache/' . $products->foto_produk) }}" class="detfoto"
                                         style=" margin-top:8px; margin-bottom:8px; width:100%; border-radius:8px; object-fit:cover;">
                                 </div>
 
