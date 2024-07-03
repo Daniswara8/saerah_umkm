@@ -19,8 +19,8 @@
     <div class="content-wrapper">
         <div class="">
 
-            <div class="col-12 mt-3">
-                <h1 class="ms-3">Data Pesanan Yang Sedang Dikemas</h1>
+            <div class="col-sm-6 mt-3">
+                <h1 class="ms-3">Data Pesanan Yang Dibatalkan</h1>
             </div>
 
             <div class="col-12 mt-5">
@@ -62,14 +62,20 @@
                                                 class="img-fluid" style="max-width: 200px; max-height: 200px;">
                                         </div>
                                     </td>
-                                    <td>{{ ucfirst($pembayaran->status_pengiriman) }}</td>
+                                    <td>{{ $pembayaran->status_pengiriman }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-success btn-sm" role="button">
-                                            <i class="bi bi-basket"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-danger btn-sm" role="button">
+                                        <form id="ubahStatusPengiriman"
+                                            action="{{ route('updateStatus.dipulihkan', $pembayaran->id) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="status" value="pending">
+                                            <button type="submit" class="btn btn-success btn-sm">
+                                                <i class="bi bi-arrow-clockwise"></i>
+                                            </button>
+                                        </form>
+
+                                        <button class="btn btn-danger btn-sm mt-3">
                                             <i class="bi bi-trash3"></i>
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -94,15 +100,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Script untuk menampilkan pesan setelah form berhasil disubmit
-        @if (session('status'))
-            Swal.fire({
-                title: 'Berhasil!',
-                text: '{{ session('status') }}',
-                icon: 'success'
-            });
-        @endif
-    </script>
 @endsection

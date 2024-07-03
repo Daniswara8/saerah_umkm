@@ -20,7 +20,7 @@
             <div class="">
 
                 <div class="col-sm-6 mt-3">
-                    <h1 class="m-0">Data Pesanan Baru</h1>
+                    <h1 class="ms-3">Data Pesanan Baru</h1>
                 </div>
 
                 <div class="col-12 mt-5">
@@ -64,8 +64,8 @@
                                         </td>
                                         <td>{{ $pembayaran->status_pengiriman }}</td>
                                         <td>
-                                            <form id="ubahStatusPengiriman"
-                                                action="{{ route('updateStatus.pembelian', $pembayaran->id) }}"
+                                            <form id="ubahStatusPengirimanKemas{{ $pembayaran->id }}"
+                                                action="{{ route('updateStatus.pengemasan', $pembayaran->id) }}"
                                                 method="POST">
                                                 @csrf
                                                 <input type="hidden" name="status" value="dikemas">
@@ -74,9 +74,16 @@
                                                     <i class="bi bi-basket"></i>
                                                 </button>
                                             </form>
-                                            <a href="#" class="btn btn-danger btn-sm" role="button">
-                                                <i class="bi bi-trash3"></i>
-                                            </a>
+
+                                            <form id="ubahStatusPengirimanBatal{{ $pembayaran->id }}"
+                                                action="{{ route('updateStatus.dibatalkan', $pembayaran->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                <input type="hidden" name="status" value="dibatalkan">
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <i class="bi bi-slash-circle"></i>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -114,7 +121,7 @@
                     confirmButtonText: 'Ya, kemas!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('ubahStatusPengiriman').submit();
+                        document.getElementById('ubahStatusPengirimanKemas').submit();
                     }
                 });
             }
